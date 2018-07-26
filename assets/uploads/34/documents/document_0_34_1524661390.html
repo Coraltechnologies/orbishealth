@@ -1,0 +1,179 @@
+<style>
+/* Import */
+/*@import url("https://fonts.googleapis.com/css?family=Lato");
+
+/* Basic Reset */
+* 
+/* Gallery */
+.gallery { 
+	position: relative; 
+	width: 700px; height: 306px; 
+	margin: auto; 
+	overflow: hidden; 
+	list-style: none;
+}
+.gallery img { 
+	display: block; 
+	float: left; 
+}
+.gallery ul {
+	list-style: none;
+}
+.gallery ul li.each { 
+	position: relative; 
+	float: left;
+	transition: all .8s; 
+}
+.gallery ul li.each, .gallery ul li.each img { 
+	height: 0px; 
+}
+.gallery ul li.each img { 
+	opacity: 0.5; 
+	transition: all .4s; 
+}
+.gallery ul li.each.active, .gallery ul li.each.active img { 
+	height: 306px; 
+}
+.gallery ul li.each.active img { 
+	opacity: 1; 
+}
+.gallery .caption { 
+	position: absolute;
+	bottom: 0; 
+	left: 20px; right: 20px;
+	text-transform: uppercase;
+}
+
+.gallery .caption h2, .gallery .caption p {
+	background: #fff000; 
+	padding: 7px;
+  box-shadow: 0 0 20px #000;
+}
+.gallery .caption h2 {
+	font: 24px "Lato", sans-serif;
+	float: left;
+}
+.gallery .caption p {
+	font: 18px "Lato", sans-serif;
+	float: left;
+  clear: both;
+}
+
+/* Direction */
+.direction { 
+	position: absolute; 
+	top: 50%; margin-top: -74px; 
+	right: -100px;
+	background: #fff000;
+	width: 158px; height: 158px;
+	display: block;
+	transform: rotate(45deg); 
+  z-index: 9999;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+}
+.direction .next {
+	position: absolute;
+	top: 90px; left: 25px;
+	color: #ededed;
+	font: 40px "Lato", sans-serif;
+	text-shadow:
+		0 1px #000,
+		0 2px #ccc,
+		0 3px #ccc,
+		0 4px #ccc,
+		0 5px #ccc;
+	transform: rotate(-45deg);
+	cursor: pointer;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div class="backgrd-layout" style="display:none;" > 
+<div class="gallery">
+	<ul style="margin-left: 65px;">
+		<li class="each">
+			<img src="img/new_updates/screenshot2.png" alt="Non coral invoice" style="width: 850px;height:405px" />
+			<span class="caption">
+			</span>
+		</li>
+		<li class="each">
+			<img src="img/new_updates/screenshot1.png" alt="Third party Invoice" style="width: 850px;height:405px" />
+			<span class="caption">
+			</span>
+		</li>
+		<li class="each">
+			<img src="img/new_updates/screenshot12.png" alt="Third party Invoice upload"  style="width: 850px;height:405px" />
+			<span class="caption">
+			</span>
+		</li>
+		<li class="each">
+			<img src="img/new_updates/screenshot10.png" alt="Third party Invoice" style="width: 850px;height:405px" />
+			<span class="caption">
+			</span>
+		</li>
+		<li class="each">
+			<img src="img/new_updates/screenshot11.png" alt="Third party Invoice upload"" style="width: 850px;height:405px" />
+			<span class="caption">
+			</span>
+		</li>
+		<li class="each">
+			<img src="img/new_updates/screenshot3.png" alt="Pay invoice" style="width: 850px;height:405px" />
+			<span class="caption">
+			</span>
+		</li>
+		<li class="each">
+			<img src="img/new_updates/screenshot4.png" alt="Pay Invoice" style="width: 850px;height:405px" />
+			<span class="caption">
+			</span>
+		</li>
+		<li class="each">
+			<img src="img/new_updates/screenshot5.png" alt="Multiple Invoice pay" style="width: 850px;height:405px" />
+			<span class="caption">
+			</span>
+		</li>
+		<li class="each">
+			<img src="img/new_updates/screenshot6.png" alt="Multiple Invoice pay" style="width: 850px;height:405px" />
+			<span class="caption">
+			</span>
+		</li>
+		<li class="each">
+			<img src="img/new_updates/screenshot7.png" alt="Creditor report" style="width: 850px;height:405px" />
+			<span class="caption">
+			</span>
+		</li>
+		<li class="each">
+			<img src="img/new_updates/screenshot8.png" alt="Paid invoice list" style="width: 850px;height:405px" />
+			<span class="caption">
+			</span>
+		</li>
+		<li class="each">
+			<img src="img/new_updates/screenshot9.png" alt="Paid invoice summary"  style="width: 850px;height:405px" />
+			<span class="caption">
+			</span>
+		</li>
+	</ul>
+	<div class="direction">
+		<span class="prev">
+			<img src="img/new_updates/slide-left.png" style="height: 50px;">
+			</img>
+		</span>
+		<span class="next">
+			<img src="img/new_updates/slide-right.png" style="height: 50px;">
+			</img>
+		</span>
+	</div>
+</div>
+<a href="javascrpit:void(0)" onclick="show_features(0);" >X close</a>
+ 
+</div><script>
+$(function(){
+	$slideshow = $(".gallery ul");
+	$slideactive = $slideshow.find("li.each").first().addClass('active').show();
+	$(".direction .next").click(function(){
+	$slideactive = $slideshow.find("li.active").next();
+		if(!$slideactive.size())
+			$slideactive = $slideshow.find("li.each").first();		$slideshow.find("li.active").removeClass("active");
+			$slideactive.addClass("active");
+	});
+});
+</script>

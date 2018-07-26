@@ -1,0 +1,433 @@
+
+admin@coraltechnologies.co.uk
+
+Name        : Dr.Ahmad Touheed
+Duration    : (09-12-2015  to  30-06-2016)
+Amount      : £179.00
+
+Name        : Dr.Ahmad Touheed
+Duration    : (01-07-2016  to  30-09-2016)
+Amount      : £240.00
+
+Name        : Dr.Ahmad Touheed
+Duration    : (01-10-2016  to  30-11-2016)
+Amount      : £367.00
+
+Name        : Dr.Ahmad Touheed
+Duration    : (01-12-2016  to  31-01-2017)
+Amount      : £374.00
+
+Name        : Dr.Ahmad Touheed
+Duration    : (01-02-2017  to  28-02-2017)
+Amount      : £238.00
+
+Name        : Dr.Ahmad Touheed
+Duration    : (01-03-2017  to  30-04-2017)
+Amount      : £484.00
+
+Name        : Dr.Ahmad Touheed
+Duration    : (01-05-2017  to  30-06-2017)
+Amount      : £697.00
+
+Name        : Dr.Ahmad Touheed
+Duration    : (01-07-2017  to  31-10-2017)
+Amount      : £686.00
+
+Name        : Dr.Ahmad Touheed
+Duration    : (01-11-2017  to  31-01-2018)
+Amount      : £319.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Mr.Andrew Kaye
+Duration    :(15-09-2017  to  31-01-2018)
+Amount      : £26.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Dr.Asghar Jaffery
+Duration    : (01-09-2014  to  30-09-2016)
+Amount      : £226.00
+
+Name        : Dr.Asghar Jaffery
+Duration    : (01-10-2016  to  31-12-2016)
+Amount      : £174.00
+
+Name        : Dr.Asghar Jaffery
+Duration    : (01-01-2017  to  30-04-2017)
+Amount      : £220.00
+
+Name        : Dr.Asghar Jaffery
+Duration    : (01-05-2017  to  31-08-2017)
+Amount      : £400.00
+
+Name        : Dr.Asghar Jaffery
+Duration    : (01-09-2017  to  31-12-2017)
+Amount      : £487.00
+
+Name        : Dr.Asghar Jaffery
+Duration    : (01-01-2018  to  31-01-2018)
+Amount      : £164.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Dr.Harpaul Flora
+Duration    : (01-05-2016  to  30-04-2017)
+Amount      : £40.00
+
+
+Name        : Dr.Harpaul Flora
+Duration    : (01-05-2017  to  31-01-2018)
+Amount      : £60.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Ms.Lajju Garala
+Duration    : (01-03-2016  to  30-04-2017)
+Amount      : £295.00
+
+--------------------------------------------------------------------------------------
+
+
+Cancelled
+Name        : Dr.Muhammad Anwar
+Duration    : (01-04-2016  to  30-06-2016)
+Amount      : £282.00
+
+Name        : Dr.Muhammad Anwar
+Duration    : (01-07-2016  to  30-09-2016)
+Amount      : £244.00
+
+Name        : Dr.Muhammad Anwar
+Duration    : (01-09-2016  to  31-12-2016)
+Amount      : £196.00
+
+Name        : Dr.Muhammad Anwar
+Duration    : (01-01-2017  to  28-02-2017)
+Amount      : £158.00
+
+Name        : Dr.Muhammad Anwar
+Duration    : (01-03-2017  to  30-04-2017)
+Amount      : £193.00
+
+Name        : Dr.Muhammad Anwar
+Duration    : (01-05-2017  to  31-07-2017)
+Amount      : £475.00
+
+Name        : Dr.Muhammad Anwar
+Duration    : (01-08-2017  to  31-10-2017)
+Amount      : £412.00
+
+Name        : Dr.Muhammad Anwar
+Duration    : (01-11-2017  to  31-01-2018)
+Amount      : £482.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Ms.Pooja Shah
+Duration    : (01-03-2016  to  30-04-2017)
+Amount      : £288.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Dr.Rizwan Ahmed
+Duration    : (01-02-2014  to  31-08-2014)
+Amount      : £595.00
+
+Name        : Dr.Rizwan Ahmed
+Duration    : (01-09-2014  to  31-12-2014)
+Amount      : £208.00
+
+Name        : Dr.Rizwan Ahmed
+Duration    : (01-01-2015  to  28-02-2015)
+Amount      : £385.00
+
+Name        : Dr.Rizwan Ahmed
+Duration    : (01-03-2015  to  30-04-2015)
+Amount      : £968.00
+
+Name        : Dr.Rizwan Ahmed
+Duration    : (01-05-2015  to  30-06-2015)
+Amount      : £786.00
+
+Name        : Dr.Rizwan Ahmed
+Duration    : (01-07-2015  to  31-07-2015)
+Amount      : £512.00
+
+Name        : Dr.Rizwan Ahmed
+Duration    : (01-08-2015  to  31-08-2015)
+Amount      : £458.00
+
+Name        : Dr.Rizwan Ahmed
+Duration    : (01-09-2015  to  15-09-2015)
+Amount      : £246.00
+
+Name        : Dr.Rizwan Ahmed
+Duration    : (16-09-2015  to  30-09-2015)
+Amount      : £304.00
+
+Name        : Dr.Rizwan Ahmed
+Duration    : (01-10-2015  to  15-10-2015)
+Amount      : £196.00
+
+Name        : Dr.Rizwan Ahmed
+Duration    : (16-10-2015  to  31-10-2015)
+Amount      : £346.00
+
+Name        : Dr.Rizwan Ahmed
+Duration    : (01-11-2015  to  15-11-2015)
+Amount      : £216.00
+
+Name        : Dr.Rizwan Ahmed
+Duration    : (16-11-2015  to  30-11-2015)
+Amount      : £466.00
+
+Name        : Dr.Rizwan Ahmed
+Duration    : (01-12-2015  to  31-12-2015)
+Amount      : £114.00
+
+Name        : Dr.Rizwan Ahmed
+Duration    : (01-01-2016  to  10-01-2016)
+Amount      : £448.00
+
+Name        : Dr.Rizwan Ahmed
+Duration    : (11-01-2016  to  31-01-2016)
+Amount      : £347.00
+
+Name        : Dr.Rizwan Ahmed
+Duration    : (01-02-2016  to  29-02-2016)
+Amount      : £343.00
+
+Name        : Dr.Rizwan Ahmed
+Duration    : (01-03-2016  to  30-04-2017)
+Amount      : £460.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Dr.Sangita Singh
+Duration    : (01-03-2014  to  30-04-2017)
+Amount      : £171.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Dr.Shahid Mehmood
+Duration    : (01-01-2015  to  30-04-2017)
+Amount      : £236.00
+
+Name        : Dr.Shahid Mehmood
+Duration    : (02-05-2017  to  31-01-2018)
+Amount      : £192.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Dr.Shehzad Hanif
+Duration    : (01-06-2016  to  30-04-2017)
+Amount      : £157.00
+
+Name        : Dr.Shehzad Hanif
+Duration    : (01-05-2017  to  31-01-2018)
+Amount      : £407.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Dr.Sobia Arshad
+Duration    : (01-11-2016  to  30-04-2017)
+Amount      : £78.00
+
+Name        : Dr.Sobia Arshad
+Duration    : (01-05-2017  to  31-01-2018)
+Amount      : £504.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Dr.Tariq Ayyoub
+Duration    : (01-05-2017  to  31-12-2017)
+Amount      : £301.00
+
+Name        : Dr.Tariq Ayyoub
+Duration    : (01-01-2018  to  31-01-2018)
+Amount      : £434.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Dr.UMRAN CHAUDHRY
+Duration    : (01-04-2014  to  30-04-2017)
+Amount      : £22.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Ms.Vinisha Nicholas
+Duration    : (01-03-2016  to  30-04-2017)
+Amount      : £201.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Dr.Afshan Jahanzeb
+Duration    : ( 01-01-2018 to 31-01-2018)
+Amount      : £121.00   
+
+--------------------------------------------------------------------------------------
+
+Name        : Dr.Shaireen Iram
+Duration    : ( 01-01-2018 to 31-01-2018)
+Amount      : £78.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Dr.Gulmobeen Aurangzeb
+Duration    : (01-09-2016  to  31-01-2018)
+Amount      : £143.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Mr.Hassan Mehdi
+Duration    : (01-10-2016  to  31-01-2018)
+Amount      : £275.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Dr.Imran Salim
+Duration    : (01-07-2017  to  31-01-2018)
+Amount      :  £8.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Dr.Rizwan Shafiq
+Duration    : (01-08-2016  to  31-01-2018)
+Amount      :  £266.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Dr.Seema Munjal
+Duration    : (01-10-2017  to  31-01-2018)
+Amount      : £14.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Dr.Shreekant Gupta
+Duration    : (01-10-2017  to  31-01-2018)
+Amount      : £27.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Dr.Tanzeem Iqbal
+Duration    : (10-08-2017  to  31-01-2018)
+Amount      : £26.00
+
+--------------------------------------------------------------------------------------
+28-02-2018
+--------------------------------------------------------------------------------------
+
+Name        : Dr.Jeremy Croft
+Duration    : (01-05-2016  to  31-01-2018)
+Amount      : £176.00
+
+--------------------------------------------------------------------------------------
+
+Name        : Dr.Sohail Rehman
+Duration    : (01-05-2017  to  31-01-2018)
+Amount      : £58.00
+
+-------------------------------------------------------------------------------------
+
+Name        : Dr.Victoria Gauge
+Duration    : (01-04-2016  to  31-01-2018)
+Amount      : £26.00
+
+-------------------------------------------------------------------------------------
+
+Name        : Dr.Victoria Gauge
+Duration    : (01-04-2016  to  31-01-2018)
+Amount      : £26.00
+
+------------------------------------------------------------------------------------
+
+Name        : Dr.Zaighum Sharif
+Duration    : (01-08-2015  to  30-09-2015)
+Amount      : £26.00
+
+Name        : Dr.Zaighum Sharif
+Duration    : (01-10-2015  to  31-10-2015)
+Amount      : £406.00
+
+Name        : Dr.Zaighum Sharif
+Duration    : (01-11-2015  to  30-11-2015)
+Amount      : £255.00
+
+Name        : Dr.Zaighum Sharif
+Duration    : (01-12-2015  to  31-12-2015)
+Amount      : £234.00
+
+Name        : Dr.Zaighum Sharif
+Duration    : (01-01-2016  to  31-12-2016)
+Amount      : £399.00
+
+Name        : Dr.Zaighum Sharif
+Duration    : (01-01-2017  to  31-01-2018)
+Amount      : £350.00
+
+------------------------------------------------------------------------------------
+
+Name        : Mr.Anthony Blissett
+Duration    : (01-04-2016  to  31-01-2018)
+Amount      : £16.00
+
+------------------------------------------------------------------------------------
+
+Name        : Dr.Firas Arnaout
+Duration    : (01-04-2014  to  31-12-2016)
+Amount      : £252.00
+
+Name        : Dr.Firas Arnaout
+Duration    : (01-01-2017  to  31-01-2018)
+Amount      : £336.00
+
+-----------------------------------------------------------------------------------
+
+Name        : Dr.Muhammad Anwar
+Duration    : (01-04-2016  to  31-05-2016)
+Amount      : £113.00
+
+Name        : Dr.Muhammad Anwar
+Duration    : (01-06-2016  to  30-06-2016)
+Amount      : £158.00
+
+Name        : Dr.Muhammad Anwar
+Duration    : (01-07-2016  to  30-09-2016)
+Amount      : £224.00
+
+Name        : Dr.Muhammad Anwar
+Duration    : (01-10-2016  to  31-12-2016)
+Amount      : £151.00
+
+Name        : Dr.Muhammad Anwar
+Duration    : (01-01-2017  to  28-02-2017)
+Amount      : £125.00
+
+Name        : Dr.Muhammad Anwar
+Duration    : (01-03-2017  to  30-04-2017)
+Amount      : £125.00
+
+Name        : Dr.Muhammad Anwar
+Duration    : (01-05-2017  to  30-06-2017)
+Amount      : £250.00
+
+Name        : Dr.Muhammad Anwar
+Duration    : (01-07-2017  to  31-08-2017)
+Amount      : £336.00
+
+Name         : Dr.Muhammad Anwar
+Duration    : (01-09-2017  to  31-10-2017)
+Amount      : £281.00
+
+--------------------------------------------------------------------------------
+(01-03-2018)
+
+Name        : Mr.Benjamin Harris
+Duration    : (01-07-2017  to  31-01-2018)
+Amount      : £2.00
+
+
+
+
+

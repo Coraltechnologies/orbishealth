@@ -1,0 +1,983 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Orbis Health</title>
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+   
+    <!-- Custom Theme Style -->
+    <link href="build/css/custom.css" rel="stylesheet">
+    <link href="build/css/custom-theme.css" rel="stylesheet">
+    <link href="build/css/fileinput.min.css" rel="stylesheet">
+    <link href="build/css/drop-down.css" rel="stylesheet">
+    <link href="build/css/mutipleselect_drop.css" rel="stylesheet" />
+    <style>
+
+        .upload_btn {
+            position: absolute;
+            font-size: 50px;
+            opacity: 0;
+            right: 0;
+            top: 0;
+        }
+
+        .uploaded_text {
+            margin-bottom: 10px;
+            color: green;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body class="nav-sm">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="index.html" class="site_title"><i class="fa"><img src="images/logo-icon.png" alt="Think Doctor"></i> <span><img src="images/logo-text.png" alt="Think Doctor"></span></a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                        <div class="profile_pic">
+                            <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <span>Welcome,</span>
+                            <h2>John Doe</h2>
+                        </div>
+                    </div>
+                    <!-- /menu profile quick info -->
+                    <br />
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <ul class="nav side-menu">
+                                <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+                                <li>
+                                    <a><i class="fa fa-book"></i> Diary <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu" style="display:none;">
+                                        <li><a href="diary.html">Submenu</a></li>
+                                        <li><a href="diary.html">Submenu</a></li>
+                                        <li><a href="diary.html">Submenu</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#"><i class="fa fa-calendar"></i> Appointments</a></li>
+                                <li><a href="#"><i class="fa fa-wheelchair-alt"></i> Patients</a></li>
+                                <li><a href="#"><i class="fa fa-files-o"></i> Documents</a></li>
+                                <li><a href="#"><i class="fa fa-bar-chart-o"></i> Reports</a></li>
+                                <li><a href="#"><i class="fa fa-tasks"></i> Tasks</a></li>
+                                <li><a href="#"><i class="fa fa-universal-access"></i> Admin</a></li>
+                                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                                <li><a href="#"><i class="fa fa-user-plus"></i> Account</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="Settings">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Lock">
+                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <div class="nav-title" style="margin: 10px auto 5px;">
+                            <h1>Professional Registration - (ID : 0001)</h1>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="images/img.jpg" alt="">Dr. John Doe
+                                    <span class=" fa fa-angle-down"></span>
+                                    <span class="last-login">[Last Login 12 Feb 2017 @ 16:12]</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                    <li><a href="javascript:;"> Profile</a></li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span class="badge bg-red pull-right">50%</span>
+                                            <span>Settings</span>
+                                        </a>
+                                    </li>
+                                    <li><a href="javascript:;">Help</a></li>
+                                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                </ul>
+                            </li>
+                            <li role="presentation" class="dropdown">
+                                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-envelope-o"></i>
+                                    <span class="badge bg-green">6</span>
+                                </a>
+                                <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers. They were where...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers. They were where...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers. They were where...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers. They were where...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="text-center">
+                                            <a>
+                                                <strong>See All Alerts</strong>
+                                                <i class="fa fa-angle-right"></i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <!-- top tiles -->
+                <form class="form-horizontal form-label-left row custom_temp">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a id="doc_reg_personal-details" data-toggle="tab" href="#menu3">
+                                    Practice Details  <input type="checkbox" id="pDcheck3" class="flat" style="position: absolute; opacity: 0;">
+                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="doc_reg_personal-resistration" data-toggle="tab" href="#menu2">
+                                    Professional Registration <input type="checkbox" id="pDcheck6" class="flat" style="position: absolute; opacity: 0;">
+                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="doc_reg_personal-upload" data-toggle="tab" href="#menu6">
+                                    Documents <input type="checkbox" id="pDcheck6" class="flat" style="position: absolute; opacity: 0;">
+                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content">
+
+                            <div id="menu3" class="tab-pane fade in active">
+                                <p></p>
+                                <div class="x_panel">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">Personal Details</div>
+                                                <div class="panel-body">
+                                                    <div class="col-md-2 col-sm-12 col-xs-12">
+                                                        <div class="text-center">
+                                                            <img id="blah" src="images/img.jpg" class="avg-profile-img img-circle img-thumbnail" alt="avatar">
+
+                                                            <div></div>
+                                                            <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 10px;">
+                                                                <input type="file" id="FileUpload1" class="center-block well well-sm" onchange="readURL(this);" style="width: 100px; !important;padding: 6px;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-10 col-sm-12 col-xs-12">
+                                                        <div class="col-md-3 col-sm-12 col-xs-12">
+                                                            <label>Title</label>
+                                                            <div class="form-group">
+                                                                <select class="form-control">
+                                                                    <option>Title</option>
+                                                                    <option>Mr</option>
+                                                                    <option>Ms</option>
+                                                                    <option>Mrs</option>
+                                                                    <option>Miss</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3 col-sm-12 col-xs-12">
+                                                            <label>Gender</label>
+                                                            <div class="form-group">
+                                                                <select class="form-control">
+                                                                    <option>Title</option>
+                                                                    <option>Mr</option>
+                                                                    <option>Ms</option>
+                                                                    <option>Mrs</option>
+                                                                    <option>Miss</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3 col-sm-12 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>First Name</label>
+                                                                <input id="prof_name" onblur="" type="text" class="form-control" placeholder="First Name">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3 col-sm-12 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>Last Name</label>
+                                                                <input id="prof_name" onblur="" type="text" class="form-control" placeholder="Last Name">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-3 col-sm-12 col-xs-12">
+                                                            <div class="xdisplay_inputx form-group">
+                                                                <label>DOB</label>
+                                                                <input type="text" class="form-control" id="datepicker" placeholder="dd/mm/yy">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3 col-sm-12 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>Mobile</label>
+                                                                <input id="Mobile" onblur="" type="text" class="form-control" placeholder="Mobile">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3 col-sm-12 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>Phone</label>
+                                                                <input id="Phone" onblur="" type="text" class="form-control" placeholder="Phone">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3 col-sm-12 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>Email</label>
+                                                                <input id="Email" onblur="" type="text" class="form-control" placeholder="Email">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">Address Details <span class="pull-right"><i onclick="clearGP()" class="fa fa-eraser" data-toggle="tooltip" data-title="Clear all data" data-original-title="" title=""></i></span></div>
+                                                <div class="panel-body">
+                                                    <div class="col-md-8 col-sm-12 col-xs-12">
+                                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>Country</label>
+                                                                <input type="text" class="form-control" placeholder="Country">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>Postcode</label>
+                                                                <input type="text" class="form-control" placeholder="Postcode">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>City / Town</label>
+                                                                <input type="text" class="form-control" placeholder="City / Town">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label> State</label>
+                                                                <input type="text" class="form-control" placeholder="State">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-12 col-xs-12">
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>Address</label>
+                                                                <textarea class="form-control" rows="4" placeholder="Address"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="actionBar">
+                                            <a href="#" class="buttonNext btn btn-success" onclick="nxt_tab('doc_reg_personal-resistration');"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save and Continue <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="menu2" class="tab-pane fade">
+                                <p></p>
+                                <div class="x_panel">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">Select Country of Practice( Licence to Practice )
+														
+														<a href="#" data-toggle="modal" class="pull-right add_field_button1"><i class="fa fa-plus" aria-hidden="true"></i></a></div>
+                                                        <div class="prof_input_fields_wrap">
+                                                            <div class="panel-body">
+                                                                <div class="col-md-3 col-sm-12 col-xs-12">
+                                                                    <label>Select Country</label>
+                                                                    <div class="form-group">
+                                                                        <select class="form-control">
+                                                                            <option>India</option>
+                                                                            <option>UAE</option>
+                                                                            <option>UK</option>
+                                                                            <option>USA</option>
+                                                                            <option>Pakistan</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3 col-sm-12 col-xs-12">
+                                                                    <label>Your Professional Details</label>
+                                                                    <div class="form-group">
+                                                                        <select id="colorselector" class="form-control">
+                                                                            <option value="1">General Practitioner</option>
+                                                                            <option value="yellow">Specialist</option>
+                                                                            <option value="3">Therapist</option>
+                                                                            <option value="4">Dentist</option>
+                                                                            <option value="5">Mental Health Professional</option>
+                                                                            <option value="6">Vets</option>
+                                                                            <option value="7">Nurses</option>
+                                                                            <option value="8">Mind</option>
+                                                                            <option value="9">Dietician</option>
+                                                                            <option value="10">Optician</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="yellow" class="col-md-3 col-sm-12 col-xs-12 form-text-wrapper" style="display:none">
+                                                                    <div class="form-group">
+                                                                        <label>Select Specialist</label>
+                                                                        <select id="colorselector" class="form-control">
+                                                                            <option value="1">Option</option>
+                                                                            <option value="2">Option2</option>
+                                                                            <option value="3">Option3</option>
+                                                                            <option value="4">Option4</option>
+                                                                            <option value="5">Option5</option>
+                                                                            <option value="6">Option6</option>
+                                                                            <option value="7">Option7</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3 col-sm-12 col-xs-12 form-text-wrapper">
+                                                                    <div class="form-group">
+                                                                        <label>Languages Spoken</label>
+                                                                        <span class="multiselect-native-select">
+                                                                            <select id="dates-field3" class="multiselect-ui form-control" multiple="multiple">
+                                                                                <option value="cheese">English</option>
+                                                                                <option value="tomatoes">German</option>
+                                                                                <option value="mozarella">French</option>
+                                                                                <option value="mushrooms">Italin</option>
+                                                                            </select>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">Professional Registration <a href="#mygmcUpload" data-toggle="modal" class="pull-right"><i class="fa fa-upload" aria-hidden="true"></i></a></div>
+                                                        <div class="panel-body">
+
+                                                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                                                <label>Professional Body</label>
+                                                                <div class="form-group">
+                                                                    <select class="form-control">
+                                                                        <option>Select</option>
+                                                                        <option>Option1</option>
+                                                                        <option>Option2</option>
+                                                                        <option>Option3</option>
+                                                                        <option>Option4</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>Number</label>
+                                                                    <input id="Number" onblur="" type="text" class="form-control" placeholder="Number">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>Expiry Date</label>
+                                                                    <input id="Expiry Date" onblur="" type="text" class="form-control" placeholder="Expiry Date">
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">ICO Registration <a href="#myicoUpload" data-toggle="modal" class="pull-right"><i class="fa fa-upload" aria-hidden="true"></i></a></div>
+                                                        <div class="panel-body">
+                                                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>Number</label>
+                                                                    <input id="Number" onblur="" type="text" class="form-control" placeholder="Number">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>Expiry Date</label>
+                                                                    <input id="Expiry Date" onblur="" type="text" class="form-control" placeholder="Expiry Date">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">Indemnity <a href="#myindemnityUpload" data-toggle="modal" class="pull-right"><i class="fa fa-upload" aria-hidden="true"></i></a></div>
+                                                        <div class="panel-body">
+                                                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>Name of company</label>
+                                                                    <input id="Number" onblur="" type="text" class="form-control" placeholder="Name of company">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>Number</label>
+                                                                    <input id="Number" onblur="" type="text" class="form-control" placeholder="Number">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>Expiry Date</label>
+                                                                    <input id="Expiry Date" onblur="" type="text" class="form-control" placeholder="Expiry Date">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">Professional Details</div>
+                                                        <div class="panel-body">
+                                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>Qualifications</label>
+                                                                    <textarea class="form-control" rows="4" placeholder="Qualifications"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>Memberships</label>
+                                                                    <textarea class="form-control" rows="4" placeholder="Memberships"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>Professional Experience</label>
+                                                                    <textarea class="form-control" rows="4" placeholder="Professional Experience"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-12 col-xs-12 form-text-wrapper">
+                                                                <div class="form-group">
+                                                                    <label>Services</label>
+                                                                    <span class="multiselect-native-select">
+                                                                        <select id="dates-field2" class="multiselect-ui form-control" multiple="multiple">
+                                                                            <option value="cheese">English</option>
+                                                                            <option value="tomatoes">German</option>
+                                                                            <option value="mozarella">French</option>
+                                                                            <option value="mushrooms">Italin</option>
+                                                                        </select>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-12 col-xs-12 form-text-wrapper">
+                                                                <div class="col-md-11 col-sm-12 col-xs-12 padding-null">
+                                                                    <div class="form-group">
+                                                                        <label>Services if any</label>
+                                                                        <input id="Expiry Date" onblur="" type="text" class="form-control" placeholder="Other Services if any">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-1 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label></label>
+                                                                        <input type="button" id="addservice" class="btn btn-success btn-sm pull-right" style="margin-top:5px; margin-right: 0px;" value="+">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="actionBar">
+                                            <a href="#" class="buttonPrevious btn btn-primary" onclick="nxt_tab('doc_reg_personal-details');"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</a>
+                                            <a href="#" class="buttonNext btn btn-success" onclick="nxt_tab('doc_reg_personal-upload');"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save and Continue </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="menu6" class="tab-pane fade">
+                                <p></p>
+                                <div class="x_panel">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="row">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">Documents </div>
+                                                    <div class="panel-body">
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="row">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12 padding-null">
+                                                                    <div class="col-md-3 padding-null" style="width: auto;">
+                                                                        <label class="" style="text-align:left !important;">Upload Documents / Images:</label>
+                                                                    </div>
+                                                                    <div class="col-md-1">
+                                                                        <p class="btn btn-primary btn-sm" style="color: #fff;">
+                                                                            <input class="file-4 upload_btn" id="upload-file-selector" type="file" multiple=""><i class="fa  fa-upload" data-toggle="tooltip" data-title="Edit Title"></i> Upload
+
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="col-md-1">
+                                                                        <p class="btn btn-primary btn-sm" style="color: #fff;display:none">
+                                                                            <input class="upload_btn" type="button"><i class="fa  fa-save" data-toggle="tooltip" data-title="Edit Title"></i> Save
+                                                                        </p>
+                                                                    </div>
+                                                                   
+                                                                </div>
+                                                                <div class="col-md-12 col-sm-12 col-xs-12 padding-null" id="upload_document" style="display:none;">
+                                                                    <label style="margin-bottom:10px;color:green;margin-top:15px;">Uploaded Documents / Images:</label>
+                                                                    <br />
+                                                                    <div class="list-group table-responsive">
+                                                                        <table id="datatable-responsive" class="table table-fixed table-striped table-bordered" cellspacing="0" width="100%" role="grid" aria-describedby="datatable-responsive_info" style="width: 100%; ">
+                                                                            <thead>
+                                                                                <tr role="row">
+                                                                                    <th><!--<input type="checkbox" onchange="chkfiles()" id="chkallfiles" />--> &nbsp; #</th>
+                                                                                    <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Files</th>
+                                                                                    <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Title</th>
+                                                                                    <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending">Action</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody id="upload_list_files" style="height: 10px !important; overflow: scroll; "></tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                    <div class="modal fade notes-info" id="mail-edit-modal" style="display: none;">
+                                                                        <div class="modal-dialog modal-md">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                                                                                    <h4 class="modal-title">Email Documents</h4>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <input class="form-control" placeholder="Enter Email">
+                                                                                    <div class="action-icon">
+                                                                                        <a href="#"><i class="fa fa-2x fa-envelope" data-toggle="tooltip" data-title="Send Mail" data-original-title="" title=""></i></a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="actionBar">
+                                            <a href="#" class="buttonPrevious btn btn-primary" onclick="nxt_tab('doc_reg_personal-resistration');"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!-- Modals -->
+    <div class="modal fade bd-example-modal-lg" id="mygmcUpload" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">ICO Registration Document Upload </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Documents </div>
+                        <div class="panel-body">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 padding-null">
+                                        <div class="col-md-3 padding-null" style="width: auto;">
+                                            <label class="" style="text-align:left !important;">Upload Documents / Images:</label>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <p class="btn btn-primary btn-sm" style="color: #fff;">
+                                                <input class="file-4 upload_btn" id="upload-file-selector" type="file" multiple=""><i class="fa  fa-upload" data-toggle="tooltip" data-title="Edit Title"></i> Upload
+
+                                            </p>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p class="btn btn-primary btn-sm" style="color: #fff;display:none;margin-left: 15px;">
+                                                <input class="upload_btn" type="button"><i class="fa  fa-save" data-toggle="tooltip" data-title="Edit Title"></i> Save
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12 padding-null" id="upload_document" style="display:none;">
+                                        <label style="margin-bottom:10px;color:green;margin-top:15px;">Uploaded Documents / Images:</label>
+                                        <br />
+                                        <div class="list-group table-responsive">
+                                            <table id="datatable-responsive" class="table table-fixed table-striped table-bordered" cellspacing="0" width="100%" role="grid" aria-describedby="datatable-responsive_info" style="width: 100%; ">
+                                                <thead>
+                                                    <tr role="row">
+                                                        <th><!--<input type="checkbox" onchange="chkfiles()" id="chkallfiles" />--> &nbsp; #</th>
+                                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Files</th>
+                                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Title</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="upload_list_files" style="height: 10px !important; overflow: scroll; "></tbody>
+                                            </table>
+                                        </div>
+                                        <div class="modal fade notes-info" id="mail-edit-modal" style="display: none;">
+                                            <div class="modal-dialog modal-md">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                                                        <h4 class="modal-title">Email Documents</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <input class="form-control" placeholder="Enter Email">
+                                                        <div class="action-icon">
+                                                            <a href="#"><i class="fa fa-2x fa-envelope" data-toggle="tooltip" data-title="Send Mail" data-original-title="" title=""></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade bd-example-modal-lg" id="myicoUpload" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">ICO Registration Document Upload </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Documents </div>
+                        <div class="panel-body">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 padding-null">
+                                        <div class="col-md-3 padding-null" style="width: auto;">
+                                            <label class="" style="text-align:left !important;">Upload Documents / Images:</label>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <p class="btn btn-primary btn-sm" style="color: #fff;">
+                                                <input class="file-4 upload_btn" id="upload-file-selector" type="file" multiple=""><i class="fa  fa-upload" data-toggle="tooltip" data-title="Edit Title"></i> Upload
+
+                                            </p>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p class="btn btn-primary btn-sm" style="color: #fff;display:none;margin-left: 15px;">
+                                                <input class="upload_btn" type="button"><i class="fa  fa-save" data-toggle="tooltip" data-title="Edit Title"></i> Save
+                                            </p>
+                                        </div>
+
+                                    </div>>
+                                    <div class="col-md-12 col-sm-12 col-xs-12 padding-null" id="upload_document" style="display:none;">
+                                        <label style="margin-bottom:10px;color:green;margin-top:15px;">Uploaded Documents / Images:</label>
+                                        <br />
+                                        <div class="list-group table-responsive">
+                                            <table id="datatable-responsive" class="table table-fixed table-striped table-bordered" cellspacing="0" width="100%" role="grid" aria-describedby="datatable-responsive_info" style="width: 100%; ">
+                                                <thead>
+                                                    <tr role="row">
+                                                        <th><!--<input type="checkbox" onchange="chkfiles()" id="chkallfiles" />--> &nbsp; #</th>
+                                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Files</th>
+                                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Title</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="upload_list_files" style="height: 10px !important; overflow: scroll; "></tbody>
+                                            </table>
+                                        </div>
+                                        <div class="modal fade notes-info" id="mail-edit-modal" style="display: none;">
+                                            <div class="modal-dialog modal-md">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                                                        <h4 class="modal-title">Email Documents</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <input class="form-control" placeholder="Enter Email">
+                                                        <div class="action-icon">
+                                                            <a href="#"><i class="fa fa-2x fa-envelope" data-toggle="tooltip" data-title="Send Mail" data-original-title="" title=""></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade bd-example-modal-lg" id="myindemnityUpload" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">ICO Registration Document Upload </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Documents </div>
+                        <div class="panel-body">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 padding-null">
+                                        <div class="col-md-3 padding-null" style="width: auto;">
+                                            <label class="" style="text-align:left !important;">Upload Documents / Images:</label>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <p class="btn btn-primary btn-sm" style="color: #fff;">
+                                                <input class="file-4 upload_btn" id="upload-file-selector" type="file" multiple=""><i class="fa  fa-upload" data-toggle="tooltip" data-title="Edit Title"></i> Upload
+
+                                            </p>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p class="btn btn-primary btn-sm" style="color: #fff;display:none;margin-left: 15px;">
+                                                <input class="upload_btn" type="button"><i class="fa  fa-save" data-toggle="tooltip" data-title="Edit Title"></i> Save
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12 padding-null" id="upload_document" style="display:none;">
+                                        <label style="margin-bottom:10px;color:green;margin-top:15px;">Uploaded Documents / Images:</label>
+                                        <br />
+                                        <div class="list-group table-responsive">
+                                            <table id="datatable-responsive" class="table table-fixed table-striped table-bordered" cellspacing="0" width="100%" role="grid" aria-describedby="datatable-responsive_info" style="width: 100%; ">
+                                                <thead>
+                                                    <tr role="row">
+                                                        <th><!--<input type="checkbox" onchange="chkfiles()" id="chkallfiles" />--> &nbsp; #</th>
+                                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Files</th>
+                                                        <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Title</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="upload_list_files" style="height: 10px !important; overflow: scroll; "></tbody>
+                                            </table>
+                                        </div>
+                                        <div class="modal fade notes-info" id="mail-edit-modal" style="display: none;">
+                                            <div class="modal-dialog modal-md">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                                                        <h4 class="modal-title">Email Documents</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <input class="form-control" placeholder="Enter Email">
+                                                        <div class="action-icon">
+                                                            <a href="#"><i class="fa fa-2x fa-envelope" data-toggle="tooltip" data-title="Send Mail" data-original-title="" title=""></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Models Close-->
+    <!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="vendors/iCheck/icheck.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <!-- Custom Theme Scripts -->
+    <script src="build/js/custom.js"></script>
+    <script src="build/js/bootstrap-imageupload.js"></script>
+    <script src="build/js/drop-down.js"></script>
+    <script src="build/js/multiple-select.js"></script>
+
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+                $(".cho-btn").hide();
+                $(".up-cho-btn").show();
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        //newly added by vajesh
+        $(function () {
+            // Multiple images preview in browser
+            var imagesPreview = function (input, placeToInsertImagePreview) {
+
+                if (input.files) {
+                    var filesAmount = input.files.length;
+                    var html_content = '';
+                    for (i = 0; i < filesAmount; i++) {
+                        var reader = new FileReader();
+                        file_name = input.files[i]['name'];
+                        //   reader.onload = function (event) {
+                        x = i + 1;
+                        var html_content = html_content + '<tr role="row" class="odd"><td style="padding-left:8px;">' + x + '</td><td tabindex="0" class="sorting_1"><a href="#">' + file_name + '</a></td><td tabindex="0" class="sorting_1"><div class="form-group"><input class="form-control" type="text" style="width:99% !important"></div></td><td><a href="#" class="btn btn-success"><i class="fa  fa-share" data-toggle="tooltip" data-title="Share Document" data-original-title="" title=""></i></a><a href="#" class="btn btn-success"><i class="fa  fa-edit" data-toggle="tooltip" data-title="Edit Title" data-original-title="" title=""></i></a><a href="#" class="btn btn-success" onclick="confirm(' + '"Are you sure want to delete document?"' + ')"><i class="fa  fa-trash" data-toggle="tooltip" data-title="Delete" data-original-title="" title=""></i></a></td></tr>';
+                        //   $(placeToInsertImagePreview).append(html_content)
+                        //    $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                        //  }
+                        $("#upload_list_files").html(html_content);
+                        //reader.readAsDataURL(input.files[i]);
+                    }
+                    $('#upload_document').show();
+                }
+
+            };
+            $('#upload-file-selector').on('change', function () {
+                imagesPreview(this, '#datatable-responsive');
+            });
+        });
+        function nxt_tab(a) {
+            $("#" + a).click();
+        };
+
+        $(function () {
+            $("#datepicker").datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('.multiselect-ui').multiselect({
+                includeSelectAllOption: true
+            });
+        });
+
+        // Add Extra Row Section //
+        $(document).ready(function () {
+            var max_fields = 6; //maximum input boxes allowed
+            var wrapper = ".prof_input_fields_wrap"; //Fields wrapper
+            var add_button = $(".add_field_button1"); //Add button ID
+
+            var x = 1; //initlal text box count
+            $(add_button).click(function (e) { //on add input button click
+                e.preventDefault();
+                if (x < max_fields) { //max input box allowed
+                    x++; //text box increment
+                    $(wrapper).append('<div class="panel-body" style="background-color: #f7f7f7;margin: 10px;"> <div class="row"> <div class="col-md-3 col-sm-12 col-xs-12"> <label>Select Country</label> <div class="form-group"> <select class="form-control"> <option>India</option> <option>UAE</option> <option>UK</option> <option>USA</option> <option>Pakistan</option> </select> </div></div><div class="col-md-3 col-sm-12 col-xs-12"> <label>Your Professional Details</label> <div class="form-group"> <select id="colorselector" class="form-control"> <option value="1">General Practitioner</option> <option value="yellow">Specialist</option> <option value="3">Therapist</option> <option value="4">Dentist</option> <option value="5">Mental Health Professional</option> <option value="6">Vets</option> <option value="7">Nurses</option> <option value="8">Mind</option> <option value="9">Dietician</option> <option value="10">Optician</option> </select> </div></div><div id="yellow" class="col-md-3 col-sm-12 col-xs-12 form-text-wrapper" style="display:none"> <div class="form-group"> <label>Select Specialist</label> <select id="colorselector" class="form-control"> <option value="1">Option</option> <option value="2">Option2</option> <option value="3">Option3</option> <option value="4">Option4</option> <option value="5">Option5</option> <option value="6">Option6</option> <option value="7">Option7</option> </select> </div></div><div class="col-md-3 col-sm-12 col-xs-12 form-text-wrapper"> <div class="form-group"> <label>Languages Spoken</label> <span class="multiselect-native-select"> <span class="multiselect-native-select"> <select id="dates-field2" class="multiselect-ui form-control" multiple="multiple"> <option value="cheese">English</option> <option value="tomatoes">German</option> <option value="mozarella">French</option> <option value="mushrooms">Italin</option> </select> </span> </span> </div></div><div class="col-sm-2 col-md-1"> <div class="form-group"><label>Rremove</label><button type="button" class="remove_field1 btn btn-default btn-sm"> <span class="glyphicon glyphicon-minus"></span></button></div></div></div></div>'); //add input box
+
+                }
+            });
+
+            $(wrapper).on("click", ".remove_field1", function (e) { //user click on remove text
+
+                var r = confirm("Are you sure want to delete?");
+                if (r == true) {
+                    e.preventDefault();
+                    $(this).parent('div').parent('div').parent('div').remove();
+                    x--;
+                }
+            })
+        });
+
+        // dropdown selected hide show section //
+        $(function () {
+            $('#colorselector').change(function () {
+                $('.colors').hide();
+                $('#' + $(this).val()).show();
+            });
+        });
+    </script>
+</body>
+</html>

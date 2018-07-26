@@ -1,0 +1,137 @@
+-- Table structure for table `addresses`
+--
+
+CREATE TABLE `addresses` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `company_id` int(11) NOT NULL,
+  `case_claimant_detail_id` int(11) NOT NULL,
+  `consulting_venue_id` int(11) NOT NULL,
+  `address_type` varchar(255) NOT NULL,
+  `company` varchar(255) NOT NULL,
+  `address1` text,
+  `address2` text,
+  `address3` text,
+  `address4` text,
+  `address5` text,
+  `town` varchar(255) DEFAULT NULL,
+  `county` varchar(255) DEFAULT NULL,
+  `postcode` varchar(255) NOT NULL,
+  `latitude` varchar(50) DEFAULT NULL,
+  `longitude` varchar(50) DEFAULT NULL,
+  `server_version` int(11) NOT NULL DEFAULT '0',
+  `client_version` int(11) NOT NULL DEFAULT '0',
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `addresses`
+--
+ALTER TABLE `addresses`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `company_id` (`company_id`),
+  ADD KEY `case_claimant_detail_id` (`case_claimant_detail_id`),
+  ADD KEY `consulting_venue_id` (`consulting_venue_id`),
+  ADD KEY `postcode` (`postcode`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `addresses`
+--
+ALTER TABLE `addresses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+
+
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL COMMENT 'Foreign Key - roles',
+  `parent_id` int(11) NOT NULL COMMENT 'Foreign Key - users',
+  `package_id` int(11) DEFAULT NULL COMMENT 'Foreign Key - packages',
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `title` varchar(255) DEFAULT '',
+  `forename` varchar(255) NOT NULL,
+  `middlename` varchar(255) DEFAULT NULL,
+  `surname` varchar(255) NOT NULL,
+  `gender` varchar(255) DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
+  `secondary_email` varchar(255) NOT NULL,
+  `mobile` varchar(255) DEFAULT NULL,
+  `work_telephone` varchar(255) DEFAULT NULL,
+  `home_telephone` varchar(255) DEFAULT NULL,
+  `fax` varchar(50) DEFAULT NULL,
+  `professional_membership` varchar(255) DEFAULT NULL,
+  `user_type` varchar(255) DEFAULT NULL,
+  `reference_number` bigint(20) DEFAULT NULL,
+  `signature` varchar(255) NOT NULL,
+  `guid` varchar(255) NOT NULL,
+  `guid_type` varchar(255) NOT NULL DEFAULT 'register',
+  `profession_other` varchar(255) DEFAULT NULL,
+  `account_type` varchar(255) NOT NULL,
+  `admin_name` varchar(255) DEFAULT NULL,
+  `secretarial_service` tinyint(4) DEFAULT '0',
+  `invoice_activation_status` tinyint(4) DEFAULT '0',
+  `status` enum('active','inactive') NOT NULL DEFAULT 'active',
+  `agree` tinyint(4) DEFAULT '0',
+  `is_admin` tinyint(4) DEFAULT '0',
+  `is_panel_expert` tinyint(4) DEFAULT '0',
+  `is_panel_therapist` tinyint(4) DEFAULT '0',
+  `account_detail_status` tinyint(4) DEFAULT '0',
+  `personal_detail_status` tinyint(4) DEFAULT '0',
+  `professional_detail_status` tinyint(4) DEFAULT '0',
+  `payment_detail_status` tinyint(4) NOT NULL DEFAULT '0',
+  `billing_detail_status` tinyint(4) DEFAULT '0',
+  `email_detail_status` tinyint(4) DEFAULT '0',
+  `created_by` int(11) DEFAULT NULL COMMENT 'Foreign Key - users',
+  `created_via` varchar(100) DEFAULT 'online',
+  `created_via_coral_admin` tinyint(4) DEFAULT '0',
+  `modified_by` int(11) DEFAULT NULL COMMENT 'Foreign Key - users',
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  `languages` varchar(255) DEFAULT 'null'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `group_id` (`group_id`),
+  ADD KEY `parent_id` (`parent_id`),
+  ADD KEY `package_id` (`package_id`),
+  ADD KEY `created_by` (`created_by`),
+  ADD KEY `forename` (`forename`),
+  ADD KEY `surname` (`surname`),
+  ADD KEY `created_via_coral_admin` (`created_via_coral_admin`),
+  ADD KEY `status` (`status`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+

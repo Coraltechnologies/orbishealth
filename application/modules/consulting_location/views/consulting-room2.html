@@ -1,0 +1,1486 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Think Doctor</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Switchery -->
+    <link href="vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+    <!-- bootstrap-daterangepicker -->
+    <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- FullCalendar -->
+    <link href="vendors/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+    <link href="vendors/fullcalendar/dist/fullcalendar.print.css" rel="stylesheet" media="print">
+    <!-- Custom Theme Style -->
+    <link href="build/css/custom.css" rel="stylesheet">
+    <link href="build/css/custom-theme.css" rel="stylesheet">
+    <link href="build/css/fileinput.min.css" rel="stylesheet">
+    <link href="build/css/drop-down.css" rel="stylesheet">
+    <link href="vendors/magicsuggest/magicsuggest-min.css" rel="stylesheet">
+    <link href="vendors/switch/on-off-switch.css" rel="stylesheet" />
+    <style>
+        select {
+            width: 90% !important;
+        }
+
+        #mytb td:nth-child(1) {
+            border-left: 1px solid #ddd;
+        }
+
+        #mytb td:nth-child(4) {
+            border-left: 1px solid #ddd;
+        }
+
+        #mytb td:nth-child(5) {
+            border-right: 1px solid #ddd;
+        }
+
+        #mytb td:nth-child(7) {
+            border-right: 1px solid #ddd;
+        }
+
+        #mytb td:nth-child(9) {
+            border-right: 1px solid #ddd;
+        }
+
+        #mytb tr:last-child {
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body class="nav-sm">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="index.html" class="site_title"><i class="fa"><img src="images/logo-icon.png" alt="Think Doctor"></i> <span><img src="images/logo-text.png" alt="Think Doctor"></span></a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                        <div class="profile_pic">
+                            <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <span>Welcome,</span>
+                            <h2>John Doe</h2>
+                        </div>
+                    </div>
+                    <!-- /menu profile quick info -->
+                    <br />
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <ul class="nav side-menu">
+                                <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+                                <li>
+                                    <a><i class="fa fa-book"></i> Diary <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu" style="display:none;">
+                                        <li><a href="diary.html">Submenu</a></li>
+                                        <li><a href="diary.html">Submenu</a></li>
+                                        <li><a href="diary.html">Submenu</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#"><i class="fa fa-calendar"></i> Appointments</a></li>
+                                <li><a href="#"><i class="fa fa-wheelchair-alt"></i> Patients</a></li>
+                                <li><a href="#"><i class="fa fa-files-o"></i> Documents</a></li>
+                                <li><a href="#"><i class="fa fa-bar-chart-o"></i> Reports</a></li>
+                                <li><a href="#"><i class="fa fa-tasks"></i> Tasks</a></li>
+                                <li><a href="#"><i class="fa fa-universal-access"></i> Admin</a></li>
+                                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                                <li><a href="#"><i class="fa fa-user-plus"></i> Account</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="Settings">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Lock">
+                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <div class="nav-title" style="margin: 10px auto 5px;">
+                            <h1>Add Consulting Rooms - (ID : 0001)</h1>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="images/img.jpg" alt="">Dr. John Doe
+                                    <span class=" fa fa-angle-down"></span>
+                                    <span class="last-login">[Last Login 12 Feb 2017 @ 16:12]</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                    <li><a href="javascript:;"> Profile</a></li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span class="badge bg-red pull-right">50%</span>
+                                            <span>Settings</span>
+                                        </a>
+                                    </li>
+                                    <li><a href="javascript:;">Help</a></li>
+                                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                </ul>
+                            </li>
+                            <li role="presentation" class="dropdown">
+                                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-envelope-o"></i>
+                                    <span class="badge bg-green">6</span>
+                                </a>
+                                <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers. They were where...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers. They were where...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers. They were where...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers. They were where...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="text-center">
+                                            <a>
+                                                <strong>See All Alerts</strong>
+                                                <i class="fa fa-angle-right"></i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <!-- top tiles -->
+                <form class="form-horizontal form-label-left row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab" href="#menu3">
+                                    Details  <input type="checkbox" id="pDcheck3" class="flat" style="position: absolute; opacity: 0;">
+                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#menu5">
+                                    Services & Hours <input type="checkbox" id="pDcheck6" class="flat" style="position: absolute; opacity: 0;">
+                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#menu6">
+                                    Documents <input type="checkbox" id="pDcheck6" class="flat" style="position: absolute; opacity: 0;">
+                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="menu3" class="tab-pane fade in active">
+                                <p></p>
+                                <div class="x_panel">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="input_fields_wrap2">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">Details / Address Info</div>
+                                                            <div class="panel-body">
+                                                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Consulting Room Name</label>
+                                                                        <input id="prof_name" onblur="pdCheck2()" type="text" class="form-control" class="form-control" placeholder="Consulting Room Name">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Post code</label>
+                                                                        <div class="input-group">
+                                                                            <input type="text" class="form-control" placeholder="123456">
+                                                                            <span class="input-group-btn">
+                                                                                <button class="btn btn-secondary" type="button">Go!</button>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Address1</label>
+                                                                        <textarea class="form-control" rows="1" placeholder="Address 1"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Address2</label>
+                                                                        <textarea class="form-control" rows="1" placeholder="Address 2"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Address3</label>
+                                                                        <textarea class="form-control" rows="1" placeholder="Address 3"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>City / Town</label>
+                                                                        <input type="text" class="form-control" placeholder="City / Town">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>County / State</label>
+                                                                        <input type="text" class="form-control" placeholder="County / State">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Postcode</label>
+                                                                        <input type="text" class="form-control" placeholder="Postcode">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Country</label>
+                                                                        <input type="text" class="form-control" placeholder="Country">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">Contact Details<span class="pull-right"><i onclick="clearGP()" class="fa fa-eraser" data-toggle="tooltip" data-title="Clear all data" data-original-title="" title=""></i></span></div>
+                                                            <div class="panel-body">
+                                                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Tel 1</label>
+                                                                        <div class="input-group">
+                                                                            <span class="input-group-addon">
+                                                                                <input type="checkbox">
+                                                                            </span>
+                                                                            <input type="text" class="form-control" placeholder="+123 4567 890">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Email 1</label>
+                                                                        <div class="form-group has-feedback">
+                                                                            <input type="text" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Email">
+                                                                            <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Tel 2</label>
+                                                                        <div class="input-group">
+                                                                            <span class="input-group-addon">
+                                                                                <input type="checkbox">
+                                                                            </span>
+                                                                            <input type="text" class="form-control" placeholder="+123 4567 890">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Email 2</label>
+                                                                        <div class="form-group has-feedback">
+                                                                            <input type="text" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Email 2">
+                                                                            <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Disable Access</label>
+                                                                        <div class="form-group">
+                                                                            <div class="radio radio-inline">
+                                                                                <label class="">
+                                                                                    <div class="iradio_flat-green" style="position: relative;"><input type="radio" class="flat" checked="" name="iCheck" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                                                                    Yes
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="radio radio-inline">
+                                                                                <label class="">
+                                                                                    <div class="iradio_flat-green" style="position: relative;"><input type="radio" class="flat" checked="" name="iCheck" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                                                                    No
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Parking</label>
+                                                                        <div class="form-group">
+                                                                            <div class="radio-inline">
+                                                                                <label class="">
+                                                                                    <div class="iradio_flat-green" style="position: relative;"><input type="radio" class="flat" checked="" name="iCheck1" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                                                                    None
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="radio-inline">
+                                                                                <label class="">
+                                                                                    <div class="iradio_flat-green" style="position: relative;"><input type="radio" class="flat" checked="" name="iCheck1" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                                                                    On site
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="radio-inline">
+                                                                                <label class="">
+                                                                                    <div class="iradio_flat-green" style="position: relative;"><input type="radio" class="flat" checked="" name="iCheck1" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                                                                                    Off Road
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Parking / Directions</label>
+                                                                        <textarea class="form-control" rows="3" placeholder="Parking / Directions"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="menu5" class="tab-pane fade in">
+                                <p></p>
+                                <div class="x_panel">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="input_fields_wrap2">
+                                                <div class="row">
+                                                    <div class="col-md-4 col-sm-12 col-xs-12">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">Services Details<span class="pull-right"></span></div>
+                                                            <div class="panel-body">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Services</label>
+                                                                        <div class="ms-ctn form-control ms-ctn-focus" id="ms1-autoSelect"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">Clinicians<span class="pull-right"></span></div>
+                                                            <div class="panel-body">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label>Clinicians</label>
+                                                                        <div class="ms-ctn form-control ms-ctn-focus" id="ms-autoSelect"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8 col-sm-12 col-xs-12">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">Opening Hours (Consulting Hours) <span class="pull-right"><i onclick="clearGP()" class="fa fa-eraser" data-toggle="tooltip" data-title="Clear all data" data-original-title="" title=""></i></span></div>
+                                                            <div class="panel-body">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12 padding-null table-responsive">
+                                                                    <table class="table table-striped" id="mytb">
+                                                                        <thead style="background: #f5f5f5; color: #000;">
+                                                                            <tr>
+                                                                                <th width="7%">
+                                                                                    <h5><b>Weeks</b></h5>
+                                                                                </th>
+                                                                                <th width="13%">
+                                                                                    <h5><b>Open / Close</b></h5>
+                                                                                </th>
+                                                                                <th width="7%">
+                                                                                    <h5 style="text-align:center;"><b>24/7 </b></h5>
+                                                                                </th>
+                                                                                <th width="16%" style="background: #ccc;">
+                                                                                    <h5 style="text-align:center;"><b><i class="fa fa-coffee" aria-hidden="true"></i> Morning</b></h5>
+                                                                                </th>
+                                                                                <th width="16%" style="background: #b3b3b3;">
+                                                                                    <h5 style="text-align:center;"><b><i class="fa fa-sun-o" aria-hidden="true"></i> Afternoon</b></h5>
+                                                                                </th>
+                                                                                <th width="16%" style="background: #ccc;">
+                                                                                    <h5 style="text-align:center;"><b><i class="fa fa-moon-o" aria-hidden="true"></i> Evening</b></h5>
+                                                                                </th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>Monday</td>
+                                                                                <td>
+                                                                                    <input id="close1" type="checkbox" class="custom-switch" checked name="switch1" onchange="moCloseCheck()">
+                                                                                    <div class="col-md-12 padding-null" style="margin-top: 10px;">
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <div class="">
+                                                                                            <input type="checkbox" value="" style="margin-top:10px;"> Copy ( Mon - Fri )
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td class="mclose24">
+                                                                                    <input class="open1" type="checkbox" id="mcheck" onchange="moCheck()"> 24/7
+                                                                                </td>
+                                                                                <td class="mopen">
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td class="mopen">
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td class="mopen">
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            <tr>
+                                                                                <td>Tuesday</td>
+                                                                                <td>
+                                                                                    <input type="checkbox" id="close2" class="custom-switch1" checked name="switch1" onchange="tuCloseCheck()">
+                                                                                    <div class="col-md-12 padding-null" style="margin-top: 10px;">
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <div class="">
+                                                                                            <input type="checkbox" value="" style="margin-top:10px;"> Copy ( Mon - Fri )
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td class="tuclose24"> <input type="checkbox" class="open1" id="tucheck" onchange="tuCheck()"> 24/7  </td>
+                                                                                <td class="tuopen">
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td class="tuopen">
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td class="tuopen">
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Wednesday</td>
+                                                                                <td>
+                                                                                    <input type="checkbox" class="custom-switch" checked name="switch1">
+                                                                                    <div class="col-md-12 padding-null" style="margin-top: 10px;">
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <div class="">
+                                                                                            <input type="checkbox" value="" style="margin-top:10px;"> Copy ( Mon - Fri )
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><input type="checkbox" class="open1"> 24/7  </td>
+                                                                                <td>
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Thursday</td>
+                                                                                <td>
+                                                                                    <input type="checkbox" class="custom-switch" checked name="switch1">
+                                                                                    <div class="col-md-12 padding-null" style="margin-top: 10px;">
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <div class="">
+                                                                                            <input type="checkbox" value="" style="margin-top:10px;"> Copy ( Mon - Fri )
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><input type="checkbox" class="open1"> 24/7  </td>
+                                                                                <td>
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Friday</td>
+                                                                                <td>
+                                                                                    <input type="checkbox" class="custom-switch" checked name="switch1">
+                                                                                    <div class="col-md-12 padding-null" style="margin-top: 10px;">
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <div class="">
+                                                                                            <input type="checkbox" value="" style="margin-top:10px;"> Copy ( Mon - Fri )
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><input type="checkbox" class="open1"> 24/7  </td>
+                                                                                <td>
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Saturday</td>
+                                                                                <td>
+                                                                                    <input type="checkbox" class="custom-switch" checked name="switch1">
+                                                                                    <div class="col-md-12 padding-null" style="margin-top: 10px;">
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <div class="">
+                                                                                            <input type="checkbox" value="" style="margin-top:10px;"> Copy ( Mon - Fri )
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><input type="checkbox" class="open1"> 24/7  </td>
+                                                                                <td>
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>Sunday</td>
+                                                                                <td>
+                                                                                    <input type="checkbox" class="custom-switch" checked name="switch1">
+                                                                                    <div class="col-md-12 padding-null" style="margin-top: 10px;">
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <input type="checkbox" class="js-switch" checked />
+                                                                                        <div class="">
+                                                                                            <input type="checkbox" value="" style="margin-top:10px;"> Copy ( Mon - Fri )
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td><input type="checkbox" class="open1"> 24/7  </td>
+                                                                                <td>
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="col-sm-6 col-md-12 padding-null">
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                        <div class="form-group">
+                                                                                            <input id="time" type="time" style="width:100%;">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                    <div class="form-group">
+                                                                        <label>Further Details</label>
+                                                                        <textarea class="form-control" rows="3" placeholder="Further Details"></textarea>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="menu6" class="tab-pane fade">
+                                <p></p>
+                                <div class="x_panel">
+
+
+                                    <div class="row">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active"><a data-toggle="tab" href="#documentstab">Documents</a></li>
+                                            <li><a data-toggle="tab" href="#imagetab">Images</a></li>
+                                            <li><a data-toggle="tab" href="#videotab">Videos</a></li>
+                                        </ul>
+
+                                        <div class="tab-content">
+                                            <div id="documentstab" class="tab-pane fade in active">
+
+
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="row">
+                                                        <br />
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">Documents </div>
+                                                            <div class="panel-body">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12 col-sm-12 col-xs-12 padding-null">
+                                                                            <div class="col-md-3 padding-null" style="width: auto;">
+                                                                                <label class="" style="text-align:left !important;">Upload Documents / Images:</label>
+                                                                            </div>
+                                                                            <div class="col-md-1">
+                                                                                <p class="btn btn-primary btn-sm" style="color: #fff;">
+                                                                                    <input class="file-4 upload_btn" id="upload-file-selector" type="file" multiple=""><i class="fa  fa-upload" data-toggle="tooltip" data-title="Edit Title"></i> Upload
+
+                                                                                </p>
+                                                                            </div>
+                                                                            <div class="col-md-1">
+                                                                                <p class="btn btn-primary btn-sm" style="color: #fff;display:none">
+                                                                                    <input class="upload_btn" type="button"><i class="fa  fa-save" data-toggle="tooltip" data-title="Edit Title"></i> Save
+                                                                                </p>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="col-md-12 col-sm-12 col-xs-12 padding-null" id="upload_document" style="display:none;">
+                                                                            <label style="margin-bottom:10px;color:green;margin-top:15px;">Uploaded Documents / Images:</label>
+                                                                            <br />
+                                                                            <div class="list-group table-responsive">
+                                                                                <table id="datatable-responsive" class="table table-fixed table-striped table-bordered" cellspacing="0" width="100%" role="grid" aria-describedby="datatable-responsive_info" style="width: 100%; ">
+                                                                                    <thead>
+                                                                                        <tr role="row">
+                                                                                            <th><!--<input type="checkbox" onchange="chkfiles()" id="chkallfiles" />--> &nbsp; #</th>
+                                                                                            <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Files</th>
+                                                                                            <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Title</th>
+                                                                                            <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending">Action</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody id="upload_list_files" style="height: 10px !important; overflow: scroll; "></tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                            <div class="modal fade notes-info" id="mail-edit-modal" style="display: none;">
+                                                                                <div class="modal-dialog modal-md">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                                                                                            <h4 class="modal-title">Email Documents</h4>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                            <input class="form-control" placeholder="Enter Email">
+                                                                                            <div class="action-icon">
+                                                                                                <a href="#"><i class="fa fa-2x fa-envelope" data-toggle="tooltip" data-title="Send Mail" data-original-title="" title=""></i></a>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="imagetab" class="tab-pane fade">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="row">
+                                                        <br />
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">Documents </div>
+                                                            <div class="panel-body">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12 col-sm-12 col-xs-12 padding-null">
+                                                                            <div class="col-md-3 padding-null" style="width: auto;">
+                                                                                <label class="" style="text-align:left !important;">Upload Documents / Images:</label>
+                                                                            </div>
+                                                                            <div class="col-md-1">
+                                                                                <p class="btn btn-primary btn-sm" style="color: #fff;">
+                                                                                    <input class="file-4 upload_btn" id="upload-file-selector" type="file" multiple=""><i class="fa  fa-upload" data-toggle="tooltip" data-title="Edit Title"></i> Upload
+
+                                                                                </p>
+                                                                            </div>
+                                                                            <div class="col-md-1">
+                                                                                <p class="btn btn-primary btn-sm" style="color: #fff;display:none">
+                                                                                    <input class="upload_btn" type="button"><i class="fa  fa-save" data-toggle="tooltip" data-title="Edit Title"></i> Save
+                                                                                </p>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="col-md-12 col-sm-12 col-xs-12 padding-null" id="upload_document" style="display:none;">
+                                                                            <label style="margin-bottom:10px;color:green;margin-top:15px;">Uploaded Documents / Images:</label>
+                                                                            <br />
+                                                                            <div class="list-group table-responsive">
+                                                                                <table id="datatable-responsive" class="table table-fixed table-striped table-bordered" cellspacing="0" width="100%" role="grid" aria-describedby="datatable-responsive_info" style="width: 100%; ">
+                                                                                    <thead>
+                                                                                        <tr role="row">
+                                                                                            <th><!--<input type="checkbox" onchange="chkfiles()" id="chkallfiles" />--> &nbsp; #</th>
+                                                                                            <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Files</th>
+                                                                                            <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Title</th>
+                                                                                            <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending">Action</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody id="upload_list_files" style="height: 10px !important; overflow: scroll; "></tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                            <div class="modal fade notes-info" id="mail-edit-modal" style="display: none;">
+                                                                                <div class="modal-dialog modal-md">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                                                                                            <h4 class="modal-title">Email Documents</h4>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                            <input class="form-control" placeholder="Enter Email">
+                                                                                            <div class="action-icon">
+                                                                                                <a href="#"><i class="fa fa-2x fa-envelope" data-toggle="tooltip" data-title="Send Mail" data-original-title="" title=""></i></a>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="videotab" class="tab-pane fade">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="row">
+                                                        <br />
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">Documents </div>
+                                                            <div class="panel-body">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12 col-sm-12 col-xs-12 padding-null">
+                                                                            <div class="col-md-3 padding-null" style="width: auto;">
+                                                                                <label class="" style="text-align:left !important;">Upload Documents / Images:</label>
+                                                                            </div>
+                                                                            <div class="col-md-1">
+                                                                                <p class="btn btn-primary btn-sm" style="color: #fff;">
+                                                                                    <input class="file-4 upload_btn" id="upload-file-selector" type="file" multiple=""><i class="fa  fa-upload" data-toggle="tooltip" data-title="Edit Title"></i> Upload
+
+                                                                                </p>
+                                                                            </div>
+                                                                            <div class="col-md-1">
+                                                                                <p class="btn btn-primary btn-sm" style="color: #fff;display:none">
+                                                                                    <input class="upload_btn" type="button"><i class="fa  fa-save" data-toggle="tooltip" data-title="Edit Title"></i> Save
+                                                                                </p>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="col-md-12 col-sm-12 col-xs-12 padding-null" id="upload_document" style="display:none;">
+                                                                            <label style="margin-bottom:10px;color:green;margin-top:15px;">Uploaded Documents / Images:</label>
+                                                                            <br />
+                                                                            <div class="list-group table-responsive">
+                                                                                <table id="datatable-responsive" class="table table-fixed table-striped table-bordered" cellspacing="0" width="100%" role="grid" aria-describedby="datatable-responsive_info" style="width: 100%; ">
+                                                                                    <thead>
+                                                                                        <tr role="row">
+                                                                                            <th><!--<input type="checkbox" onchange="chkfiles()" id="chkallfiles" />--> &nbsp; #</th>
+                                                                                            <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Files</th>
+                                                                                            <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Title</th>
+                                                                                            <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending">Action</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody id="upload_list_files" style="height: 10px !important; overflow: scroll; "></tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                            <div class="modal fade notes-info" id="mail-edit-modal" style="display: none;">
+                                                                                <div class="modal-dialog modal-md">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                                                                                            <h4 class="modal-title">Email Documents</h4>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                            <input class="form-control" placeholder="Enter Email">
+                                                                                            <div class="action-icon">
+                                                                                                <a href="#"><i class="fa fa-2x fa-envelope" data-toggle="tooltip" data-title="Send Mail" data-original-title="" title=""></i></a>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="modal fade notes-info" id="mail-edit-modal" style="display: none;">
+                                            <div class="modal-dialog modal-md">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                                                        <h4 class="modal-title">Email Documents</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+
+
+                                                        <input class="form-control" placeholder="Enter Email">
+                                                        <div class="action-icon">
+                                                            <a href="#"><i class="fa fa-2x fa-envelope" data-toggle="tooltip" data-title="Send Mail" data-original-title="" title=""></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </form></div>
+    </div>
+    </div>
+    <!-- Modals -->
+    <!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="vendors/skycons/skycons.js"></script>
+    <!-- DateJS -->
+    <script src="vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="vendors/moment/min/moment.min.js"></script>
+    <script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- FullCalendar -->
+    <script src="vendors/moment/min/moment.min.js"></script>
+    <script src="vendors/fullcalendar/dist/fullcalendar.min.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="build/js/custom.js"></script>
+    <script src="js/fileinput.min.js"></script>
+    <script src="build/js/bootstrap-imageupload.js"></script>
+    <script src="build/js/drop-down.js"></script>
+    <script src="vendors/switch/on-off-switch.js"></script>
+    <script src="vendors/switch/on-off-switch-onload.js"></script>
+    <script>
+        var doccheck = document.getElementById("doc");
+
+        var imacheck = document.getElementById("ima");
+
+        var vedcheck = document.getElementById("ved");
+
+        function docCheck() {
+
+            var doct = document.getElementById("doctype");
+
+            doct.style.display = "";
+
+            var imat = document.getElementById("imatype");
+
+            imat.style.display = "none";
+
+            var vedt = document.getElementById("vedtype");
+
+            vedt.style.display = "none";
+
+            var docum = document.getElementById("document");
+            docum.style.display = "";
+
+            var imgs = document.getElementById("images");
+            imgs.style.display = "none";
+
+            var vid = document.getElementById("videos");
+            vid.style.display = "none";
+
+        }
+
+        function imaCheck() {
+
+
+
+            var imat = document.getElementById("imatype");
+
+            imat.style.display = "";
+
+            var doct = document.getElementById("doctype");
+            doct.style.display = "none";
+
+            var vedt = document.getElementById("vedtype");
+
+            vedt.style.display = "none";
+
+            var docum = document.getElementById("document");
+            docum.style.display = "none";
+
+            var imgs = document.getElementById("images");
+            imgs.style.display = "";
+
+            var vid = document.getElementById("videos");
+            vid.style.display = "none";
+
+        }
+
+
+        function vedCheck() {
+
+
+
+            var vedt = document.getElementById("vedtype");
+
+            vedt.style.display = "";
+
+            var doct = document.getElementById("doctype");
+
+            doct.style.display = "none";
+
+            var imat = document.getElementById("imatype");
+
+            imat.style.display = "none";
+
+            var docum = document.getElementById("document");
+            docum.style.display = "none";
+
+            var imgs = document.getElementById("images");
+            imgs.style.display = "none";
+
+            var vid = document.getElementById("videos");
+            vid.style.display = "";
+
+        }
+
+
+        function moCheck() {
+
+            var mcheck = document.getElementById("mcheck");
+
+
+            var mo = document.getElementsByClassName("mopen");
+
+            for (var i = 0; i <= mo.length; i++) {
+                if (mcheck.checked == true) {
+
+                    mo[i].style.display = "none";
+                }
+
+                else {
+                    mo[i].style.display = "";
+                }
+            }
+        }
+
+
+
+        function tuCheck() {
+            var tucheck = document.getElementById("tucheck");
+            var tu = document.getElementsByClassName("tuopen");
+
+            for (var i = 0; i <= tu.length; i++) {
+                if (tucheck.checked == true) {
+                    tu[i].style.display = "none";
+                }
+
+                else {
+                    tu[i].style.display = "";
+                }
+            }
+        }
+
+        function moCloseCheck() {
+            var mcheck = document.getElementById("close1");
+            var mo = document.getElementsByClassName("mopen");
+            var mo1 = document.getElementsByClassName("mclose24")
+
+            for (var i = 0; i <= mo.length; i++) {
+                if (mcheck.checked == true) {
+                    mo[i].style.display = "none";
+                    mo1[0].style.display = "none";
+                }
+
+                else {
+                    mo[i].style.display = "";
+                    mo1[0].style.display = "";
+                }
+            }
+        }
+
+        function tuCloseCheck() {
+            var tcheck = document.getElementById("close2");
+            var tu = document.getElementsByClassName("tuopen");
+            var tu1 = document.getElementsByClassName("tuclose24")
+
+            for (var i = 0; i <= tu.length; i++) {
+                if (tcheck.checked == true) {
+                    tu[i].style.display = "none";
+                    tu1[0].style.display = "none";
+                }
+                else {
+                    tu[i].style.display = "";
+                    tu1[0].style.display = "";
+                }
+            }
+        }
+
+
+        var $imageupload = $('.imageupload');
+        $imageupload.imageupload();
+
+
+        function pdCheck2() {
+            var check = document.getElementById("prof_name").value;
+            var elem = document.getElementsByClassName("icheckbox_flat-green");
+            if (check !== "") {
+                document.getElementById("pDcheck3").checked = true;
+                elem[0].setAttribute("class", "icheckbox_flat-green checked");
+            } else {
+                document.getElementById("pDcheck3").checked = false;
+                elem[0].setAttribute("class", "icheckbox_flat-green");
+            }
+        }
+
+
+
+        function pdCheck5() {
+
+            var check = document.getElementById("demograp").value;
+            var elem = document.getElementsByClassName("icheckbox_flat-green");
+            if (check !== "") {
+                document.getElementById("pDcheck6").checked = true;
+                elem[1].setAttribute("class", "icheckbox_flat-green checked");
+            } else {
+                document.getElementById("pDcheck6").checked = false;
+                elem[1].setAttribute("class", "icheckbox_flat-green");
+            }
+        }
+
+
+
+        $(function () {
+            $('.multiselect-ui').multiselect({
+                includeSelectAllOption: true
+            });
+
+        });
+
+
+        function clearGP() {
+            var r = confirm("Are you sure want to clear all data?");
+            if (r == true) {
+                $('.input_fields_wrap2').find('input[type=text]').val('');
+                $('.input_fields_wrap2').find('textarea').val('');
+                pdCheck2();
+            }
+        }
+
+        function chkfiles() {
+
+            var chk = document.getElementById("chkallfiles").checked;
+
+            var item = document.getElementById("multiaction");
+
+            if (chk == true) {
+                var chkall = document.getElementsByClassName("files");
+
+                item.style.display = "block";
+
+                for (var i = 0; i <= chkall.length; i++) {
+                    chkall[i].checked = true;
+                }
+            } else if (chk == false) {
+
+                item.style.display = "none";
+
+                var chkall = document.getElementsByClassName("files");
+                for (var i = 0; i <= chkall.length; i++) {
+                    chkall[i].checked = false;
+                }
+            }
+        }
+
+        function chkpublic() {
+
+            var chk = document.getElementById("publicviewall").checked;
+
+
+            if (chk == true) {
+                var chkall = document.getElementsByClassName("publicview");
+
+
+
+                for (var i = 0; i <= chkall.length; i++) {
+                    chkall[i].checked = true;
+                }
+            } else if (chk == false) {
+
+
+                var chkall = document.getElementsByClassName("publicview");
+                for (var i = 0; i <= chkall.length; i++) {
+                    chkall[i].checked = false;
+                }
+            }
+        }
+
+        function chkopen() {
+
+            var chk = document.getElementById("openall").checked;
+
+            if (chk == true) {
+                var chkall = document.getElementsByClassName("open");
+
+
+                for (var i = 0; i <= chkall.length; i++) {
+                    chkall[i].checked = true;
+
+                }
+            } else if (chk == false) {
+
+                var chkall = document.getElementsByClassName("open");
+                for (var i = 0; i <= chkall.length; i++) {
+                    chkall[i].checked = false;
+
+                }
+            }
+        }
+
+
+
+    </script>
+    <!-- Switchery -->
+    <script src="vendors/switchery/dist/switchery.min.js"></script>
+    <script src="vendors/magicsuggest/magicsuggest-min.js"></script>
+    <script>
+        $('#ms-autoSelect').magicSuggest({
+            autoSelect: false,
+            allowFreeEntries: false,
+            data: ['Dr John', 'Dr Jhon dee', 'Dr Thiru', 'Dr Abhinav', 'Dr Jenny', 'Dr Gmail']
+        });
+
+        $('#ms1-autoSelect').magicSuggest({
+            autoSelect: false,
+            allowFreeEntries: false,
+            data: ['Diabetics', 'Cardiology', 'Dermatology', 'Hair Transplant', 'ENT', 'Palliative care', 'Insurance medical', 'Taxi Medical', 'Cosmetics']
+        });
+
+
+        new DG.OnOffSwitchAuto({
+            cls: '.custom-switch',
+            textOn: "Open",
+            height: 28,
+            width: 115,
+            textOff: "Close",
+            textSizeRatio: 0.35,
+            listener: function (e) {
+
+                moCloseCheck();
+
+            }
+        });
+        new DG.OnOffSwitchAuto({
+            cls: '.custom-switch1',
+            textOn: "Open",
+            height: 28,
+            width: 115,
+            textOff: "Close",
+            textSizeRatio: 0.35,
+            listener: function (e) {
+
+                tuCloseCheck();
+
+            }
+        });
+
+        $(document).ready(function () {
+            Dropzone.options.myAwesomeDropzone = {
+
+                accept: function (file, done) {
+                    var re = /(?:\.([^.]+))?$/;
+                    var ext = re.exec(file.name)[1];
+                    ext = ext.toUpperCase();
+                    if (ext == "JPEG" || ext == "BMP" || ext == "GIF" || ext == "JPG" || ext == "PNG" || ext == "JPE") {
+                        done();
+                    }
+                    else { done("just select jpeg or bmp or gif or pnj files."); }
+                }
+            };
+
+        });
+
+
+
+
+    </script>
+    <script>
+        //newly added by vajesh
+        $(function () {
+            // Multiple images preview in browser
+            var imagesPreview = function (input, placeToInsertImagePreview) {
+
+                if (input.files) {
+                    var filesAmount = input.files.length;
+                    var html_content = '';
+                    for (i = 0; i < filesAmount; i++) {
+                        var reader = new FileReader();
+                        file_name = input.files[i]['name'];
+                        //   reader.onload = function (event) {
+                        x = i + 1;
+                        var html_content = html_content + '<tr role="row" class="odd"><td style="padding-left:8px;">' + x + '</td><td tabindex="0" class="sorting_1"><a href="#">' + file_name + '</a></td><td tabindex="0" class="sorting_1"><div class="form-group"><input class="form-control" type="text" style="width:99% !important"></div></td><td><a href="#" class="btn btn-success"><i class="fa  fa-share" data-toggle="tooltip" data-title="Share Document" data-original-title="" title=""></i></a><a href="#" class="btn btn-success"><i class="fa  fa-edit" data-toggle="tooltip" data-title="Edit Title" data-original-title="" title=""></i></a><a href="#" class="btn btn-success" onclick="confirm(' + '"Are you sure want to delete document?"' + ')"><i class="fa  fa-trash" data-toggle="tooltip" data-title="Delete" data-original-title="" title=""></i></a></td></tr>';
+                        //   $(placeToInsertImagePreview).append(html_content)
+                        //    $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                        //  }
+                        $("#upload_list_files").html(html_content);
+                        //reader.readAsDataURL(input.files[i]);
+                    }
+                    $('#upload_document').show();
+                }
+
+            };
+            $('#upload-file-selector').on('change', function () {
+                imagesPreview(this, '#datatable-responsive');
+            });
+        });
+    </script>
+</body>
+</html>

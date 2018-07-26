@@ -1,0 +1,2163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Orbis Health</title>
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="vendors/switchery/dist/switchery.min.css" rel="stylesheet" />
+    <!-- Custom Theme Style -->
+    <link href="build/css/custom.css" rel="stylesheet" />
+    <link href="build/css/custom-theme.css" rel="stylesheet" />
+    <link href="build/css/fileinput.min.css" rel="stylesheet" />
+    <link href="build/css/drop-down.css" rel="stylesheet" />
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+    <style>
+        .avg-profile-img {
+            width: 120px;
+            height: 120px;
+        }
+
+        .up-cho-btn {
+            display: none;
+        }
+
+        #fileselector {
+            margin: 10px;
+        }
+
+        #upload-file-selector {
+            display: none;
+        }
+
+        .margin-correction {
+            margin-right: 10px;
+        }
+
+        .table-fixed thead {
+            width: 97%;
+        }
+
+        .table-fixed tbody {
+            height: 230px !important;
+            overflow-y: auto;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="nav-sm">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="index.html" class="site_title"><i class="fa"><img src="images/logo-icon.png" alt="Think Doctor"></i> <span><img src="images/logo-text.png" alt="Think Doctor"></span></a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                        <div class="profile_pic">
+                            <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <span>Welcome,</span>
+                            <h2>John Doe</h2>
+                        </div>
+                    </div>
+                    <!-- /menu profile quick info -->
+                    <br />
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <h3></h3>
+                            <ul class="nav side-menu">
+                                <li><a href="index.html"><i class="fa fa-home"></i> Home </a></li>
+                                <li>
+                                    <a><i class="fa fa-book"></i> Diary <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="diary.html">Diary</a></li>
+                                        <li><a href="diary.html">Patients Search</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#"><i class="fa fa-calendar"></i> Appointments</a></li>
+                                <li><a href="#"><i class="fa fa-files-o"></i> Documents</a></li>
+                                <li><a href="#"><i class="fa fa-bar-chart-o"></i> Reports</a></li>
+                                <li><a href="#"><i class="fa fa-tasks"></i> Tasks</a></li>
+                                <li>
+                                    <a href="#"><i class="fa fa-universal-access"></i> Admin<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="manage-team.html">Manage Team</a></li>
+                                        <li><a href="consulting-location.html">Consulting Location</a></li>
+                                        <li><a href="create-team.html">Create Team</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                                <li><a href="#"><i class="fa fa-user-plus"></i> Account</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="Settings">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Lock">
+                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <div class="nav-title" style="margin: 10px auto 5px;">
+                            <h1>Patient Registration - (Pat ID : 0001)</h1>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="images/img.jpg" alt="">Dr. John Doe
+                                    <span class=" fa fa-angle-down"></span>
+                                    <span class="last-login">[Last Login 12 Feb 2017 @ 16:12]</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                    <li><a href="javascript:;"> Profile</a></li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span class="badge bg-red pull-right">50%</span>
+                                            <span>Settings</span>
+                                        </a>
+                                    </li>
+                                    <li><a href="javascript:;">Help</a></li>
+                                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                </ul>
+                            </li>
+                            <li role="presentation" class="dropdown">
+                                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-envelope-o"></i>
+                                    <span class="badge bg-green">6</span>
+                                </a>
+                                <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers. They were where...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers. They were where...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers. They were where...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers. They were where...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <div>
+                                        <li>
+                                            <div class="text-center">
+                                                <a>
+                                                    <strong>See All Alerts</strong>
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </div>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <!-- top tiles -->
+                <form class="form-horizontal form-label-left row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a id="pat_reg_personal-details" data-toggle="tab" href="#pat_det">
+                                    Patient Details <input type="checkbox" id="pDcheck" class="flat" style="position: absolute; opacity: 0;">
+                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="pat_reg_demographic" data-toggle="tab" href="#demog">
+                                    Demographic  <input type="checkbox" id="pDcheck6" class="flat" style="position: absolute; opacity: 0;">
+                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="pat_reg_personal-family" data-toggle="tab" href="#menu2">
+                                    Family <input type="checkbox" id="pDcheck2" class="flat" style="position: absolute; opacity: 0;">
+                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="pat_reg_personal-gp" data-toggle="tab" href="#menu3">
+                                    GP  <input type="checkbox" id="pDcheck3" class="flat" style="position: absolute; opacity: 0;">
+                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="pat_reg_personal-chemist" data-toggle="tab" href="#menu4">
+                                    Chemist  <input type="checkbox" id="pDcheck4" class="flat" style="position: absolute; opacity: 0;">
+                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="pat_reg_personal-carer" data-toggle="tab" href="#menu5">
+                                    Carer <input type="checkbox" id="pDcheck5" class="flat" style="position: absolute; opacity: 0;">
+                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="pat_reg_personal-documents" data-toggle="tab" href="#menu6">
+                                    Documents <input type="checkbox" id="pDcheck6" class="flat" style="position: absolute; opacity: 0;">
+                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="pat_reg_personal-notes" data-toggle="tab" href="#menu61">
+                                    Notes <input type="checkbox" id="pDcheck7" class="flat" style="position: absolute; opacity: 0;">
+                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="pat_reg_personal-consent" data-toggle="tab" href="#menu7">
+                                    Consent <input type="checkbox" id="pDcheck8" class="flat" style="position: absolute; opacity: 0;">
+                                    <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                </a>
+                            </li>
+                            <li><a id="pat_reg_personal-alerts" data-toggle="tab" href="#menu8" id="alert_color">Alerts</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="pat_det" class="tab-pane fade in active">
+                                <p></p>
+                                <div class="x_panel">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 personal-info">
+                                            <div class="panel-group">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Personal Profile</a>
+                                                        </h4>
+                                                    </div>
+                                                    <div class="panel">
+                                                        <div class="panel-body">
+                                                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                                                <div class="text-center">
+                                                                    <img id="blah" src="images/img.jpg" class="avg-profile-img img-circle img-thumbnail" alt="avatar">
+
+                                                                    <div></div>
+                                                                    <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 10px;">
+                                                                        <input type="file" id="FileUpload1" class="center-block well well-sm" onchange="readURL(this);" style="width: 100px; !important;padding: 6px;">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-10 col-sm-6 col-xs-12 profile-details">
+                                                                <div class="row">
+                                                                    <div class="col-md-2 col-sm-12 col-xs-12">
+                                                                        <label>Title</label>
+                                                                        <div class="form-group">
+                                                                            <select class="form-control">
+                                                                                <option>Title</option>
+                                                                                <option>Mr</option>
+                                                                                <option>Ms</option>
+                                                                                <option>Mrs</option>
+                                                                                <option>Miss</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>First Name</label>
+                                                                            <input type="text" id="fNamePd" onblur="pdCheck()" class="form-control" placeholder="First Name">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>Middle Name</label>
+                                                                            <input type="text" class="form-control" placeholder="Middle Name">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>Last Name</label>
+                                                                            <input type="text" class="form-control" placeholder="Last Name">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-2 col-sm-6 col-xs-6 form-text-wrapper ">
+                                                                        <label>Gender</label>
+                                                                        <select class="form-control">
+                                                                            <option>Male</option>
+                                                                            <option>Female</option>
+                                                                            <option>Transgender</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-3 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>NHS No</label>
+                                                                            <input class="form-control" id="txtProfNHSNo" name="NHSNo" placeholder="NHS No" type="text" value="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3 col-sm-6 col-xs-6 form-text-wrapper">
+                                                                        <div class="">
+                                                                            <div class="xdisplay_inputx form-group">
+                                                                                <label>DOB</label>
+                                                                                <input type="text" class="form-control" id="datepicker" placeholder="dd/mm/yy">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3 col-sm-6 col-xs-12 form-text-wrapper">
+                                                                        <div class="form-group">
+                                                                            <label>Age</label>
+                                                                            <input id="ageId" type="text" class="form-control" placeholder="age">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            Address
+                                                        </h4>
+                                                    </div>
+                                                    <div class="panel">
+                                                        <div class="panel-body">
+
+                                                            <div class="col-md-8 col-sm-12 col-xs-12 profile-details">
+                                                                <div class="row">
+                                                                    <div class="col-md-6 col-sm-6 col-xs-6 form-text-wrapper">
+                                                                        <div class="form-group">
+                                                                            <label for="sel1">Country</label>
+                                                                            <select class="form-control" id="sel1">
+                                                                                <option>Country 1</option>
+                                                                                <option>Country 2</option>
+                                                                                <option>Country 3</option>
+                                                                                <option>Country 4</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>Postcode</label>
+                                                                            <input type="text" class="form-control" placeholder="Postcode">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>City / Town</label>
+                                                                            <input type="text" class="form-control" placeholder="City / Town">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>State</label>
+                                                                            <input type="text" class="form-control" placeholder="State">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-sm-12 col-xs-12 form-text-wrapper">
+                                                                <div class="form-group">
+                                                                    <label>Address</label>
+                                                                    <textarea class="form-control" rows="5" placeholder="Address"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            Contact
+                                                        </h4>
+                                                    </div>
+                                                    <div class="panel">
+                                                        <div class="panel-body profile-details">
+                                                            <div class="col-md-3 col-sm-6 col-xs-6 form-text-wrapper">
+                                                                <div class="form-group">
+                                                                    <label>Home</label>
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                            <input type="checkbox">
+                                                                        </span>
+                                                                        <input type="text" class="form-control" placeholder="+123 4567 890">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3 col-sm-6 col-xs-6 form-text-wrapper">
+                                                                <div class="form-group">
+                                                                    <label>Work</label>
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                            <input type="checkbox">
+                                                                        </span>
+                                                                        <input type="text" class="form-control" placeholder="+123 4567 890">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3 col-sm-6 col-xs-6 form-text-wrapper">
+                                                                <div class="form-group">
+                                                                    <label>Mobile</label>
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">
+                                                                            <input type="checkbox">
+                                                                        </span>
+                                                                        <input type="text" class="form-control" placeholder="+123 4567 890">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3 col-sm-6 col-xs-6 form-text-wrapper">
+                                                                <div class="form-group">
+                                                                    <label>Email </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" id="inputSuccess4" placeholder="Email ">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            For Minors < 16
+                                                        </h4>
+                                                    </div>
+                                                    <div class="panel">
+                                                        <div class="input_fields_wrap">
+                                                            <div class="panel-body">
+
+                                                                <div class="col-md-7 col-sm-12 col-xs-12 profile-details">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                            <label>Title</label>
+                                                                            <div class="form-group">
+                                                                                <select class="form-control">
+                                                                                    <option>Title</option>
+                                                                                    <option>Mr</option>
+                                                                                    <option>Ms</option>
+                                                                                    <option>Mrs</option>
+                                                                                    <option>Miss</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                            <div class="form-group">
+                                                                                <label>Parent</label>
+                                                                                <input type="text" class="form-control" placeholder="Name">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                            <div class="form-group">
+                                                                                <label>Relationship</label>
+                                                                                <select class="form-control">
+                                                                                    <option>Choose..</option>
+                                                                                    <option>Father</option>
+                                                                                    <option>Mother</option>
+                                                                                    <option>Brother</option>
+                                                                                    <option>Sister</option>
+                                                                                    <option>Cousin</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                            <div class="form-group">
+                                                                                <label>Contact</label>
+                                                                                <input type="text" class="form-control" placeholder="Contact">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4 col-sm-12 col-xs-12 form-text-wrapper">
+                                                                    <div class="form-group">
+                                                                        <label>Address</label>
+                                                                        <textarea class="form-control" rows="3" placeholder="Address"></textarea>
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input type="checkbox" class="form-check-input" id="cbxMinorImportAddress">
+                                                                        <label class="form-check-label" for="exampleCheck1">Import home  address</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-1 col-md-1">
+                                                                    <div class="form-group">
+                                                                        <label>Action</label>
+                                                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                            <button type="button" class="add_field_button btn btn-default btn-sm">
+                                                                                <span class="glyphicon glyphicon-plus"></span>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            Next to Kin
+                                                        </h4>
+                                                    </div>
+                                                    <div class="panel">
+                                                        <div class="panel-body">
+
+                                                            <div class="col-md-6 col-sm-12 col-xs-12 profile-details">
+                                                                <div class="row">
+                                                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                        <label>Title</label>
+                                                                        <div class="form-group">
+                                                                            <select class="form-control">
+                                                                                <option>Title</option>
+                                                                                <option>Mr</option>
+                                                                                <option>Ms</option>
+                                                                                <option>Mrs</option>
+                                                                                <option>Miss</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>Name</label>
+                                                                            <input type="text" class="form-control" placeholder="Name">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>Contact</label>
+                                                                            <input type="text" class="form-control" placeholder="Contact">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-12 col-xs-12 form-text-wrapper">
+                                                                <div class="form-group">
+                                                                    <label>Address</label>
+                                                                    <textarea class="form-control" rows="3" placeholder="Address"></textarea>
+                                                                </div>
+                                                                <div class="form-check">
+                                                                    <input type="checkbox" class="form-check-input" id="cbxMinorImportAddress">
+                                                                    <label class="form-check-label" for="exampleCheck1">Import home  address</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="actionBar">
+                                        <a href="#" class="buttonNext btn btn-success" onclick="nxt_tab('pat_reg_demographic');"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save and Continue <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="demog" class="tab-pane fade">
+                                <p></p>
+                                <div class="x_panel">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 personal-info">
+                                            <div class="panel-group">
+                                                
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            Demographic
+                                                        </h4>
+                                                    </div>
+                                                    <div class="panel">
+                                                        <div class="panel-body profile-details">
+                                                            <div class="col-md-4 col-sm-6 col-xs-6 form-text-wrapper">
+                                                                <div class="form-group">
+                                                                    <label>Ethinic Origin</label>
+                                                                    <div class="form-group">
+                                                                        <select class="form-control" id="demograp" onchange="pdCheck5()">
+                                                                            <option>Choose..</option>
+                                                                            <option>Asian</option>
+                                                                            <option>Black</option>
+                                                                            <option>White</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-sm-6 col-xs-6 form-text-wrapper">
+                                                                <div class="form-group">
+                                                                    <label>Languages Spoken</label>
+                                                                    <span class="multiselect-native-select">
+                                                                        <select id="dates-field2" class="multiselect-ui form-control" multiple="multiple">
+                                                                            <option value="cheese">English</option>
+                                                                            <option value="tomatoes">German</option>
+                                                                            <option value="mozarella">French</option>
+                                                                            <option value="mushrooms">Italin</option>
+                                                                        </select>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-sm-6 col-xs-6 form-text-wrapper">
+                                                                <div class="form-group">
+                                                                    <label>Martial Status</label>
+                                                                    <select class="form-control">
+                                                                        <option>Choose..</option>
+                                                                        <option>Single</option>
+                                                                        <option>Married</option>
+                                                                        <option>Seprated</option>
+                                                                        <option>Living with Partner</option>
+                                                                        <option>Divorced</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="actionBar">
+                                        <a href="#" class="buttonPrevious btn btn-primary" onclick="nxt_tab('pat_reg_personal-details');"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</a>
+                                        <a href="#" class="buttonNext btn btn-success" onclick="nxt_tab('pat_reg_personal-family');">Next <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="menu2" class="tab-pane fade">
+                                <p></p>
+                                <div class="x_panel">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                Family
+                                            </h4>
+                                        </div>
+                                        <div class="">
+                                            <div class="input_fields_wrap1">
+                                                <div class="panel-body">
+
+                                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>Name</label>
+                                                                    <input type="text" class="form-control" placeholder="Name">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                <label>Relationship to the Reg user</label>
+                                                                <div class="form-group">
+                                                                    <select class="form-control">
+                                                                        <option>Father</option>
+                                                                        <option>Mother</option>
+                                                                        <option>Brother</option>
+                                                                        <option>Sister</option>
+                                                                        <option>Cousin</option>
+                                                                        <option>Grand Father</option>
+                                                                        <option>Grand Mother</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>Tel</label>
+                                                                    <input type="text" class="form-control" placeholder="Tel">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>Contact</label>
+                                                                    <input type="text" class="form-control" placeholder="Contact">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>Age</label>
+                                                                    <input type="text" class="form-control" placeholder="Age">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-12 col-xs-12 form-text-wrapper">
+                                                        <div class="form-group">
+                                                            <label>Address</label>
+                                                            <textarea class="form-control" rows="3" placeholder="Address"></textarea>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="cbxMinorImportAddress">
+                                                            <label class="form-check-label" for="exampleCheck1">Import home  address</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-2 col-md-2">
+                                                        <div class="form-group">
+                                                            <label>Add More</label>
+                                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                <button type="button" class="add_field_button1 btn btn-default btn-sm">
+                                                                    <span class="glyphicon glyphicon-plus"></span>
+                                                                </button>
+                                                                <button type="button" class="add_field_button btn btn-default btn-sm">
+                                                                    <span class="pull-right"><i onclick="clearPtD()" class="fa fa-eraser" data-toggle="tooltip" data-title="Clear all data" data-original-title="" title=""></i></span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                       
+                                    <div class="actionBar">
+                                        <a href="#" class="buttonPrevious btn btn-primary" onclick="nxt_tab('pat_reg_demographic');"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</a>
+                                        <a href="#" class="buttonNext btn btn-success" onclick="nxt_tab('pat_reg_personal-gp');">Next <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="menu3" class="tab-pane fade">
+                                <p></p>
+                                <div class="x_panel">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="input_fields_wrap2">
+                                                <div class="row">
+                                                    <div class="col-md-5 col-sm-12 col-xs-12">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <h4 class="panel-title">
+                                                                    GP Details / Contact Info
+                                                                </h4>
+                                                            </div>
+                                                            <div class="input_fields_wrap">
+                                                                <div class="panel-body" style="height:281px;">
+
+                                                                    <div class="col-md-12 col-sm-12 col-xs-12 profile-details">
+                                                                        <div class="row">
+                                                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                                <div class="form-group">
+                                                                                    <label>Practice Name</label>
+                                                                                    <input type="text" class="form-control" placeholder="Practice Name">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                                <div class="form-group">
+                                                                                    <label>Doctor</label>
+                                                                                    <input type="text" class="form-control" placeholder="Doctor">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                                <div class="form-group">
+                                                                                    <label>Tel 1</label>
+                                                                                    <input type="text" class="form-control" placeholder="+1234567890">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                                <div class="form-group">
+                                                                                    <label>Tel 1</label>
+                                                                                    <input type="text" class="form-control" placeholder="+1234567890">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                                <div class="form-group">
+                                                                                    <label>Email</label>
+                                                                                    <input type="text" class="form-control" placeholder="Email">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">
+                                                                <h4 class="panel-title">
+                                                                    Address Details
+                                                                </h4>
+                                                            </div>
+                                                            <div class="panel-body">
+
+                                                                <div class="row">
+                                                                    <div class="col-md-6 col-sm-6 col-xs-6 form-text-wrapper">
+                                                                        <div class="form-group">
+                                                                            <label for="sel1">Country</label>
+                                                                            <select class="form-control">
+                                                                                <option>Select Country</option>
+                                                                                <option>India</option>
+                                                                                <option>USA</option>
+                                                                                <option>Pakistan</option>
+                                                                                <option>UAE</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>Postcode</label>
+                                                                            <input type="text" class="form-control" placeholder="Postcode">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>City / Town</label>
+                                                                            <input type="text" class="form-control" placeholder="City / Town">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>State</label>
+                                                                            <input type="text" class="form-control" placeholder="State">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12 col-sm-12 col-xs-12 form-text-wrapper">
+                                                                    <div class="form-group">
+                                                                        <label>Address</label>
+                                                                        <textarea class="form-control" rows="3" placeholder="Address"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-1 col-md-1">
+                                                        <div class="form-group">
+                                                            <label>Add More</label>
+                                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                <button type="button" class="add_field_button2 btn btn-default btn-sm">
+                                                                    <span class="glyphicon glyphicon-plus"></span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:8px;">
+                                                                <button type="button" onclick="clearGP()" class="btn btn-default btn-sm">
+                                                                    <i class="fa fa-eraser"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="actionBar">
+                                        <a href="#" class="buttonPrevious btn btn-primary" onclick="nxt_tab('pat_reg_personal-family');"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</a>
+                                        <a href="#" class="buttonNext btn btn-success" onclick="nxt_tab('pat_reg_personal-chemist');">Next <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="menu4" class="tab-pane fade">
+                                <p></p>
+                                <div class="x_panel">
+                                    <div class="input_fields_wrap3">
+                                        <div class="row">
+                                            <div class="col-md-5 col-sm-12 col-xs-12">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            Chemist Details / Contact Info
+                                                        </h4>
+                                                    </div>
+                                                    <div class="input_fields_wrap">
+                                                        <div class="panel-body" style="height:281px;">
+
+                                                            <div class="col-md-12 col-sm-12 col-xs-12 profile-details">
+                                                                <div class="row">
+                                                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>Pharmacy Name</label>
+                                                                            <input type="text" class="form-control" placeholder="Pharmacy Name">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>Chemist Name</label>
+                                                                            <input type="text" class="form-control" placeholder="Chemist Name">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>Tel 1</label>
+                                                                            <input type="text" class="form-control" placeholder="+1234567890">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>Tel 2</label>
+                                                                            <input type="text" class="form-control" placeholder="+1234567890">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>Email</label>
+                                                                            <input type="text" class="form-control" placeholder="Email">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            Address Details
+                                                        </h4>
+                                                    </div>
+                                                    <div class="panel-body">
+
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-sm-6 col-xs-6 form-text-wrapper">
+                                                                <div class="form-group">
+                                                                    <label for="sel1">Country</label>
+                                                                    <select class="form-control">
+                                                                        <option>Select Country</option>
+                                                                        <option>India</option>
+                                                                        <option>USA</option>
+                                                                        <option>Pakistan</option>
+                                                                        <option>UAE</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>Postcode</label>
+                                                                    <input type="text" class="form-control" placeholder="Postcode">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>City / Town</label>
+                                                                    <input type="text" class="form-control" placeholder="City / Town">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>State</label>
+                                                                    <input type="text" class="form-control" placeholder="State">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 col-sm-12 col-xs-12 form-text-wrapper">
+                                                            <div class="form-group">
+                                                                <label>Address</label>
+                                                                <textarea class="form-control" rows="3" placeholder="Address"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1">
+                                                <div class="form-group">
+                                                    <label>Add More</label>
+                                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                                        <button type="button" class="add_field_button3 btn btn-default btn-sm">
+                                                            <span class="glyphicon glyphicon-plus"></span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:8px;">
+                                                        <button type="button" onclick="clearGP()" class="btn btn-default btn-sm">
+                                                            <i class="fa fa-eraser"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="actionBar">
+                                        <a href="#" class="buttonPrevious btn btn-primary" onclick="nxt_tab('pat_reg_personal-gp');"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</a>
+                                        <a href="#" class="buttonNext btn btn-success" onclick="nxt_tab('pat_reg_personal-carer');">Next <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="menu5" class="tab-pane fade">
+                                <p></p>
+                                <div class="x_panel">
+                                    <div class="input_fields_wrap4">
+                                        <div class="row">
+                                            <div class="col-md-5 col-sm-12 col-xs-12">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            Career Details / Contact Info
+                                                        </h4>
+                                                    </div>
+                                                    <div>
+                                                        <div class="panel-body" style="height:281px;">
+
+                                                            <div class="col-md-12 col-sm-12 col-xs-12 profile-details">
+                                                                <div class="row">
+                                                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>Company Name</label>
+                                                                            <input type="text" class="form-control" placeholder="Company Name">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>Name</label>
+                                                                            <input type="text" class="form-control" placeholder="Name">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>Tel 1</label>
+                                                                            <input type="text" class="form-control" placeholder="+1234567890">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>Tel 2</label>
+                                                                            <input type="text" class="form-control" placeholder="+1234567890">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                        <div class="form-group">
+                                                                            <label>Email</label>
+                                                                            <input type="text" class="form-control" placeholder="Email">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            Address Details
+                                                        </h4>
+                                                    </div>
+                                                    <div class="panel-body">
+
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-sm-6 col-xs-6 form-text-wrapper">
+                                                                <div class="form-group">
+                                                                    <label for="sel1">Country</label>
+                                                                    <select class="form-control">
+                                                                        <option>Select Country</option>
+                                                                        <option>India</option>
+                                                                        <option>USA</option>
+                                                                        <option>Pakistan</option>
+                                                                        <option>UAE</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>Postcode</label>
+                                                                    <input type="text" class="form-control" placeholder="Postcode">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>City / Town</label>
+                                                                    <input type="text" class="form-control" placeholder="City / Town">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label>State</label>
+                                                                    <input type="text" class="form-control" placeholder="State">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-12 col-xs-12 form-text-wrapper">
+                                                                <div class="form-group">
+                                                                    <label>Address</label>
+                                                                    <textarea class="form-control" rows="3" placeholder="Address"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-1 col-md-1">
+                                                <div class="form-group">
+                                                    <label>Add More</label>
+                                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                                        <button type="button" class="add_field_button4 btn btn-default btn-sm">
+                                                            <span class="glyphicon glyphicon-plus"></span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:8px;">
+                                                        <button type="button" onclick="clearGP()" class="btn btn-default btn-sm">
+                                                            <i class="fa fa-eraser"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="actionBar">
+                                        <a href="#" class="buttonPrevious btn btn-primary" onclick="nxt_tab('pat_reg_personal-chemist');"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</a>
+                                        <a href="#" class="buttonNext btn btn-success" onclick="nxt_tab('pat_reg_personal-documents');">Next <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="menu6" class="tab-pane fade">
+                                <p></p>
+                                <div class="x_panel">
+                                    <div class="row">
+                                        <div class="col-md-5 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Upload Documents / Files</label>
+                                                <div class="file-input file-input-ajax-new">
+                                                    <label class="btn btn-primary" style="margin-top: 10px;">
+                                                        <input class="file-4" id="upload-file-selector" type="file" multiple>Upload
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7 col-sm-12 col-xs-12" id="upload_document" style="display:none;" >
+                                            <label>Uploaded Documents / Files</label>
+                                            <div class="list-group table-responsive">
+                                                <table class="table table-fixed table-striped table-bordered">
+                                                    <thead>
+                                                        <tr role="row">
+                                                            <th><!--<input type="checkbox" onchange="chkfiles()" id="chkallfiles" />--> &nbsp; #</th>
+                                                            <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Files</th>
+                                                            <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Title</th>
+                                                            <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="upload_list_files" style="height: 10px !important; overflow: scroll; ">
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="actionBar" style="margin-top:380px;">
+                                        <a href="#" class="buttonPrevious btn btn-primary" onclick="nxt_tab('pat_reg_personal-carer');"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</a>
+                                        <a href="#" class="buttonNext btn btn-success" onclick="nxt_tab('pat_reg_personal-notes');">Next <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="menu61" class="tab-pane fade">
+                                <p></p>
+                                <div class="x_panel">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <label>Notes</label>
+                                                    <textarea onkeyup="pdChk6()" class="resizable_textarea form-control" placeholder="Notes.."></textarea>
+                                                    <!--<div class="action-icon">
+                                                        <span class="left red">
+                                                            My new notes are so good its just dummy notes...
+                                                            <strong>@10:30am, 03-04-2017 by Doctor Team</strong>
+                                                        </span>
+                                                    </div>-->
+                                                </div>
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <table class="table table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Notes</th>
+                                                                <th>Added By</th>
+                                                                <th>Actions</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    Patient is voilent, please take care
+                                                                </td>
+                                                                <td>
+                                                                    <p>@ 6:14 PM, 04-04-2017 Added by <i>Dr. Nahar</i></p>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <a class="btn btn-success" href="#alert-modal" data-toggle="modal"><i class="fa fa-pencil"></i> </a>
+                                                                        <a class="btn btn-success" onclick="confirm('Are you sure want to delete Alert ?')" href="#" data-toggle="tooltip" data-title="Delete Alert" data-original-title="" title=""><i class="fa fa  fa-trash" style="color:#fff;" data-original-title="" title=""></i></a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Patient need addition person
+                                                                </td>
+                                                                <td>
+                                                                    <p>@ 6:14 PM, 04-04-2017 Added by <i>Dr. Nahar</i></p>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="form-group">
+                                                                        <a class="btn btn-success" href="#alert-modal" data-toggle="modal"><i class="fa fa-pencil"></i> </a>
+                                                                        <a class="btn btn-success" onclick="confirm('Are you sure want to delete Alert ?')" href="#" data-toggle="tooltip" data-title="Delete Alert" data-original-title="" title=""><i class="fa fa  fa-trash" style="color:#fff;" data-original-title="" title=""></i></a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <div class="pull-right">
+                                                        <a href="#" class="btn btn-success"><i class="fa fa-save"></i> Save</a>
+                                                        <a class="btn btn-success" href="#notes-edit-modal" data-toggle="modal"><i class="fa fa-pencil"></i> Edit</a>
+                                                        <a class="btn btn-success" href="#"><i class="fa fa  fa-trash" style="color:#fff;" data-toggle="tooltip" data-title="Delete Notes" data-original-title="" title=""></i> Delete</a>
+                                                    </div>
+                                                </div>
+                                                <div class="modal fade notes-info" id="notes-edit-modal">
+                                                    <div class="modal-dialog modal-md">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                <h4 class="modal-title">Notes</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <textarea class="resizable_textarea form-control" placeholder="Notes..">
+                                                                    My new notes are so good its just dummy notes...
+                                                                </textarea>
+                                                                <div class="action-icon">
+                                                                    <br>
+                                                                    <a href="#" class="btn btn-success"><i class="fa fa-save"></i> Save</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="actionBar">
+                                        <a href="#" class="buttonPrevious btn btn-primary" onclick="nxt_tab('pat_reg_personal-documents');"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</a>
+                                        <a href="#" class="buttonNext btn btn-success" onclick="nxt_tab('pat_reg_personal-consent');">Next <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="menu7" class="tab-pane fade">
+                                <p></p>
+                                <div class="x_panel">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <h4>Consent for GP Online Services</h4>
+                                                    <p style="text-align:justify;">
+                                                        You can now view your GP medical record online. If you would like to have secure online access to your
+                                                        records, we need to make sure that you understand what this involves and that you are happy for us to use
+                                                        the information about you (provided below) to set up and operate the service.
+                                                    </p>
+                                                    <p style="text-align:justify;">
+                                                        The following form will take you through the things you need to think about. By signing the form you will be
+                                                        giving us your permission to go ahead with setting up the service for you. If you decide not to join, or wish to
+                                                        withdraw, it will not affect your treatment in any way.
+                                                    </p>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12">
+                                                        <div class="panel panel-default">
+                                                            <div class="panel-heading">&nbsp;<input type="checkbox" id="checkall"> Select All.  Please select your perferences below : </div>
+                                                            <div class="panel-body">
+                                                                <table class="table table-striped">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="checkbox">
+                                                                                <label>
+                                                                                    <div class="icheckbox_flat-green" style="position: relative;">
+                                                                                        <input type="checkbox" class="flat" style="position: absolute; opacity: 0;">
+                                                                                        <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                                                                    </div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>I agree to my GP practice giving me access to my record online.</td>
+                                                                    <tr />
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="checkbox">
+                                                                                <label class="">
+                                                                                    <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            I agree to use the system in a responsible manner in accordance with all instructions given to me by
+                                                                            the practice. If not access may be withdrawn
+                                                                        </td>
+                                                                    <tr />
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="checkbox">
+                                                                                <label cclass="justify">
+                                                                                    <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            If I see information which does not relate to me, I will immediately log out and report the matter to the
+                                                                            practice as soon as possible
+                                                                        </td>
+                                                                    <tr />
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="checkbox">
+                                                                                <label class="justify">
+                                                                                    <div class="icheckbox_flat-green" style="position: relative;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            I agree that it is my responsibility to keep secure, my username and passwords. If I think these have
+                                                                            been shared inappropriately I will reset them using the instructions supplied. I am also responsible for
+                                                                            keeping safe any information I may print from the record.
+                                                                        </td>
+                                                                    <tr />
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="checkbox">
+                                                                                <label class="">
+                                                                                    <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            I agree that my details below may be used to contact me about how useful I find the service and
+                                                                            whether it could be improved.
+                                                                        </td>
+                                                                    <tr />
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="checkbox">
+                                                                                <label class="">
+                                                                                    <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            I understand that online access is granted at the discretion of the practice, taking into account my best
+                                                                            interests. I will be informed of any decision to withdraw the service. Please  note this does not affect your rights of Subject Access under the Data Protection Act.
+                                                                        </td>
+                                                                    <tr />
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="checkbox">
+                                                                                <label class="">
+                                                                                    <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>I wish to book appointments on line</td>
+                                                                    <tr />
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="checkbox">
+                                                                                <label class="">
+                                                                                    <div class="icheckbox_flat-green" style="position: relative;">
+                                                                                        <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                                                        <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                                                                    </div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>I wish to nominate a chemist to receive my prescriptions</td>
+                                                                    <tr />
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="checkbox">
+                                                                                <label class="">
+                                                                                    <div class="icheckbox_flat-green" style="position: relative;">
+                                                                                        <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                                                        <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                                                                    </div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>I wish to receive prescriptions by E-Mail</td>
+                                                                    <tr />
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="checkbox">
+                                                                                <label class="">
+                                                                                    <div class="icheckbox_flat-green" style="position: relative;">
+                                                                                        <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                                                        <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                                                                    </div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>I wish to receive appointment notifications by mail</td>
+                                                                    <tr />
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="checkbox">
+                                                                                <label class="">
+                                                                                    <div class="icheckbox_flat-green" style="position: relative;">
+                                                                                        <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                                                        <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                                                                    </div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>I wish to share  my medical records with XXXX</td>
+                                                                    <tr />
+                                                                </table>
+                                                                <h5>Other considerations</h5>
+                                                                <table class="table table-striped">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="checkbox">
+                                                                                <label class="">
+                                                                                    <div class="icheckbox_flat-green" style="position: relative;">
+                                                                                        <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                                                        <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                                                                    </div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            If I notice any inaccuracies with my record, I will inform a senior member of staff or the practice manager as
+                                                                            soon as possible of any errors or omissions.
+                                                                        </td>
+                                                                    <tr />
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="checkbox">
+                                                                                <label class="">
+                                                                                    <div class="icheckbox_flat-green" style="position: relative;">
+                                                                                        <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                                                        <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                                                                    </div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            I understand that I may see information on my record that I was unaware of / have forgotten about that
+                                                                            could cause distress.
+                                                                        </td>
+                                                                    <tr />
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="checkbox">
+                                                                                <label class="">
+                                                                                    <div class="icheckbox_flat-green" style="position: relative;">
+                                                                                        <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                                                        <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                                                                    </div>
+                                                                                </label>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            I understand that as before, I will be informed directly, by the practice, of any test results which require
+                                                                            further action. However I understand that I may see these results online before the practice has been able to
+                                                                            contact me. This could be while the surgery is closed and there is no one available to discuss them with me
+                                                                        </td>
+                                                                    <tr />
+                                                                </table>
+                                                                <div class="row">
+                                                                    <span class="section"></span>
+                                                                    <div class="col-md-4 col-sm-12">
+                                                                    </div>
+                                                                    <div class="col-md-4 col-sm-12">
+                                                                        <div class="checkbox">
+                                                                            <label class="">
+                                                                                <div class="icheckbox_flat-green" style="position: relative;"><input type="checkbox" class="flat" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                                                <span style="color:red">I Agree <a href="" style="color:red">Terms &amp; Conditions</a> and Accept.</span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-4 col-sm-12">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <span class="section"></span>
+                                                                    <div class="col-md-9 col-sm-12 col-xs-12 text-right">
+                                                                    </div>
+                                                                    <div class="col-md-1 col-sm-4 col-xs-4 text-right">
+                                                                        <a href="#" class="btn btn-success"><i class="fa fa-envelope"></i> Email</a>
+                                                                    </div>
+                                                                    <div class="col-md-1 col-sm-4 col-xs-4 text-right">
+                                                                        <a href="#" class="btn btn-success"><i class="fa fa-print"></i> Print</a>
+                                                                    </div>
+                                                                    <div class="col-md-1 col-sm-4 col-xs-4 text-right">
+                                                                        <a href="#" class="btn btn-success"><i class="fa fa-save"></i> Save</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="actionBar">
+                                        <a href="#" class="buttonPrevious btn btn-primary" onclick="nxt_tab('pat_reg_personal-notes');"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</a>
+                                        <a href="#" class="buttonNext btn btn-success" onclick="nxt_tab('pat_reg_personal-alerts');">Next <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="menu8" class="tab-pane fade">
+                                <p></p>
+                                <div class="x_panel">
+                                    <div class="row">
+                                        <div class="input_fields_wrap5">
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                            </div>
+                                            <div class="col-md-8 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label>Alert Text</label>
+                                                    <textarea type="text" row="3" class="form-control" placeholder="Alert Text"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 col-sm-12 col-xs-12">
+                                                <label>Action</label>
+                                                <div class="form-group">
+                                                    <a href="#" class="btn btn-success" data-toggle="tooltip" data-title="Save Alert"><i class="fa fa-save"></i> Save</a>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label>Set Alert</label>
+                                                    <div>
+                                                        <label>
+                                                            <input type="checkbox" id="alertchk" onclick="alertcolor()" class="js-switch" data-switchery="true" style="display: none;">
+                                                            <label id="switchoffon">off</label>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Alerts</th>
+                                                            <th>Added By</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tr>
+                                                        <td>
+                                                            Patient is voilent, please take care
+                                                        </td>
+                                                        <td>
+                                                            <p>@ 6:14 PM, 04-04-2017 Added by <i>Dr. Nahar</i></p>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <a class="btn btn-success" href="#alert-modal" data-toggle="modal"><i class="fa fa-pencil"></i> </a>
+                                                                <a class="btn btn-success" onclick="confirm('Are you sure want to delete Alert ?')" href="#" data-toggle="tooltip" data-title="Delete Alert"><i class="fa fa  fa-trash" style="color:#fff;" data-original-title="" title=""></i></a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Patient need addition person
+                                                        </td>
+                                                        <td>
+                                                            <p>@ 6:14 PM, 04-04-2017 Added by <i>Dr. Nahar</i></p>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <a class="btn btn-success" href="#alert-modal" data-toggle="modal"><i class="fa fa-pencil"></i> </a>
+                                                                <a class="btn btn-success" onclick="confirm('Are you sure want to delete Alert ?')" href="#" data-toggle="tooltip" data-title="Delete Alert"><i class="fa fa  fa-trash" style="color:#fff;" data-original-title="" title=""></i></a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="modal fade alerts-info" id="alert-modal">
+                                                <div class="modal-dialog modal-md">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title">Update Alert</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <textarea class="resizable_textarea form-control" placeholder="Alert">
+                                                                Patient is voilent, please take care
+                                                            </textarea>
+                                                            <div class="action-icon">
+                                                                <br>
+                                                                <a href="#" class="btn btn-success"><i class="fa fa-save"></i> Update</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="actionBar">
+                                        <a href="#" class="buttonPrevious btn btn-primary" onclick="nxt_tab('pat_reg_personal-consent');"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!-- Modals -->
+    <!-- jQuery -->
+    <script src="vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="vendors/iCheck/icheck.min.js"></script>
+    <!-- Flot -->
+    <script src="vendors/Flot/jquery.flot.js"></script>
+    <script src="vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="vendors/Flot/jquery.flot.time.js"></script>
+    <script src="vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="vendors/DateJS/build/date.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="vendors/moment/min/moment.min.js"></script>
+    <script src="vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="build/js/custom.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="build/js/bootstrap-imageupload.js"></script>
+    <script src="build/js/drop-down.js"></script>
+    <script src="build/js/fileinput.min.js"></script>
+    <script src="vendors/switchery/dist/switchery.min.js"></script>
+    <script>
+        function ageCount() {
+            document.getElementById('ageId').value = "";
+            var birthday = new Date(document.getElementById("single_cal3").value);
+            var today = new Date(),
+                age = (
+                    (today.getMonth() > birthday.getMonth())
+                    ||
+                    (today.getMonth() == birthday.getMonth() && today.getDate() >= birthday.getDate())
+                ) ? today.getFullYear() - birthday.getFullYear() : today.getFullYear() - birthday.getFullYear() - 1;
+            var months = today.getMonth() - birthday.getMonth();
+            if (months < 0)
+                months += 11;
+            var days = today.getDate() - birthday.getDate();
+            if (days < 0) {
+                birthday.setMonth(birthday.getMonth() + 1, 0);
+                days = birthday.getDate() - birthday.getDate() + today.getDate();
+                --months;
+            }
+
+            document.getElementById('ageId').value = age + "yrs " + months + " month " + days + " days";
+
+        }
+
+
+        function ageCount1() {
+            var date1 = new Date();
+            var dob = document.getElementById("single_cal4").value;
+            var date2 = new Date(dob);
+
+            var y1 = date1.getFullYear();
+            //getting current year
+            var y2 = date2.getFullYear();
+            //getting dob year
+            var age = y1 - y2;
+            //calculating age
+            document.getElementById("ageId1").value = age;
+            return true;
+
+        }
+
+        $(document).ready(function () {
+            var max_fields = 6; //maximum input boxes allowed
+            var wrapper = $(".input_fields_wrap"); //Fields wrapper
+            var add_button = $(".add_field_button"); //Add button ID
+
+            var x = 1; //initlal text box count
+            $(add_button).click(function (e) { //on add input button click
+                e.preventDefault();
+                if (x < max_fields) { //max input box allowed
+                    x++; //text box increment
+                    $(wrapper).append(' '); //add input box
+
+                }
+            });
+
+
+            $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text
+
+                var r = confirm("Are you sure want to delete?");
+
+                if (r == true) {
+                    e.preventDefault();
+                    $(this).parent('div').parent('div').parent('div').parent('div').remove();
+                    x--;
+                }
+            })
+        });
+
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            var max_fields = 6; //maximum input boxes allowed
+            var wrapper = $(".input_fields_wrap1"); //Fields wrapper
+            var add_button = $(".add_field_button1"); //Add button ID
+
+            var x = 1; //initlal text box count
+            $(add_button).click(function (e) { //on add input button click
+                e.preventDefault();
+                if (x < max_fields) { //max input box allowed
+                    x++; //text box increment
+                    $(wrapper).append('<div class="panel-body" style="background-color: #f7f7f7;margin: 10px;"> <div class="col-md-6 col-sm-12 col-xs-12"> <div class="row"> <div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>Name</label> <input type="text" class="form-control" placeholder="Name"> </div></div><div class="col-md-6 col-sm-12 col-xs-12"> <label>Relationship to the Reg user</label> <div class="form-group"> <select class="form-control"> <option>Father</option> <option>Mother</option> <option>Brother</option> <option>Sister</option> <option>Cousin</option> <option>Grand Father</option> <option>Grand Mother</option> </select> </div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>Tel</label> <input type="text" class="form-control" placeholder="Tel"> </div></div><div class="col-md-4 col-sm-12 col-xs-12"> <div class="form-group"> <label>Contact</label> <input type="text" class="form-control" placeholder="Contact"> </div></div><div class="col-md-2 col-sm-12 col-xs-12"> <div class="form-group"> <label>Age</label> <input type="text" class="form-control" placeholder="Age"> </div></div></div></div><div class="col-md-4 col-sm-12 col-xs-12 form-text-wrapper"> <div class="form-group"> <label>Address</label> <textarea class="form-control" rows="3" placeholder="Address"></textarea> </div><div class="form-check"> <input type="checkbox" class="form-check-input" id="cbxMinorImportAddress"> <label class="form-check-label" for="exampleCheck1">Import home address</label> </div></div><div class="col-sm-2 col-md-2"> <div class="form-group"><label>Rremove</label> <br><button type="button" class="remove_field1 btn btn-default btn-sm"> <span class="glyphicon glyphicon-minus"></span></button><button type="button" onclick="clearFamily()" class="btn btn-default btn-sm"><i class="fa fa-eraser"></i></button> </div></div></div></div>'); //add input box
+
+                }
+            });
+
+            $(wrapper).on("click", ".remove_field1", function (e) { //user click on remove text
+
+                var r = confirm("Are you sure want to delete?");
+                if (r == true) {
+                    e.preventDefault();
+                    $(this).parent('div').parent('div').parent('div').remove();
+                    x--;
+                }
+            })
+        });
+
+
+
+        $(document).ready(function () {
+            var max_fields = 6; //maximum input boxes allowed
+            var wrapper = $(".input_fields_wrap2"); //Fields wrapper
+            var add_button = $(".add_field_button2"); //Add button ID
+
+            var x = 1; //initlal text box count
+            $(add_button).click(function (e) { //on add input button click
+                e.preventDefault();
+                if (x < max_fields) { //max input box allowed
+                    x++; //text box increment
+                    $(wrapper).append('<div class="my"> <div class="row"> <div class="col-md-5 col-sm-12 col-xs-12"> <div class="panel panel-default"> <div class="panel-heading"> <h4 class="panel-title"> GP Details / Contact Info </h4> </div><div class="input_fields_wrap"> <div class="panel-body" style="height:281px;"> <div class="col-md-12 col-sm-12 col-xs-12 profile-details"> <div class="row"> <div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>Practice Name</label> <input type="text" class="form-control" placeholder="Practice Name"> </div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>Doctor</label> <input type="text" class="form-control" placeholder="Doctor"> </div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>Tel 1</label> <input type="text" class="form-control" placeholder="+1234567890"> </div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>Tel 1</label> <input type="text" class="form-control" placeholder="+1234567890"> </div></div><div class="col-md-12 col-sm-12 col-xs-12"> <div class="form-group"> <label>Email</label> <input type="text" class="form-control" placeholder="Email"> </div></div></div></div></div></div></div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="panel panel-default"> <div class="panel-heading"> <h4 class="panel-title"> Address Details </h4> </div><div class="panel-body"> <div class="row"> <div class="col-md-6 col-sm-6 col-xs-6 form-text-wrapper"> <div class="form-group"> <label for="sel1">Country</label> <select class="form-control"> <option>Select Country</option> <option>India</option> <option>USA</option> <option>Pakistan</option> <option>UAE</option> </select> </div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>Postcode</label> <input type="text" class="form-control" placeholder="Postcode"> </div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>City / Town</label> <input type="text" class="form-control" placeholder="City / Town"> </div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>State</label> <input type="text" class="form-control" placeholder="State"> </div></div></div><div class="col-md-12 col-sm-12 col-xs-12 form-text-wrapper"> <div class="form-group"> <label>Address</label> <textarea class="form-control" rows="3" placeholder="Address"></textarea> </div></div></div></div></div><div class="col-md-1 col-sm-12 col-xs-12"> <div class="form-group"> <label>Remove</label> <div class="col-md-12 col-sm-12 col-xs-12"> <button type="button" class="remove_field2 btn btn-default btn-sm"> <span class="glyphicon glyphicon-minus"></span> </button> </div><div class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 8px;"> <button type="button" onclick="clearGP()" class="btn btn-default btn-sm"> <i class="fa fa-eraser"></i> </button> </div></div></div></div></div></div>'); //add input box
+
+                }
+            });
+
+            $(wrapper).on("click", ".remove_field2", function (e) { //user click on remove text
+
+                var r = confirm("Are you sure want to delete?");
+                if (r == true) {
+                    e.preventDefault();
+                    $(this).parent('div').parent('div').parent('div').parent('div').parent('div').remove();
+                    x--;
+                }
+            })
+        });
+
+        $(document).ready(function () {
+            var max_fields = 3; //maximum input boxes allowed
+            var wrapper = $(".input_fields_wrap3"); //Fields wrapper
+            var add_button = $(".add_field_button3"); //Add button ID
+
+            var x = 1; //initlal text box count
+            $(add_button).click(function (e) { //on add input button click
+                e.preventDefault();
+                if (x < max_fields) { //max input box allowed
+                    x++; //text box increment
+                    $(wrapper).append('<div class="my"> <div class="row"> <div class="col-md-5 col-sm-12 col-xs-12"> <div class="panel panel-default"> <div class="panel-heading"> <h4 class="panel-title"> Chemist Details / Contact Info </h4> </div><div class="input_fields_wrap"> <div class="panel-body" style="height:281px;"> <div class="col-md-12 col-sm-12 col-xs-12 profile-details"> <div class="row"> <div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>Pharmacy Name</label> <input type="text" class="form-control" placeholder="Pharmacy Name"> </div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>Chemist Name</label> <input type="text" class="form-control" placeholder="Chemist Name"> </div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>Tel 1</label> <input type="text" class="form-control" placeholder="+1234567890"> </div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>Tel 2</label> <input type="text" class="form-control" placeholder="+1234567890"> </div></div><div class="col-md-12 col-sm-12 col-xs-12"> <div class="form-group"> <label>Email</label> <input type="text" class="form-control" placeholder="Email"> </div></div></div></div></div></div></div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="panel panel-default"> <div class="panel-heading"> <h4 class="panel-title"> Address Details </h4> </div><div class="panel-body"> <div class="row"> <div class="col-md-6 col-sm-6 col-xs-6 form-text-wrapper"> <div class="form-group"> <label for="sel1">Country</label> <select class="form-control"> <option>Select Country</option> <option>India</option> <option>USA</option> <option>Pakistan</option> <option>UAE</option> </select> </div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>Postcode</label> <input type="text" class="form-control" placeholder="Postcode"> </div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>City / Town</label> <input type="text" class="form-control" placeholder="City / Town"> </div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>State</label> <input type="text" class="form-control" placeholder="State"> </div></div></div><div class="col-md-12 col-sm-12 col-xs-12 form-text-wrapper"> <div class="form-group"> <label>Address</label> <textarea class="form-control" rows="3" placeholder="Address"></textarea> </div></div></div></div></div><div class="col-sm-1 col-md-1"> <div class="form-group"> <label>Add More</label> <div class="col-md-12 col-sm-12 col-xs-12"> <button type="button" class="remove_field3 btn btn-default btn-sm"><span class="glyphicon glyphicon-minus"></span></button> </div><div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:8px;"> <button type="button" onclick="clearCD()" class="btn btn-default btn-sm"><i class="fa fa-eraser"></i></button> </div></div></div></div></div>'); //add input box
+
+                }
+            });
+
+            $(wrapper).on("click", ".remove_field3", function (e) { //user click on remove text
+
+                var r = confirm("Are you sure want to delete?");
+                if (r == true) {
+                    e.preventDefault();
+                    $(this).parent('div').parent('div').parent('div').parent('div').parent('div').remove();
+                    x--;
+                }
+            })
+        });
+
+        $(document).ready(function () {
+            var max_fields = 3; //maximum input boxes allowed
+            var wrapper = $(".input_fields_wrap4"); //Fields wrapper
+            var add_button = $(".add_field_button4"); //Add button ID
+
+            var x = 1; //initlal text box count
+            $(add_button).click(function (e) { //on add input button click
+                e.preventDefault();
+                if (x < max_fields) { //max input box allowed
+                    x++; //text box increment
+                    $(wrapper).append('<div class="my"> <div class="row"> <div class="col-md-5 col-sm-12 col-xs-12"> <div class="panel panel-default"> <div class="panel-heading"> <h4 class="panel-title"> Career Details / Contact Info </h4> </div><div class="input_fields_wrap"> <div class="panel-body" style="height:281px;"> <div class="col-md-12 col-sm-12 col-xs-12 profile-details"> <div class="row"> <div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>Company Name</label> <input type="text" class="form-control" placeholder="Company Name"> </div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>Name</label> <input type="text" class="form-control" placeholder="Name"> </div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>Tel 1</label> <input type="text" class="form-control" placeholder="+1234567890"> </div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>Tel 2</label> <input type="text" class="form-control" placeholder="+1234567890"> </div></div><div class="col-md-12 col-sm-12 col-xs-12"> <div class="form-group"> <label>Email</label> <input type="text" class="form-control" placeholder="Email"> </div></div></div></div></div></div></div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="panel panel-default"> <div class="panel-heading"> <h4 class="panel-title"> Address Details </h4> </div><div class="panel-body"> <div class="row"> <div class="col-md-6 col-sm-6 col-xs-6 form-text-wrapper"> <div class="form-group"> <label for="sel1">Country</label> <select class="form-control"> <option>Select Country</option> <option>India</option> <option>USA</option> <option>Pakistan</option> <option>UAE</option> </select> </div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>Postcode</label> <input type="text" class="form-control" placeholder="Postcode"> </div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>City / Town</label> <input type="text" class="form-control" placeholder="City / Town"> </div></div><div class="col-md-6 col-sm-12 col-xs-12"> <div class="form-group"> <label>State</label> <input type="text" class="form-control" placeholder="State"> </div></div><div class="col-md-12 col-sm-12 col-xs-12 form-text-wrapper"> <div class="form-group"> <label>Address</label> <textarea class="form-control" rows="3" placeholder="Address"></textarea> </div></div></div></div></div></div><div class="col-sm-1 col-md-1"> <div class="form-group"> <label>Remove</label> <div class="col-md-12 col-sm-12 col-xs-12"> <button type="button" class="remove_field4 btn btn-default btn-sm"> <span class="glyphicon glyphicon-minus"></span></button> </div><div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:8px;"> <button type="button" onclick="clearCR()" class="btn btn-default btn-sm"><i class="fa fa-eraser"></i></button> </div></div></div></div></div>'); //add input box
+
+                }
+            });
+
+            $(wrapper).on("click", ".remove_field4", function (e) { //user click on remove text
+
+                var r = confirm("Are you sure want to delete?");
+                if (r == true) {
+                    e.preventDefault();
+                    $(this).parent('div').parent('div').parent('div').parent('div').parent('div').remove();
+                    x--;
+                }
+            })
+        });
+
+        $(document).ready(function () {
+            var max_fields = 6; //maximum input boxes allowed
+            var wrapper = $(".input_fields_wrap5"); //Fields wrapper
+            var add_button = $(".add_field_button5"); //Add button ID
+
+            var x = 1; //initlal text box count
+            $(add_button).on("click", function (e) { //on add input button click
+                e.preventDefault();
+                if (x < max_fields) { //max input box allowed
+                    x++; //text box increment
+                    $(wrapper).append('<div class="row"><div class="col-md-12 col-sm-12 col-xs-12"><div class="col-md-8 col-sm-12 col-xs-12"><div class="form-group"><input type="text" class="form-control" placeholder="Alert Text"></div> </div><div class="col-md-2 col-sm-12 col-xs-12"><div><label><input type="checkbox" class="js-switch" data-switchery="true">  Yes / No</label></div></div><div class="col-md-1 col-sm-12 col-xs-12"><div class="form-group"><a href="#" class="btn btn-success"><i class="fa fa-save"></i> Save</a></div></div><div class="col-sm-1 col-md-1"><div class="form-group"><div class="col-md-12 col-sm-12 col-xs-12"><button type="button" class="remove_field5 btn btn-default btn-sm"><span class="glyphicon glyphicon-minus"></span></button></div></div></div></div></div>'); //add input box
+
+                }
+            });
+
+            $(wrapper).on("click", ".remove_field5", function (e) { //user click on remove text
+
+                var r = confirm("Are you sure want to delete?");
+                if (r == true) {
+                    e.preventDefault();
+                    $(this).parent('div').parent('div').parent('div').parent('div').parent('div').remove();
+                    x--;
+                }
+
+            })
+        });
+
+        var $imageupload = $('.imageupload');
+        $imageupload.imageupload();
+
+        function pdCheck() {
+            var check = document.getElementById("fNamePd").value;
+            var elem = document.getElementsByClassName("icheckbox_flat-green");
+            if (check !== "") {
+                document.getElementById("pDcheck").checked = true;
+                elem[0].setAttribute("class", "icheckbox_flat-green checked");
+            } else {
+                document.getElementById("pDcheck").checked = false;
+                elem[0].setAttribute("class", "icheckbox_flat-green");
+            }
+        }
+
+        function pdCheck1() {
+            var check = document.getElementById("namePF").value;
+            var elem = document.getElementsByClassName("icheckbox_flat-green");
+            if (check !== "") {
+                document.getElementById("pDcheck2").checked = true;
+                elem[2].setAttribute("class", "icheckbox_flat-green checked");
+            } else {
+                document.getElementById("pDcheck2").checked = false;
+                elem[2].setAttribute("class", "icheckbox_flat-green");
+            }
+        }
+
+        function pdCheck2() {
+            var check = document.getElementById("pracNameGP").value;
+            var elem = document.getElementsByClassName("icheckbox_flat-green");
+            if (check !== "") {
+                document.getElementById("pDcheck3").checked = true;
+                elem[3].setAttribute("class", "icheckbox_flat-green checked");
+            } else {
+                document.getElementById("pDcheck3").checked = false;
+                elem[3].setAttribute("class", "icheckbox_flat-green");
+            }
+        }
+
+        function pdCheck3() {
+            var check = document.getElementById("chemNameCD").value;
+            var elem = document.getElementsByClassName("icheckbox_flat-green");
+            if (check !== "") {
+                document.getElementById("pDcheck4").checked = true;
+                elem[4].setAttribute("class", "icheckbox_flat-green checked");
+            } else {
+                document.getElementById("pDcheck4").checked = false;
+                elem[4].setAttribute("class", "icheckbox_flat-green");
+            }
+        }
+
+        function pdCheck4() {
+            var check = document.getElementById("compNameC").value;
+            var elem = document.getElementsByClassName("icheckbox_flat-green");
+            if (check !== "") {
+                document.getElementById("pDcheck5").checked = true;
+                elem[5].setAttribute("class", "icheckbox_flat-green checked");
+            } else {
+                document.getElementById("pDcheck5").checked = false;
+                elem[5].setAttribute("class", "icheckbox_flat-green");
+            }
+        }
+
+        function pdCheck5() {
+
+            var check = document.getElementById("demograp").value;
+            var elem = document.getElementsByClassName("icheckbox_flat-green");
+            if (check !== "") {
+                document.getElementById("pDcheck6").checked = true;
+                elem[1].setAttribute("class", "icheckbox_flat-green checked");
+            } else {
+                document.getElementById("pDcheck6").checked = false;
+                elem[1].setAttribute("class", "icheckbox_flat-green");
+            }
+        }
+
+        function pdChk6() {
+
+            var check = document.getElementById("demograp").value;
+            var elem = document.getElementsByClassName("icheckbox_flat-green");
+            if (check !== "") {
+                document.getElementById("pDcheck7").checked = true;
+                elem[7].setAttribute("class", "icheckbox_flat-green checked");
+            } else {
+                document.getElementById("pDcheck7").checked = false;
+                elem[7].setAttribute("class", "icheckbox_flat-green");
+            }
+        }
+
+        $(function () {
+            $('.multiselect-ui').multiselect({
+                includeSelectAllOption: true
+            });
+        });
+
+
+        var chkall = document.getElementById("checkall");
+
+        chkall.addEventListener("click", function () {
+
+            var elem = document.getElementsByClassName("icheckbox_flat-green");
+
+
+            if (chkall.checked == true) {
+                for (var i = 8; i <= elem.length; i++) {
+                    elem[i].setAttribute("class", "icheckbox_flat-green checked");
+                }
+            }
+
+            if (chkall.checked == false) {
+                for (var i = 8; i <= elem.length; i++) {
+                    elem[i].setAttribute("class", "icheckbox_flat-green");
+                }
+            }
+
+        });
+
+        function alertcolor() {
+
+            var alertchk = document.getElementById("alertchk").checked;
+
+            if (alertchk == true) {
+                document.getElementById("switchoffon").innerHTML = "On";
+                document.getElementById("alert_color").style.color = "red";
+            } else {
+                document.getElementById("alert_color").style.color = "inherit";
+                document.getElementById("switchoffon").innerHTML = "Off";
+            }
+        }
+
+        function clearGP() {
+            var r = confirm("Are you sure want to clear all data?");
+            if (r == true) {
+                $('.input_fields_wrap2').find('input[type=text]').val('');
+                $('.input_fields_wrap2').find('textarea').val('');
+                pdCheck2();
+            }
+
+        }
+        function clearCD() {
+            var r = confirm("Are you sure want to clear all data?");
+            if (r == true) {
+                $('.input_fields_wrap3').find('input[type=text]').val('');
+                $('.input_fields_wrap3').find('textarea').val('');
+                pdCheck3();
+            }
+
+        }
+        function clearCR() {
+            debugger;
+            var r = confirm("Are you sure want to clear all data?");
+            if (r == true) {
+                $('.input_fields_wrap4').find('input[type=text]').val('');
+                $('.input_fields_wrap4').find('textarea').val('');
+                pdCheck4();
+            }
+
+        }
+        function clearFamily() {
+            var r = confirm("Are you sure want to clear all data?");
+            if (r == true) {
+                $('.input_fields_wrap1').find('input[type=text]').val('');
+                $('.input_fields_wrap1').find('textarea').val('');
+                pdCheck1();
+            }
+
+        }
+
+        function clearPtD() {
+            var r = confirm("Are you sure want to clear all data?");
+            if (r == true) {
+                $('.input_fields_wrap').find('input[type=text]').val('');
+                $('.input_fields_wrap').find('textarea').val('');
+                pdCheck();
+            }
+
+        }
+
+
+
+        function chkfiles() {
+            debugger;
+            var chk = document.getElementById("chkallfiles").checked;
+
+            var item = document.getElementById("multiaction");
+
+            if (chk == true) {
+                var chkall = document.getElementsByClassName("files");
+
+                item.style.display = "block";
+
+                for (var i = 0; i <= chkall.length; i++) {
+                    chkall[i].checked = true;
+                }
+            } else if (chk == false) {
+
+                item.style.display = "none";
+
+                var chkall = document.getElementsByClassName("files");
+                for (var i = 0; i <= chkall.length; i++) {
+                    chkall[i].checked = false;
+                }
+            }
+        }
+        /*  $(document).ready(function () {
+            $(".cho-btn").click(function () {
+
+
+            });
+        });
+        */
+        function nxt_tab(a) {
+            $("#" + a).click();
+        }
+    </script>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+                $(".cho-btn").hide();
+                $(".up-cho-btn").show();
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        //newly added by vajesh
+        $(function () {
+            // Multiple images preview in browser
+            var imagesPreview = function (input, placeToInsertImagePreview) {
+
+                if (input.files) {
+                    var filesAmount = input.files.length;
+                    var html_content = '';
+                    for (i = 0; i < filesAmount; i++) {
+                        var reader = new FileReader();
+                        file_name = input.files[i]['name'];
+                        //   reader.onload = function (event) {
+                        x = i + 1;
+                        var html_content = html_content + '<tr role="row" class="odd"><td style="padding-left:8px;">' + x + '</td><td tabindex="0" class="sorting_1"><a href="#">' + file_name + '</a></td><td tabindex="0" class="sorting_1"><input type="text"></td><td><a href="#" class="btn btn-success"><i class="fa  fa-share" data-toggle="tooltip" data-title="Share Document" data-original-title="" title=""></i></a><a href="#" class="btn btn-success"><i class="fa  fa-edit" data-toggle="tooltip" data-title="Edit Title" data-original-title="" title=""></i></a><a href="#" class="btn btn-success" onclick="confirm(' + '"Are you sure want to delete document?"' + ')"><i class="fa  fa-trash" data-toggle="tooltip" data-title="Delete" data-original-title="" title=""></i></a></td></tr>';
+                        //   $(placeToInsertImagePreview).append(html_content)
+                        //    $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                        //  }
+                        $("#upload_list_files").html(html_content);
+                        //reader.readAsDataURL(input.files[i]);
+                    }
+                    $('#upload_document').show();
+                }
+
+            };
+            $('#upload-file-selector').on('change', function () {
+                imagesPreview(this, '#datatable-responsive');
+            });
+
+        });
+        $(function () {
+            $("#datepicker").datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+
+    </script>
+</body>
+</html>

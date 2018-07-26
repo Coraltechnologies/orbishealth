@@ -1,0 +1,197 @@
+﻿@{
+    ViewBag.Title = "ConsultingLocationSummaryPage";
+    Layout = "~/Views/Shared/Professional_PracticeLayout.cshtml";
+}
+<style>
+    .nav-tabs {
+        border-bottom: 2px solid #DDD;
+    }
+
+        .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+            border-width: 0;
+        }
+
+        .nav-tabs > li > a {
+            border: none;
+            color: #666;
+        }
+
+            .nav-tabs > li.active > a, .nav-tabs > li > a:hover {
+                border: none;
+                color: #4285F4 !important;
+                background: transparent;
+            }
+
+            .nav-tabs > li > a::after {
+                content: "";
+                background: #4285F4;
+                height: 2px;
+                position: absolute;
+                width: 100%;
+                left: 0px;
+                bottom: -1px;
+                transition: all 250ms ease 0s;
+                transform: scale(0);
+            }
+
+        .nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after {
+            transform: scale(1);
+        }
+
+    .tab-nav > li > a::after {
+        background: #21527d none repeat scroll 0% 0%;
+        color: #fff;
+    }
+
+    .tab-pane {
+        padding: 15px 0;
+    }
+
+    .tab-content {
+        padding: 20px;
+    }
+
+    .card {
+        background: #FFF none repeat scroll 0% 0%;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+        margin-bottom: 30px;
+    }
+</style>
+
+<form class="form-horizontal form-label-left row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="x_panel" id="printableArea">
+            <div class="x_title">
+                <h2>Consutling Location Summary <span class="patient-status" data-toggle="tooltip" data-title="Active" data-original-title="" title="" aria-describedby="tooltip812493"><i class="fa fa-check-square"></i></span></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li> <input type="button" onclick="printDiv('printableArea')" class="btn btn-md btn-success" value="Print" /></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    @*<div class="col-xs-12 col-sm-12 col-md-4">
+                            <b>Assigned Doctor : </b>  Dr. John Doe<br>
+                            <b>Address : </b>123, Street name,<br>
+                            City name, State - 12345<br>
+                            <b>Tel 1 : </b>  +01234567890<br>
+                            <b>Email 1 : </b> williamson@gmail.com
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <b>Opening Hrs / Parking</b><br>
+                            11:00 AM to 8 PM<br>
+                            Break Hrs: 1:00 PM - 2 PM<br>
+                            22/06/2017 - Bank Holiday<br>
+                            Parking - off road<br>
+                            <b>Directions : </b> None
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <b>Services</b><br>
+                            X-Ray<br>
+                            Blood Test<br>
+                            Well women Clinics<br>
+                            Ultrasound<br>
+                        </div>*@
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Consulting Location</h4>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="col-md-12">
+                                @foreach (var consloc in Model.ConsultingRoom)
+                                {
+                                    <div class="col-md-6">
+                                        <p>
+                                            <label style="font-size:17px;">Consulting Room(-@consloc.RoomTitle-)</label> <br /> <strong>Address</strong> : @consloc.Address, @consloc.State - @consloc.Postcode <br />
+                                            <strong>Tel  : </strong>  @consloc.Tel<br>
+                                            <strong>Email  : </strong> @consloc.Email<br />
+                                            <strong>Parking </strong>: @consloc.Parking<br />
+                                        </p>
+                                    </div>
+                                }
+
+                                <div class="col-md-6">
+                                    <p>
+                                        <label>Services</label><br />
+                                        @foreach (var service in Model.ServiceName)
+                                        {
+                                            @service.Servicename <br />
+                                        }
+                                    </p>
+                                </div>
+
+                                <p>
+                                    <table class="table table-striped table-bordered">
+
+                                        <thead>
+                                            <tr>
+                                                <th>Weeks</th>
+                                                <th><i class="fa fa-coffee" aria-hidden="true"></i> Morn</th>
+                                                <th>
+                                                    <i class="fa fa-sun-o" aria-hidden="true"></i>
+                                                    Noon
+                                                </th>
+                                                <th><i class="fa fa-moon-o" aria-hidden="true"></i> Even</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Mon</td>
+                                                <td>09:00 - 11:00 AM</td>
+                                                <td>01:00 - 03:00 PM</td>
+                                                <td>06:00 - 09:00 PM</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tue</td>
+                                                <td>09:00 - 11:00 AM</td>
+                                                <td>01:00 - 03:00 PM</td>
+                                                <td>06:00 - 09:00 PM</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Wed</td>
+                                                <td>09:00 - 11:00 AM</td>
+                                                <td>01:00 - 03:00 PM</td>
+                                                <td>06:00 - 09:00 PM</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Thu</td>
+                                                <td colspan="3" style="text-align: center; color:green;"><b>---  24/7 Open ---</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Fri</td>
+                                                <td colspan="3" style="text-align: center; color:red;"><b>---  Closed  ---</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sat</td>
+                                                <td colspan="3" style="text-align: center; color:green;"><b>---  24/7 Open ---</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sun</td>
+                                                <td colspan="3" style="text-align: center; color:red;"><b>---  Closed  ---</b></td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
+</script>

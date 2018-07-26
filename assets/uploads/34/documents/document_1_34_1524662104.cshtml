@@ -1,0 +1,1866 @@
+﻿@model thinkdoctor.Models.DoctorReg
+@{
+    ViewBag.Title = "DoctorReg";
+    Layout = "~/Views/Shared/Professional_PracticeLayout.cshtml";
+}
+@*<link href="~/Content/build/css/jquery.ui.autocomplete.css" rel="stylesheet" />*@
+<style>
+    .avg-profile-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .up-cho-btn {
+        display: none;
+    }
+
+    .ui-corner-all {
+        z-index: 1000 !important;
+    }
+</style>
+<!-- Display Section-->
+<div class="col-xs-12 col-sm-12 col-md-12">
+    @*<div class="x_title">
+        <h2>Doctor Registration</h2>
+        <a href="@Url.Action("DoctorSummaryPage","DoctorSummary")"><input type="button" class="btn btn-success btn-sm pull-right" value="View Summary" /></a>
+        <div class="clearfix"></div>
+    </div>*@
+    <ul class="nav nav-tabs" id="myTab">
+        <li class="active" id="tab1">
+            <a id="doc_personal_detail" data-toggle="tab" href="#menu3">
+                Personal Details  <input type="checkbox" id="pDcheck3" class="flat" style="position: absolute; opacity: 0;">
+                <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+            </a>
+        </li>
+        <li id="tab2">
+            <a id="doc_professtional_reg" data-toggle="tab" href="#menu5">
+                Professional Registration  <input type="checkbox" id="pDcheck5" class="flat" style="position: absolute; opacity: 0;">
+                <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+            </a>
+        </li>
+        <li id="tab3">
+            <a id="doc_professtional_documents" data-toggle="tab" href="#menu6">
+                Documents <input type="checkbox" id="pDcheck6" class="flat" style="position: absolute; opacity: 0;">
+                <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+            </a>
+        </li>
+        <div class="col-md-12 col-sm-12 col-xs-12 drop-down-error form-status-holder pull-right"></div>
+    </ul>
+    <div class="tab-content" id="fullpage">
+        <div id="menu3" class="tab-pane fade in active">
+            <p></p>
+            <div class="x_panel">
+                <div class="row">
+                    @Html.HiddenFor(m => m.ID, new { @id = "ID" })
+                    <div class="col-md-12 col-sm-12 col-xs-12 clinic-both-section padding-null">
+                        <div class="col-md-12 col-sm-12 col-xs-12" onload="Select_PatientMobileCode(); gettypeofspecialist(); getprofbody();">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Personal Details</div>
+                                <div class="panel-body">
+                                    <div class="col-md-3 col-sm-6 col-xs-12">
+                                        <div class="text-center">
+                                            <img id="blah" src="/Content/images/profile-image.png" class="avg-profile-img img-circle img-thumbnail" alt="avatar" />
+
+                                            <div></div>
+                                            <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 10px;">
+                                                <input type="file" id="FileUpload1" class="center-block well well-sm" onchange="readURL(this);" style="width: 100px; !important;padding: 6px;">
+                                            </div>
+                                            @*<div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 10px;">
+                                                    <button type="button" id="btnUpload" class="btn btn-success" style="width: 90% !important;">Upload</button>
+                                                </div>*@
+                                            @*
+                                                <input type="file" class="center-block well well-sm cho-btn" onchange="readURL(this);" style="width: 40% !important;margin-top: 5px;">*@
+                                        </div>
+                                        <div class="up-cho-btn">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9 col-sm-12 col-xs-12" style="margin-top:20px;">
+                                        <div class="col-md-2 col-sm-12 col-xs-12">
+                                            @Html.LabelFor(m => m.Title)<span class="asterisk" style="color:red">*</span>
+                                            @Html.DropDownListFor(m => m.Titles, new SelectList(Model.Titles, "Value", "Name"), "Title", new { @class = "form-control" })
+                                        </div>
+                                        <div class="col-md-4 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>First Name<span class="asterisk" style="color:red">*</span></label>
+                                                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @placeholder = "First Name" })
+                                                @Html.ValidationMessageFor(model => model.FirstName)
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Last Name <span class="asterisk" style="color:red">*</span></label>
+                                                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", @placeholder = "Last Name" })
+                                                @Html.ValidationMessageFor(model => model.LastName)
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.Gender)<span class="asterisk" style="color:red">*</span>
+                                                @Html.DropDownListFor(m => m.Genders, new SelectList(Model.Genders, "Value", "Name"), "Gender", new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <div class="xdisplay_inputx form-group has-feedback">
+                                                    <label>DOB<span class="asterisk" style="color:red;float: right;"> *</span></label>
+                                                    <div class="xdisplay_inputx form-group has-feedback">
+                                                        <input type="text" class="form-control has-feedback-left" id="single_cal3" aria-describedby="inputSuccess2Status4" onchange="agecount()" />
+                                                        <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                                                        <span id="inputSuccess2Status4" class="sr-only">(success)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Mobile<span class="asterisk" style="color:red">*</span></label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <input type="checkbox">
+                                                    </span>
+                                                    @*<input type="text" class="form-control" placeholder="+123 4567 890">*@
+                                                    @Html.EditorFor(model => model.HomeTel, new { htmlAttributes = new { @class = "form-control", @onkeypress = "return numbersonly(this, event)" } })
+                                                    @Html.ValidationMessageFor(model => model.HomeTel, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Phone</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <input type="checkbox">
+                                                    </span>
+                                                    @*<input type="text" class="form-control" placeholder="+123 4567 890">*@
+                                                    @Html.EditorFor(model => model.WorkTel, new { htmlAttributes = new { @class = "form-control", @onkeypress = "return numbersonly(this, event)" } })
+                                                    @Html.ValidationMessageFor(model => model.WorkTel, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Email<span class="asterisk" style="color:red">*</span></label>
+                                                <div class="form-group has-feedback">
+                                                    @*<input type="text" class="form-control has-feedback-left" id="txtGpEmail" placeholder="Email 1" style="width:150px;">*@
+                                                    @Html.EditorFor(model => model.Email1, new { htmlAttributes = new { @class = "form-control has-feedback-left", @type = "email", @style = "width:220px; padding-right: unset;" } })
+                                                    @Html.ValidationMessageFor(model => model.Email1, "", new { @class = "text-danger" })
+                                                    <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Languages Spoken<span class="asterisk" style="color:red">*</span></label>
+                                                @Html.DropDownListFor(m => m.LanguageID, Model.LanguageList, new { @class = "form-control multi-select-drop-down Multi_Langagues", @multiple = "multiple", @id = "ddlLanguageSpoken" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Address</div>
+                                <div class="panel-body">
+                                    <div class="col-md-8 col-sm-12 col-xs-12 padding-null">
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Country <span class="asterisk" style="color:red">*</span></label>
+                                                @Html.DropDownListFor(m => m.CountryCode, Model.CountriesList, "Select Country", new { @class = "selectBox form-control ", @id = "DropDownListCounties", @onchange = "Select_PatientMobileCode()" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Postcode<span class="asterisk" style="color:red">*</span></label>
+                                                @Html.TextBoxFor(m => m.Postcode, new { @class = "form-control", id = "TextBoxZipCode", maxlength = 9 })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>City / Town<span class="asterisk" style="color:red">*</span></label>
+                                                @Html.TextBoxFor(m => m.City, new { @class = "form-control", id = "TextBoxCity" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>State<span class="asterisk" style="color:red">*</span></label>
+                                                @Html.TextBoxFor(m => m.State, new { @class = "form-control", id = "TextBoxState" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-12 col-xs-12 padding-null">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Address<span class="asterisk" style="color:red">*</span></label>
+                                                <textarea class="form-control" rows="4" placeholder="Address" id="TextBoxVenueLocation"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+
+                                @*<a href="#" class="buttonNext btn btn-success pull-right" id="btnNext1" onclick="chk_validation(); pdCheck2(); nxt_tab('doc_professtional_reg');"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save and Continue <i class="fa fa-angle-right" aria-hidden="true"></i></a>*@
+                                <a href="#" class="buttonNext btn btn-success pull-right" onclick="chk_validation(); pdCheck2();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save and Continue <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="menu5" class="tab-pane fade">
+            <p></p>
+            <div class="x_panel">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Select Country of Practice( Licence to Practice ) </div>
+                                    <div class="panel-body" style="padding-top: 22px;">
+                                        <div class="col-md-4 col-sm-12 col-xs-12" id="prof_body">
+                                            <div class="form-group">
+                                                <label>Select Country<span class="asterisk" style="color:red">*</span></label>
+                                                @Html.DropDownListFor(m => m.CountryId, Model.CountriesList, "Choose Country", new { @class = "form-control ", @id = "DropDownListCountry" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Your Professional Details</label>
+                                                @Html.DropDownList("master_professional_types", ViewBag.ProffesionalDoctor as SelectList, "-- Please Select   --", new { @class = "selectBox form-control ", @id = "DropDownListDR" })
+                                                @Html.ValidationMessageFor(m => m.Country, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Type of specialist</label>
+                                                <select id="typelist" class="multiselect-ui form-control MultiserviceType" multiple="multiple"></select>
+                                                @*@Html.DropDownListFor(m => m.LanguageID, Model.LanguageList, new { @class = "form-control multi-select-drop-down MultiserviceType", @multiple = "multiple", @id = "typelist" })*@
+                                                @*<select id="typelist" class="multiselect-ui form-control MultiserviceType  multi-select-drop-down" multiple="multiple"></select>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        Professional Registration <a href="#mygmcUpload" data-toggle="modal" class="pull-right"><i class="fa fa-upload" aria-hidden="true"></i></a>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-md-4 col-sm-12 col-xs-12" id="prof_body">
+                                            <div class="form-group">
+                                                <label>Professional Body<span class="asterisk" style="color:red">*</span></label>
+                                                @*@Html.DropDownList("master_medical_bodies", new SelectList(string.Empty, "Value", "Text"), "-- Please select --", new { @class = "form-control" })*@
+                                                <select id="professionaltypelist" class="form-control"></select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Number<span class="asterisk" style="color:red">*</span></label>
+                                                <input id="prof_gmc" type="text" class="form-control" placeholder="Number">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Expiry Date<span class="asterisk" style="color:red">*</span></label>
+                                                <input id="single_cal1" type="text" class="form-control" placeholder="Expiry Date">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12" style="display:none">
+                                            <div class="list-group">
+                                                <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap dataTable no-footer dtr-inline collapsed" cellspacing="0" width="100%" role="grid" aria-describedby="datatable-responsive_info" style="width: 100%;">
+                                                    <thead>
+                                                        <tr role="row">
+                                                            <th class="sorting_asc text-center" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Title</th>
+                                                            <th class="sorting text-center" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending">Action</th>
+                                                            <th class="sorting text-center" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending">Show Public</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr role="row" class="odd">
+                                                            <td tabindex="0" class="sorting_1 text-center"><a href="#">Document</a></td>
+                                                            <td class="text-center">
+                                                                <a href="#" class="btn btn-success"><i class="fa  fa-edit" data-toggle="tooltip" data-title="Edit Title" data-original-title="" title=""></i></a>
+                                                                <a href="#" class="btn btn-success" onclick="confirm('Are you sure want to delete document?')"><i class="fa  fa-trash" data-toggle="tooltip" data-title="Delete" data-original-title="" title=""></i></a>
+                                                            </td>
+                                                            <td tabindex="0" class="sorting_1"><center><input class="form-check-input" type="checkbox"></center></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+
+                                    <div class="panel-heading">ICO Registration  <a href="#myicoUpload" data-toggle="modal" class="pull-right"><i class="fa fa-upload" aria-hidden="true"></i></a></div>
+                                    <div class="panel-body">
+                                        <div class="col-md-4 col-sm-12 col-xs-12" id="prof_body">
+                                            <div class="form-group">
+                                                <label>Number</label>
+                                                <input id="ico_number" type="text" class="form-control" placeholder="Number">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Expiry Date</label>
+                                                <input id="single_cal5" type="text" class="form-control" placeholder="Expiry Date">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4" style="display:none">
+                                            <div class="list-group">
+                                                <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap dataTable no-footer dtr-inline collapsed" cellspacing="0" width="100%" role="grid" aria-describedby="datatable-responsive_info" style="width: 100%;">
+                                                    <thead>
+                                                        <tr role="row">
+                                                            <th class="sorting_asc text-center" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Files</th>
+                                                            <th class="sorting text-center" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending">Action</th>
+                                                            <th class="sorting text-center" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending">Show Public</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr role="row" class="odd">
+                                                            <td tabindex="0" class="sorting_1 text-center"><a href="#">Document</a></td>
+                                                            <td class="text-center">
+                                                                <a href="#" class="btn btn-success"><i class="fa  fa-edit" data-toggle="tooltip" data-title="Edit Title" data-original-title="" title=""></i></a>
+                                                                <a href="#" class="btn btn-success" onclick="confirm('Are you sure want to delete document?')"><i class="fa  fa-trash" data-toggle="tooltip" data-title="Delete" data-original-title="" title=""></i></a>
+                                                            </td>
+                                                            <td tabindex="0" class="sorting_1"><center><input class="form-check-input" type="checkbox"></center></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Indemnity  <a href="#myindemnityUpload" data-toggle="modal" class="pull-right"><i class="fa fa-upload" aria-hidden="true"></i></a></div>
+                                    <div class="panel-body">
+                                        <div class="col-md-12 col-sm-12 col-xs-12" id="prof_body">
+                                            <div class="form-group">
+                                                <label>Name of company</label>
+                                                <input id="ind_company" type="text" class="form-control" placeholder="Company Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Number</label>
+                                                <input id="ind_number" type="text" class="form-control" placeholder="Number">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Expiry Date</label>
+                                                <input id="single_cal6" type="text" class="form-control" placeholder="Expiry Date">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12" style="display:none">
+                                            <div class="list-group">
+                                                <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap dataTable no-footer dtr-inline collapsed" cellspacing="0" width="100%" role="grid" aria-describedby="datatable-responsive_info" style="width: 100%;">
+                                                    <thead>
+                                                        <tr role="row">
+                                                            <th class="sorting_asc text-center" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Files</th>
+                                                            <th class="sorting text-center" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending">Action</th>
+                                                            <th class="sorting text-center" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending">Show Public</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr role="row" class="odd">
+                                                            <td tabindex="0" class="sorting_1 text-center"><a href="#">Document</a></td>
+                                                            <td class="text-center">
+                                                                <a href="#" class="btn btn-success"><i class="fa  fa-edit" data-toggle="tooltip" data-title="Edit Title" data-original-title="" title=""></i></a>
+                                                                <a href="#" class="btn btn-success" onclick="confirm('Are you sure want to delete document?')"><i class="fa  fa-trash" data-toggle="tooltip" data-title="Delete" data-original-title="" title=""></i></a>
+                                                            </td>
+                                                            <td tabindex="0" class="sorting_1"><center><input class="form-check-input" type="checkbox"></center></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Professional Details</div>
+                                    <div class="panel-body">
+
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Qualifications<span class="asterisk" style="color:red">*</span></label>
+                                                <textarea class="form-control" rows="3" placeholder="Ex: MBBS, MD, etc." id="txtareaQualifications"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Memberships</label>
+                                                <textarea class="form-control" rows="3" placeholder="Memberships" id="txtareaMemberShips"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Professional Experience<span class="asterisk" style="color:red">*</span></label>
+
+                                                @*<textarea class="form-control" rows="4" placeholder="Professional Experience" onblur="psaving()" id="txtareaProfessionalExperience"></textarea>*@
+                                                <textarea class="form-control" rows="4" placeholder="Professional Experience" id="txtareaProfessionalExperience"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Services<span class="asterisk" style="color:red">*</span></label>
+                                                @Html.DropDownListFor(m => m.Sid, Model.servericedata, new { @class = "form-control multi-select-drop-down multiservericelist", @multiple = "multiple", @id = "dropdownservices" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-sm-12 col-xs-12 padding-null">
+                                            <div class="col-md-11 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label>Services if any</label>
+                                                    <input type="text" id="other_service" class="form-control" placeholder="Other Services if any" onchange="otherservice()" onkeydown="search(this)">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label></label>
+                                                    <input type="button" id="addservice" class="btn btn-success btn-sm pull-right" style="margin-top: 0px; margin-right: 0px; font-size:14px;" value="+">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                @*<a href="#" class="buttonPrevious btn btn-success pull-right" onclick="nxt_tab('doc_personal_detail');"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</a>*@
+                                <a href="#" class="buttonNext btn btn-success pull-right" onclick="chk_validation1(); pdCheck4();"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save and Continue <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="menu6" class="tab-pane fade">
+            <p></p>
+            <div class="x_panel">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-12 col-xs-12" style="width: 200px;">
+                                <div class="form-group" >
+                                    <label>Upload Documents / Files</label>
+                                    <div class="file-input file-input-ajax-new">
+                                        <label class="btn btn-primary" style="margin-top: 10px;">
+                                            <input class="file-4" id="upload-file-selector" type="file" multiple>Upload
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8 col-sm-12 col-xs-12" id="upload_document" style="display:none;">
+                                <label>Uploaded Documents / Files</label>
+                                <div class="list-group">
+
+                                    <table id="datatable-responsive-temp" class="table table-fixed table-striped table-bordered" cellspacing="0" width="100%" role="grid" aria-describedby="datatable-responsive_info" style="width: 100%; ">
+                                        <thead>
+                                            <tr role="row">
+                                                <th><input type="checkbox" onchange="chkfiles()" id="chkallfiles" /> &nbsp; #</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Files</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Title</th>
+                                                <th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="upload_list_files" style="height: 10px !important; overflow: scroll; "></tbody>
+                                    </table>
+                                </div>
+                                <div class="modal fade notes-info" id="mail-edit-modal" style="display: none;">
+                                    <div class="modal-dialog modal-md">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                                                <h4 class="modal-title">Email Documents</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <input class="form-control" placeholder="Enter Email">
+                                                <div class="action-icon">
+                                                    <a href="#"><i class="fa fa-2x fa-envelope" data-toggle="tooltip" data-title="Send Mail" data-original-title="" title=""></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="actionBar" style="margin-top:380px;">
+                    @*<a href="#" class="buttonPrevious btn btn-primary" onclick="nxt_tab('pat_reg_personal-carer');"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</a>
+                        <a href="#" class="buttonNext btn btn-success" onclick="nxt_tab('pat_reg_personal-notes');">Next <i class="fa fa-angle-right" aria-hidden="true"></i></a>*@
+                    @*<a href="#" id="docfinalsave" class="btn btn-success pull-right">Save</a>*@
+                    <input type="button" id="docfinalsave" class="btn btn-success btn-sm pull-right" value="Save" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal GMC Upload-->
+<div class="modal fade" id="mygmcUpload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">GMC Document Upload</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <input id="file-5" type="file" class="file" data-upload-url="@Url.Action("FileUploading","DoctorRegistration")" />
+                        @*<div class="imageupload">
+                            <div class="file-tab" id="file-tab1">
+                                <label class="btn btn-default btn-file">
+                                    <span>Browse</span>
+                                </label>
+                                <button type="button" class="btn btn-default" style="display: none;">Remove</button>
+                            </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modals ICO Upload -->
+<!-- Modal -->
+<div class="modal fade" id="myicoUpload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">ICO Registration Document Upload </h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <input id="file-6" type="file" class="file" data-upload-url="@Url.Action("FileUploading","DoctorRegistration")" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modals upload -->
+<!-- Modal  Indemnity Upload-->
+<div class="modal fade" id="myindemnityUpload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Indemnity Document Upload</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <input id="file-8" type="file" class="file" data-upload-url="@Url.Action("FileUploading","DoctorRegistration")" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modals -->
+<!-- Modal Appraisal Upload-->
+<div class="modal fade" id="myappraisalUpload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Appraisal Document Upload </h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <input id="file-7" type="file" class="file" data-upload-url="@Url.Action("FileUploading","DoctorRegistration")" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Display Section-->
+@*<script src="~/Content/magicsuggest/magicsuggest-min.js"></script>
+    <script src="~/Content/vendors/multiple_select/bootstrap-multiselect.js"></script>
+    <script src="/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    <script src="~/Content/vendors/jquery/dist/jquery.min.js"></script>
+    <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet" />
+    <script src='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/js/jquery.circliful.min.js'></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    <script src="~/Content/vendors/timepicker/js/timepicki.js"></script>*@
+
+<script src="~/Content/vendors/jquery/dist/jquery.min.js"></script>
+<link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet" />
+<script src='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/js/jquery.circliful.min.js'></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<script src="~/Content/vendors/multiple_select/bootstrap-multiselect.js"></script>
+
+@*// Get Prof Basic Details //*@
+<script>
+
+    $(document).ready(function () {
+        $('#Email1').attr('readonly', 'true'); // mark it as read only
+        $.ajax({
+            url: '@Url.Action("GetBasicDetails", "DoctorRegistration")',
+            dataType: "json",
+            type: "GET",
+            async: false,
+            error: function (xhr, status, error) {
+                var err = eval("(" + xhr.responseText + ")");
+                toastr.error(err.message);
+            },
+            success: function (data) {
+                //console.log(data);
+                $('#blah').attr('src', data[0].Photo);
+
+                //$('#blah').val(data[0].Photo);
+                $('#FirstName').val(data[0].FirstName);
+                $('#LastName').val(data[0].LastName);
+                $('#DropDownListCounties').val(data[0].CountryCodes_Id);
+                $('#Email1').val(data[0].Email1);
+                $('#HomeTel').val(data[0].Mobile);
+                $('#DropDownListCountry').val(data[0].CountryCodes_Id);
+                $('#DropDownListDR').val(data[0].prof_details);
+
+                $('#Titles').val(data[0].Title);
+                $('#Genders').val(data[0].Gender);
+                if (data[0].Dob == '//') {
+
+                }
+                else {
+                    $('#single_cal3').val(data[0].Dob);
+                }
+
+                $('#WorkTel').val(data[0].WorkTel);
+                $('#ddlLanguageSpoken').val(data[0].LanguageSpoken);
+                $('#TextBoxZipCode').val(data[0].Postcode);
+                $('#TextBoxCity').val(data[0].City);
+                $('#TextBoxState').val(data[0].State);
+                $('#TextBoxVenueLocation').val(data[0].Address1);
+                $('#txtareaQualifications').val(data[0].Qualification);
+                $('#txtareaMemberShips').val(data[0].Memberships);
+                $('#txtareaProfessionalExperience').val(data[0].Prof_exp);
+            }
+        });
+        gettypeofspecialist();
+        getprofbody();
+        //pdCheck2();
+        //pdCheck4();
+    });
+    //End //
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('.multiservericelist').multiselect({
+            includeSelectAllOption: true,
+            enableFiltering: true,
+            maxHeight: 250,
+            width: 210
+        });
+
+        $("#single_cal3").datepicker({
+            dateFormat: 'dd/mm/yy',
+            changeMonth: true,
+            changeYear: true
+        });
+
+        $("#single_cal2").datepicker({
+            dateFormat: 'dd/mm/yy',
+            changeMonth: true,
+            changeYear: true
+        });
+        $("#single_cal1").datepicker({
+            dateFormat: 'dd/mm/yy',
+            changeMonth: true,
+            changeYear: true
+        });
+        $("#single_cal5").datepicker({
+            dateFormat: 'dd/mm/yy',
+            changeMonth: true,
+            changeYear: true
+        });
+        $("#single_cal6").datepicker({
+            dateFormat: 'dd/mm/yy',
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+</script>
+<script>
+
+    var autosave_timer = null;
+
+    $("#Titles").change(function () {
+        $("#Titles").css("border-color", "#ccc");
+    });
+
+    $("#FirstName").keydown(function () {
+        $("#FirstName").css("border-color", "#ccc");
+    });
+
+    $("#LastName").keydown(function () {
+        $("#LastName").css("border-color", "#ccc");
+    });
+
+    $("#single_cal3").keydown(function () {
+        $("#single_cal3").css("border-color", "#ccc");
+    });
+
+    $("#HomeTel").keydown(function () {
+        $("#HomeTel").css("border-color", "#ccc");
+    });
+
+    $("#Email1").keydown(function () {
+        $("#Email1").css("border-color", "#ccc");
+    });
+
+    $("#ddlLanguageSpoken").change(function () {
+        $("#ddlLanguageSpoken").css("border-color", "#ccc");
+    });
+
+    $("#DropDownListCounties").change(function () {
+        $("#DropDownListCounties").css("border-color", "#ccc");
+    });
+
+    $("#TextBoxZipCode").keydown(function () {
+        $("#TextBoxZipCode").css("border-color", "#ccc");
+        $("#TextBoxCity").css("border-color", "#ccc");
+        $("#TextBoxState").css("border-color", "#ccc");
+    });
+
+    $("#TextBoxVenueLocation").keydown(function () {
+        $("#TextBoxVenueLocation").css("border-color", "#ccc");
+    });
+
+    //-------------------------------//
+
+    $("#prof_gmc").keydown(function () {
+        $("#prof_gmc").css("border-color", "#ccc");
+    });
+
+    $("#single_cal1").keydown(function () {
+        $("#single_cal1").css("border-color", "#ccc");
+    });
+
+    $("#txtareaQualifications").keydown(function () {
+        $("#txtareaQualifications").css("border-color", "#ccc");
+    });
+
+    $("#txtareaProfessionalExperience").keydown(function () {
+        $("#txtareaProfessionalExperience").css("border-color", "#ccc");
+    });
+
+    $("#DropDownListCountry").change(function () {
+        $("#DropDownListCountry").css("border-color", "#ccc");
+    });
+
+    $("#professionaltypelist").change(function () {
+        $("#professionaltypelist").css("border-color", "#ccc");
+    });
+
+    $("#dropdownservices").change(function () {
+        $("#dropdownservices").css("border-color", "#ccc");
+    });
+
+    function chk_validation() {
+
+        var youtubeimgsrc = document.getElementById("blah").src;
+        $('#user_image1').attr('src', youtubeimgsrc);
+        $('#user_image2').attr('src', youtubeimgsrc);
+
+        var title = $.trim($('#Titles option:selected').text());
+        var fname = $.trim($('#FirstName').val());
+        var lname = $.trim($('#LastName').val());
+        var dob = $.trim($('#single_cal3').val());
+        var tel1 = $.trim($('#HomeTel').val());
+        var email = $.trim($('#Email1').val());
+        var lang = $.trim($('#ddlLanguageSpoken option:selected').text());
+        var country = $.trim($('#DropDownListCounties option:selected').text());
+        var pcode = $.trim($('#TextBoxZipCode').val());
+        var address = $.trim($('#TextBoxVenueLocation').val());
+
+        if ((title == 'Title') || (fname == '') || (lname == '') || (dob == '') || (tel1 == '') || (email == '') || (lang == 'None selected') || (country == 'Select Country') || (pcode == '') || (address == '')) {
+            //alert('Required-field is empty.');
+            if (title == 'Title') {
+                document.getElementById('Titles').style.borderColor = "red";
+            }
+            else {
+                document.getElementById('Titles').style.borderColor = "#ccc";
+            }
+            if (fname == '') {
+                document.getElementById('FirstName').style.borderColor = "red";
+            }
+            else {
+                document.getElementById('FirstName').style.borderColor = "#ccc";
+            }
+            if (lname == '') {
+                document.getElementById('LastName').style.borderColor = "red";
+            }
+            else {
+                document.getElementById('LastName').style.borderColor = "#ccc";
+            }
+            if (dob == '') {
+                document.getElementById('single_cal3').style.borderColor = "red";
+            }
+            else {
+                document.getElementById('single_cal3').style.borderColor = "#ccc";
+            }
+            if (tel1 == '') {
+                document.getElementById('HomeTel').style.borderColor = "red";
+            }
+            else {
+                document.getElementById('HomeTel').style.borderColor = "#ccc";
+            }
+            if (email == '') {
+                document.getElementById('Email1').style.borderColor = "red";
+            }
+            else {
+                document.getElementById('Email1').style.borderColor = "#ccc";
+            }
+            if (lang == 'None selected') {
+                document.getElementById('ddlLanguageSpoken').style.borderColor = "red";
+            }
+            else {
+                document.getElementById('ddlLanguageSpoken').style.borderColor = "#ccc";
+            }
+            if (country == 'Select Country') {
+                document.getElementById('DropDownListCounties').style.borderColor = "red";
+            }
+            else {
+                document.getElementById('DropDownListCounties').style.borderColor = "#ccc";
+            }
+            if (pcode == '') {
+                document.getElementById('TextBoxZipCode').style.borderColor = "red";
+                document.getElementById('TextBoxCity').style.borderColor = "red";
+                document.getElementById('TextBoxState').style.borderColor = "red";
+            }
+            else {
+                document.getElementById('TextBoxZipCode').style.borderColor = "#ccc";
+                document.getElementById('TextBoxCity').style.borderColor = "#ccc";
+                document.getElementById('TextBoxState').style.borderColor = "#ccc";
+            }
+            if (address == '') {
+                document.getElementById('TextBoxVenueLocation').style.borderColor = "red";
+            }
+            else {
+                document.getElementById('TextBoxVenueLocation').style.borderColor = "#ccc";
+            }
+            return false;
+
+        }
+        else {
+
+            save();
+            imageuploader();
+            $('#myTab a[href="#menu5"]').tab('show')
+
+        }
+    }
+
+    function save() {
+
+        var countryvalue = $('#DropDownListCounties option:selected').val();
+        var Countries_DropDown = $("#DropDownListCountry option:selected").val();
+        var selectedCounty = $("#DropDownListCounties option:selected").text();
+        var DATEVAL = $('#single_cal3').val();
+        var selected = $("#ddlLanguageSpoken option:selected");
+        var message = "";
+        selected.each(function () {
+            message += $(this).val() + ",";
+        });
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("Create", "DoctorRegistration")",
+            datatype: 'json',
+            cache: false,
+            data: {
+                Id: $("#ID").val(),
+                FirstName: $("input#FirstName").val(),
+                Dob: $('#single_cal3').val(),
+                Gender: $('#Genders :selected').text(),
+                Title: $('#Titles :selected').text(),
+                LastName: $("input#LastName").val(),
+                Address1: $('textarea#TextBoxVenueLocation').val(),
+                City: $("#TextBoxCity").val(),
+                State: $("input#TextBoxState").val(),
+                Postcode: $("#TextBoxZipCode").val(),
+                Country: selectedCounty,
+                Mobile: $("input#HomeTel").val(),
+                HomeTel: $("input#WorkTel").val(),
+                //WorkTel: $("input#WorkTel").val(),
+                Email1: $("input#Email1").val(),
+                DoctorId: $("#ID").val(),
+                CountryCodeId: countryvalue,
+                LanguageSpoken: message
+
+            },
+            success: function (response) {
+
+                $("#ID").attr("value", response.ID);
+                //console.log('Saving to the db');
+                // Now show them we saved and when we did
+                var d = new Date();
+                $('.form-status-holder').html('Saved! Last: ' + d.toLocaleTimeString());
+                //alert("Saved! Last: " + d.toLocaleTimeString());
+            },
+
+        });
+        //var d = new Date();
+        //alert("Saved! Last: " + d.toLocaleTimeString());
+    }
+
+    function autosaver() {
+        if (autosave_timer)
+            clearTimeout(autosave_timer);
+        autosave_timer = setTimeout(save, 1000);
+
+    }
+</script>
+<script>
+
+    function chk_validation1() {
+        var country = $.trim($('#DropDownListCountry option:selected').text());
+        var prof_body = $.trim($('#professionaltypelist option:selected').text());
+        var prof_number = $.trim($('#prof_gmc').val());
+        var prof_date = $.trim($('#single_cal1').val());
+        var qualification = $.trim($('#txtareaQualifications').val());
+        var prof_exp = $.trim($('#txtareaProfessionalExperience').val());
+        var services = $.trim($('#dropdownservices option:selected').text());
+        // var services = $.trim($('#DropDownListCounties').val());
+
+        if ((country == 'Choose Country') || (prof_body == '---Select ---') || (prof_number == '') || (prof_date == '') || (qualification == '') || (prof_exp == '')) {
+            //alert('Required-field is empty.');
+            if (country == 'Choose Country') {
+                document.getElementById('DropDownListCountry').style.borderColor = "red";
+            }
+            else {
+                document.getElementById('DropDownListCountry').style.borderColor = "#ccc";
+            }
+            if ((prof_body == '---Select ---') || (prof_body == '')) {
+                document.getElementById('professionaltypelist').style.borderColor = "red";
+            }
+            else {
+                document.getElementById('professionaltypelist').style.borderColor = "#ccc";
+            }
+            if (prof_number == '') {
+                document.getElementById('prof_gmc').style.borderColor = "red";
+            }
+            else {
+                document.getElementById('prof_gmc').style.borderColor = "#ccc";
+            }
+            if (prof_date == '') {
+                document.getElementById('single_cal1').style.borderColor = "#ccc";
+            }
+            else {
+                document.getElementById('single_cal1').style.borderColor = "#ccc";
+            }
+            if (qualification == '') {
+                document.getElementById('txtareaQualifications').style.borderColor = "red";
+            }
+            else {
+                document.getElementById('txtareaQualifications').style.borderColor = "#ccc";
+            }
+            if (prof_exp == '') {
+                document.getElementById('txtareaProfessionalExperience').style.borderColor = "red";
+            }
+            else {
+                document.getElementById('txtareaProfessionalExperience').style.borderColor = "#ccc";
+            }
+            if (services == 'None selected') {
+                document.getElementById('dropdownservices').style.borderColor = "red";
+            }
+            else {
+                document.getElementById('dropdownservices').style.borderColor = "#ccc";
+            }
+            return false;
+        }
+        else {
+            saving();
+
+            $('#myTab a[href="#menu6"]').tab('show')
+        }
+    }
+
+    var auto = null;
+    function saving() {
+        var Countries_DropDown = $("#DropDownListCountry option:selected").val();
+        var Prof_bodies_DropDown = $("#master_practice_licence_name option:selected").val();
+        var Prof_Services = $("#master_practice_licence_name option:selected").val();
+        var selectedCounty = $("#DropDownListCounties option:selected").val();
+        var typelistvalue = $("#typelist option:selected");
+        var valuetype = "";
+        typelistvalue.each(function () {
+            valuetype += $(this).val() + ",";
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("ProfessionalRegistration","DoctorRegistration")",
+            datatype: 'json',
+            cache: false,
+            data: {
+                ID: $("#ID").val(),
+                practice_licence_country: Countries_DropDown,
+                Number: $("#prof_gmc").val(),
+                MemberShip: $("#txtareaMemberShips").val(),
+                Qualification: $("#txtareaQualifications").val(),
+                Other_Service_If_any: $("#ifAny").val(),
+                practice_licence_number: $("#prof_gmc").val(),
+                Proffesional_Experiences: $("#txtareaProfessionalExperience").val(),
+                expiry_date: $("#single_cal1").val(),
+                companyname: $("#IdemCompany").val(),
+                practice_licence_id: $("#master_medical_bodies").val(),
+                professional_types_id: $("#DropDownListDR").val(),
+                professional_specializations_id: valuetype,
+                DoctorId: $("#ID").val(),
+            },
+            success: function (response) {
+                $("#ID").attr("value", response.ID);
+                //console.log('Saving to the db');
+                var d = new Date();
+                $('.form-status-holder').html('Saved! Last: ' + d.toLocaleTimeString());
+            },
+        });
+    }
+    function psaving() {
+        if (auto)
+            clearTimeout(auto);
+        auto = setTimeout(saving, 1000);
+    }
+</script>
+<script>
+    $('#GMCButton').click(function () {
+        // Checking whether FormData is available in browser
+        if (window.FormData !== undefined) {
+            var fileUpload = $("#file-tab").get(0);
+            var files = fileUpload.files;
+
+            // Create FormData object
+            var fileData = new FormData();
+
+            // Looping over all files and add it to FormData object
+            for (var i = 0; i < files.length; i++) {
+                fileData.append(files[i].name, files[i]);
+            }
+            $.ajax({
+                url: "@Url.Action("FileUploading","DoctorRegistration")",
+                type: "POST",
+                contentType: false, // Not to set any content header
+                processData: false, // Not to process data
+                data: fileData,
+                success: function (result) {
+                    alert(result);
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+        } else {
+            alert("FormData is not supported.");
+        }
+    });
+
+    var autosave_timer = null;
+
+    function autosave() {
+        if (autosave_timer)
+            clearTimeout(autosave_timer);
+        autosave_timer = setTimeout(save, 5000);
+    }
+</script>
+<script>
+    $("#prof_gmc").change(function () {
+        var Textboxval = $("#prof_gmc").val();
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("ProfesionalBodies_Validate", "DoctorRegistration")",
+            datatype: 'json',
+            cache: false,
+            data: {
+                Gmcno: Textboxval
+            },
+            success: function (response) {
+                //alert(response);
+                $("#ID").attr("value", response.ID);
+                if (response == "Verified") {
+                    $('#prof_gmc').css("color", "Green");
+                }
+                else if (response == "Not Verified") {
+                    $('#prof_gmc').css("color", "Red");
+                }
+                $('#NotVerifiedno').html(response);
+                $('#NotVerifiedno').show();
+            },
+        });
+    });
+    @*$("#subButton").click(function () {
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("FileUploading", "DoctorRegistration")",
+            datatype: 'json',
+            cache: false,
+            data: {
+                DoctorId: $("#ID").val()
+            },
+            success: function (response) {
+                //alert(response);
+                $("#ID").attr("value", response.ID);
+                console.log('Saving to the db');
+                var d = new Date();
+                $('.form-status-holder').html('Saved! Last: ' + d.toLocaleTimeString());
+            },
+        })*@
+
+    $(".fileinput-upload").click(function () {
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("UplodMultiple", "DoctorRegistration")",
+            datatype: 'json',
+            cache: false,
+            data: {
+                DoctorId: $("#ID").val()
+            },
+            success: function (response) {
+                //alert(response);
+                $("#ID").attr("value", response.ID);
+                //console.log('Saving to the db');
+                var d = new Date();
+                $('.form-status-holder').html('Saved! Last: ' + d.toLocaleTimeString());
+            },
+        })
+    });
+</script>
+<script>
+    //var $imageupload = $('.imageupload');
+    //$imageupload.imageupload();
+
+    function pdCheck2() {
+
+        var check = document.getElementById("FirstName").value;
+
+        var title = document.getElementById("Titles").value;
+        var fname = document.getElementById("FirstName").value;
+        var lname = document.getElementById("LastName").value;
+        var dob = document.getElementById("single_cal3").value;
+        var tel1 = document.getElementById("HomeTel").value;
+        var email = document.getElementById("Email1").value;
+        var country = document.getElementById("DropDownListCounties").value;
+        var pcode = document.getElementById("TextBoxZipCode").value;
+        var address = document.getElementById("TextBoxVenueLocation").value;
+
+        var elem = document.getElementsByClassName("icheckbox_flat-green");
+        if ((title !== "") && (fname !== "") && (lname !== "") && (dob !== "") && (tel1 !== "") && (email !== "") && (country !== "") && (pcode !== "") && (address !== "")) {
+            document.getElementById("pDcheck3").checked = true;
+            elem[0].setAttribute("class", "icheckbox_flat-green checked");
+        } else {
+            document.getElementById("pDcheck3").checked = false;
+            elem[0].setAttribute("class", "icheckbox_flat-green");
+        }
+    }
+
+    function pdCheck4() {
+        var check = document.getElementById("prof_gmc").value;
+
+        var country = document.getElementById("DropDownListCountry").value;
+        var prof_body = document.getElementById("professionaltypelist").value;
+        var prof_number = document.getElementById("prof_gmc").value;
+        var prof_date = document.getElementById("single_cal1").value;
+        var qualification = document.getElementById("txtareaQualifications").value;
+        var prof_exp = document.getElementById("txtareaProfessionalExperience").value;
+
+        var elem = document.getElementsByClassName("icheckbox_flat-green");
+        if ((country !== "Choose Country") && (prof_body !== "---Select ---") && (prof_number !== "") && (prof_date !== "") && (qualification !== "") && (prof_exp !== "")) {
+            document.getElementById("pDcheck5").checked = true;
+            elem[1].setAttribute("class", "icheckbox_flat-green checked");
+        } else {
+            document.getElementById("pDcheck5").checked = false;
+            elem[1].setAttribute("class", "icheckbox_flat-green");
+        }
+    }
+
+    function pdCheck3() {
+        var check = document.getElementById("prof_detail").value;
+        var elem = document.getElementsByClassName("icheckbox_flat-green");
+        if (check !== "") {
+            document.getElementById("pDcheck4").checked = true;
+            elem[1].setAttribute("class", "icheckbox_flat-green checked");
+        } else {
+            document.getElementById("pDcheck4").checked = false;
+            elem[1].setAttribute("class", "icheckbox_flat-green");
+        }
+    }
+
+    function pdCheck5() {
+        var d = new Date();
+        $('.form-status-holder').html('Saved! Last: ' + d.toLocaleTimeString());
+        var elem = document.getElementsByClassName("icheckbox_flat-green");
+        document.getElementById("pDcheck6").checked = true;
+        elem[2].setAttribute("class", "icheckbox_flat-green checked");
+    }
+
+    function pdChk6() {
+
+        var check = document.getElementById("demograp").value;
+        var elem = document.getElementsByClassName("icheckbox_flat-green");
+        if (check !== "") {
+            document.getElementById("pDcheck7").checked = true;
+            elem[7].setAttribute("class", "icheckbox_flat-green checked");
+        } else {
+            document.getElementById("pDcheck7").checked = false;
+            elem[7].setAttribute("class", "icheckbox_flat-green");
+        }
+    }
+
+    function gettypeofspecialist() {
+        var selectedpfdetails = $('#DropDownListDR option:selected').val();
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("GetStates", "DoctorRegistration")', // Calling json method
+            dataType: 'json',
+            data: { id: $("#DropDownListDR option:selected").val() },
+            success: function (states) {
+                var select = $('#typelist');
+                select.empty();
+                //select.append("<option value=''>---Select ---</option>");
+                for (var i = 0; i < states.length; i++) {
+                    var opt = new Option(states[i].Text, i);
+                    $("#typelist").append(opt);
+                }
+                $("#typelist").multiselect('rebuild');
+            },
+            error: function (ex) {
+                //alert('Failed to retrieve data.' + ex);
+            }
+        });
+    }
+
+    function getprofbody() {
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("GetDR_ProfesionalBodies1", "DoctorRegistration")', // Calling json method
+            dataType: 'json',
+            data: { id: $("#DropDownListCountry option:selected").val(), id1: $("#DropDownListDR option:selected").val() },
+            success: function (states) {
+                var select = $('#professionaltypelist');
+                select.empty();
+                select.append("<option value=''>---Select ---</option>");
+                for (var i = 0; i < states.length; i++) {
+                    var opt = new Option(states[i].Text, states[i].Value);
+                    $("#professionaltypelist").append(opt);
+                }
+
+            },
+            error: function (ex) {
+                // alert('Failed to retrieve data.' + ex);
+            }
+        });
+    }
+    //$(function () {
+    //    $('.multiselect-ui').multiselect({
+    //        includeSelectAllOption: true
+    //    });
+    //});
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#DropDownListDR").change(function () {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetStates", "DoctorRegistration")', // Calling json method
+                dataType: 'json',
+                data: { id: $("#DropDownListDR").val() },
+                success: function (states) {
+                    var select = $('#typelist');
+                    select.empty();
+                    //select.append("<option value=''>---Select ---</option>");
+                    for (var i = 0; i < states.length; i++) {
+                        var opt = new Option(states[i].Text, i);
+                        $("#typelist").append(opt);
+                    }
+                    $("#typelist").multiselect('rebuild');
+                },
+                error: function (ex) {
+                    alert('Failed to retrieve data.' + ex);
+                }
+            });
+        })
+        $("#DropDownListCountry").change(function () {
+            $("#master_practice_licence_name").empty();
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetDR_ProfesionalBodies", "DoctorRegistration")', // Calling json method
+                dataType: 'json',
+                data: { id: $("#DropDownListCountry").val() },
+                success: function (states) {
+                    //$.each(states, function (i, state) {
+                    //    $("#master_medical_bodies").append('<option value="' + state.Value + '"> ' + state.Text + ' </option>');
+                    //});
+                    var select = $('#professionaltypelist');
+                    select.empty();
+                    select.append("<option value=''>---Select ---</option>");
+                    for (var i = 0; i < states.length; i++) {
+                        var opt = new Option(states[i].Text, states[i].Value);
+                        $("#professionaltypelist").append(opt);
+                    }
+                },
+                error: function (ex) {
+                    alert('Failed to retrieve data.' + ex);
+                }
+            });
+            return false;
+        })
+
+        $("#DropDownListDR").change(function () {
+            $("#master_practice_licence_name").empty();
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetDR_ProfesionalBodies1", "DoctorRegistration")', // Calling json method
+                dataType: 'json',
+                data: { id: $("#DropDownListCountry").val(), id1: $("#DropDownListDR").val() },
+                success: function (states) {
+                    //$.each(states, function (i, state) {
+                    //    $("#master_medical_bodies").append('<option value="' + state.Value + '"> ' + state.Text + ' </option>');
+                    //});
+                    var select = $('#professionaltypelist');
+                    select.empty();
+                    select.append("<option value=''>---Select ---</option>");
+                    for (var i = 0; i < states.length; i++) {
+                        var opt = new Option(states[i].Text, states[i].Value);
+                        $("#professionaltypelist").append(opt);
+                    }
+
+                },
+                error: function (ex) {
+                    // alert('Failed to retrieve data.' + ex);
+                }
+            });
+            return false;
+        })
+
+    });
+</script>
+<script>
+    function imageuploader() {
+
+        if (window.FormData !== undefined) {
+
+            var fileUpload = $("#FileUpload1").get(0);
+            var files = fileUpload.files;
+
+            // Create FormData object
+            var fileData = new FormData();
+
+            // Looping over all files and add it to FormData object
+            for (var i = 0; i < files.length; i++) {
+                fileData.append(files[i].name, files[i]);
+            }
+            $.ajax({
+                url: "@Url.Action("FileUploading", "DoctorRegistration")",
+                type: "POST",
+                contentType: false, // Not to set any content header
+                processData: false, // Not to process data
+                data: fileData,
+                success: function (result) {
+                    // alert(result);
+                },
+                error: function (err) {
+                    // alert(err.statusText);
+                }
+            });
+        } else {
+            alert("FormData is not supported.");
+        }
+    }
+
+    $(document).ready(function () {
+        $('#btnUpload').click(function () {
+
+            // Checking whether FormData is available in browser
+            if (window.FormData !== undefined) {
+
+                var fileUpload = $("#FileUpload1").get(0);
+                var files = fileUpload.files;
+
+                // Create FormData object
+                var fileData = new FormData();
+
+                // Looping over all files and add it to FormData object
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+                $.ajax({
+                    url: "@Url.Action("FileUploading", "DoctorRegistration")",
+                    type: "POST",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data: fileData,
+                    success: function (result) {
+                        // alert(result);
+                    },
+                    error: function (err) {
+                        // alert(err.statusText);
+                    }
+                });
+            } else {
+                alert("FormData is not supported.");
+            }
+        });
+    });
+</script>
+<script>
+    //$(".multi-select-drop-down").multiselect({
+    //    enableFiltering: true,
+    //    maxHeight: 250,
+    //    width: 210
+    //});
+    $(function () {
+        $('.MultiserviceType').multiselect({
+            includeSelectAllOption: false,
+            enableFiltering: true,
+            maxHeight: 250,
+            width: 210
+        });
+    });
+
+    $(function () {
+        $('.Multi_Langagues').multiselect({
+            includeSelectAllOption: false
+        });
+    });
+    $(function () {
+        $(".multiselect-ui").multiselect({
+            enableFiltering: true,
+            maxHeight: 250,
+            width: 210
+        });
+    });
+    $(document).ready(function () {
+        var max_fields = 2; //maximum input boxes allowed
+        var wrapper = $(".input_fields_wrap4"); //Fields wrapper
+        var add_button = $(".add_field_button4"); //Add button ID
+
+        var x = 1; //initlal text box count
+        $(add_button).click(function (e) { //on add input button click
+            debugger;
+            e.preventDefault();
+            if (x < max_fields) { //max input box allowed
+                x++; //text box increment
+                $(wrapper).append('<div class="col-md-4 col-sm-12 col-xs-12"><div class="panel panel-default"><div class="panel-heading">Select Country of Practice( Licence to Practice )  </div><div class="panel-body"><div class="col-md-8 col-sm-12 col-xs-12" id="prof_body"><div class="form-group"><select id="country" class="form-control"><option value="United Kingdom">United Kingdom</option><option value="United States">United States</option><option value="India">India</option></select></div></div><div class="col-md-4 col-sm-12 col-xs-12"> <div class="form-group"><button type="button" class="remove_field4 btn btn-default btn-sm"><i class="fa  fa-minus" data-toggle="tooltip" data-title="Edit Title" data-original-title="" title=""></i></button></div></div></div></div><div class="panel panel-default"><div class="panel-heading">Professional Registration <a  href="#myUpload" data-toggle="modal" class="pull-right"><i class="fa fa-upload" aria-hidden="true"></i></a> </div><div class="panel-body"><div class="col-md-4 col-sm-12 col-xs-12" id="prof_body"><div class="form-group"><label>Professional Body</label><select id="body" class="form-control"><option value="GMC">GMC</option><option value="GDC">GDC</option><option value="Others">Others</option></select></div></div><div class="col-md-4 col-sm-12 col-xs-12"><div class="form-group"><label>Number</label><input id="prof_gmc"  type="text" class="form-control" placeholder="Number"></div></div> <div class="col-md-4 col-sm-12 col-xs-12"><div class="form-group"> <label>Expiry Date</label><input id="prof" type="text" class="form-control" placeholder="Expiry Date"></div></div> <div class="col-md-12"><div class="list-group"><table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap dataTable no-footer dtr-inline collapsed" cellspacing="0" width="100%" role="grid" aria-describedby="datatable-responsive_info" style="width: 100%;"><thead><tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-sort="ascending" aria-label="First name: activate to sort column descending">Files</th><th class="sorting" tabindex="0" aria-controls="datatable-responsive" rowspan="1" colspan="1" aria-label="E-mail: activate to sort column ascending">Action</th></tr></thead><tbody><tr role="row" class="odd"><td tabindex="0" class="sorting_1"><a href="#">GMC Document</a></td> <td><a href="#" class="btn btn-success"><i class="fa  fa-edit" data-toggle="tooltip" data-title="Edit Title" data-original-title="" title=""></i></a><a href="#" class="btn btn-success" ><i class="fa  fa-trash" data-toggle="tooltip" data-title="Delete" data-original-title="" title=""></i></a></td></tr></tbody></table> </div></div></div></div><div class="panel panel-default"><div class="panel-heading">ICO Registration  <a  href="#myUpload" data-toggle="modal" class="pull-right"><i class="fa fa-upload" aria-hidden="true"></i></a></div><div class="panel-body"><div class="col-md-6 col-sm-12 col-xs-12" id="prof_body"> <div class="form-group"><label>Number</label><input id="numberico"  type="text" class="form-control" placeholder="Number"> </div> </div><div class="col-md-6 col-sm-12 col-xs-12"><div class="form-group"> <label>Expiry Date</label> <input id="numberico"  type="text" class="form-control" placeholder="Expiry Date"></div> </div>  </div> </div><div class="panel panel-default"><div class="panel-heading">Indemnity  <a  href="#myUpload" data-toggle="modal" class="pull-right"><i class="fa fa-upload" aria-hidden="true"></i></a></div><div class="panel-body"><div class="col-md-4 col-sm-12 col-xs-12" id="prof_body"> <div class="form-group"><label>Name of company</label> <input id="numberico" type="text" class="form-control" placeholder="Company Name"> </div></div>  <div class="col-md-4 col-sm-12 col-xs-12"><div class="form-group"><label>Number</label><input id="numberico" type="text" class="form-control" placeholder="Number"></div> </div>  <div class="col-md-4 col-sm-12 col-xs-12"><div class="form-group"> <label>Expiry Date</label><input id="expiry" type="text" class="form-control" placeholder="Expiry Date"></div> </div> </div></div> </div>'); //add input box
+            }
+        });
+
+        $(wrapper).on("click", ".remove_field4", function (e) { //user click on remove text
+
+            var r = confirm("Are you sure want to delete?");
+            if (r == true) {
+                e.preventDefault();
+                $(this).parent('div').parent('div').parent('div').parent('div').parent('div').remove();
+                x--;
+            }
+        })
+    });
+
+    $(function () { // dynamic ga populate chesede yekkada
+        $('#lstCountry').multiselect({
+            includeSelectAllOption: true
+        });
+        $('#lstbody').multiselect({
+            includeSelectAllOption: true
+        });
+    });
+</script>
+
+<script>
+    $("#TextBoxZipCode").keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+            // Allow: Ctrl+A,Ctrl+C,Ctrl+V, Command+A
+            ((e.keyCode == 65 || e.keyCode == 86 || e.keyCode == 67) && (e.ctrlKey === true || e.metaKey === true)) ||
+            // Allow: home, end, left, right, down, up
+            (e.keyCode >= 35 && e.keyCode <= 40)) {
+            // let it happen, don't do anything
+            return;
+        }
+        if (e.which == 9) {
+            $("#TextBoxZipCode").val('');
+        }
+    });
+
+    var timer;
+    $("#TextBoxZipCode").on('keyup', function (event) {
+        clearTimeout(timer);  //clear any running timeout on key up
+        timer = setTimeout(function () { //then give it a second to see if the user is finished
+            if ($('#DropDownListCounties option:selected').val() == '' && $("#TextBoxZipCode").val() != '') {
+                alert('Country is required');
+                // var val = $("#TextBoxZipCode").val('');
+                return false;
+            }
+            else {
+                $.ajax({
+                    url: "@Url.Action("GetVenueDetailsByZipCode", "ConsultingLocation")",
+                    dataType: "json",
+                    data: {
+                        zipCode: $("#TextBoxZipCode").val(), region: $("#DropDownListCounties").val()
+                    },
+                    type: "GET",
+                    async: false,
+                    error: function (xhr, status, error) {
+                        var err = eval("(" + xhr.responseText + ")");
+                        toastr.error(err.message);
+                    },
+                    success: function (data) {
+                        $('#TextBoxZipCode').val(data.postcode);
+                        $('#TextBoxState').val(data.State);
+                        $('#TextBoxCity').val(data.City);
+                        $('#TextBoxVenueLocation').val(data.Name);
+                        $('#EventVenueLatitude').val(data.Latitude);
+                        $('#EventVenueLongitude').val(data.Longitude);
+                    },
+                    beforeSend: function () {
+                        $("#divProcessing").show();
+                    }
+                });
+            }
+        }, 1500);
+
+    });
+</script>
+<script>
+    function GetVenueDetailsByPlaceId(PlaceId) {
+        $.ajax({
+            url: '@Url.Action("GetVenueDetailsByPlace", "ConsultingLocation")',
+            dataType: "json",
+            data: {
+                placeId: PlaceId
+            },
+            type: "GET",
+            async: false,
+            error: function (xhr, status, error) {
+                var err = eval("(" + xhr.responseText + ")");
+                toastr.error(err.message);
+            },
+            success: function (data) {
+                $('#TextBoxZipCode').val(data.postcode);
+                $('#DropDownListCounties option:selected').text(data.Country);
+                $('#TextBoxState').val(data.State);
+                $('#TextBoxCity').val(data.City);
+                $('#EventVenueLatitude').val(data.Latitude);
+                $('#EventVenueLongitude').val(data.Longitude);
+            },
+            beforeSend: function () {
+                $("#divProcessing").show();
+            }
+        });
+    }
+</script>
+<script type="text/javascript">
+    $("#TextBoxVenueLocation").autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                url: "@Url.Action("GetEventVenuesList", "DoctorRegistration")",
+                data: { SearchText: request.term },
+                dataType: "json",
+                type: "GET",
+                success: function (data) {
+                    if (data.length == 0) {
+                        $('#EventVenueId').val("");
+                        $('#VenueLocationMesssage').show();
+                        return false;
+                    }
+                    else {
+                        response($.map(data, function (item) {
+                            return {
+                                label: item.description,
+                                value: item.place_id
+                            }
+                        }));
+                    }
+                },
+                error: function (x, y, z) {
+                    alert('error');
+                }
+            });
+        },
+        messages: {
+            noResults: "", results: ""
+        },
+        select: function (event, ui) {
+            $('#TextBoxVenueLocation').val(ui.item.label);
+            $('#EventVenueId').val(ui.item.value);
+            return false;
+        }
+    }).autocomplete("widget").addClass("CitiesAutocomplete");
+</script>
+
+<!--Based on title get gender--->
+<script>
+
+    $('#Titles').change(function () {
+        if ($(this).val() == '') {
+            $('#Genders').val('');
+        } else {
+            if ($(this).val() == "Miss" || $(this).val() == "Mrs") {
+                $('#Genders').val('Female');
+
+            } else if ($(this).val() == "Mr") {
+                $("#Genders").val('Male');
+            }
+            else {
+                $("#Genders").val('Transgender');
+            }
+        }
+        $('#Genders').prop('disabled', true);
+    });
+</script>
+<!-- Getting MobileCodes Doctor Registration Screen scripts -->
+<script>
+
+    function Select_PatientMobileCode() {
+
+        var selectedCounty = $('#DropDownListCounties option:selected').val();
+        $.ajax({
+            type: 'GET',
+            url: "@Url.Action("GetMobileCode", "DoctorRegistration")",
+            datatype: 'json',
+            cache: false,
+            data: {
+                "Country": selectedCounty
+            },
+            success: function (data) {
+                //console.log(data);
+                $('#HomeTel').val(data.mobile_code);
+                $('#WorkTel').val(data.mobile_code);
+            }
+        });
+    }
+    function nxt_tab(a) {
+        $("#" + a).click();
+    }
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result);
+            };
+            $(".cho-btn").hide();
+            $(".up-cho-btn").show();
+            reader.readAsDataURL(input.files[0]);
+        }
+
+        function required(Titles) {
+            if (inputtx.value.length == 0) {
+                alert("message");
+                return false;
+            }
+            return true;
+        }
+
+    }
+    function change_title() {
+        $("#upload_title").show();
+    }
+</script>
+
+<script>
+    $(document).on('ready', function () {
+        $("#file-4").fileinput({ showCaption: true });
+    });
+
+    $(function () {
+        // Multiple images preview in browser
+        var imagesPreview = function (input, placeToInsertImagePreview) {
+
+            if (input.files) {
+                var filesAmount = input.files.length;
+                var html_content = '';
+                for (i = 0; i < filesAmount; i++) {
+                    var reader = new FileReader();
+                    file_name = input.files[i]['name'];
+                    //   reader.onload = function (event) {
+                    x = i + 1;
+                    var html_content = html_content + '<tr role="row" class="odd"><td style="padding-left:8px;">' + x + '</td><td tabindex="0" class="sorting_1"><a href="#">' + file_name + '</a></td><td tabindex="0" class="sorting_1"><input type="text"></td><td><a href="#" class="btn btn-success"><i class="fa  fa-share" data-toggle="tooltip" data-title="Share Document" data-original-title="" title=""></i></a><a href="#" class="btn btn-success"><i class="fa  fa-edit" data-toggle="tooltip" data-title="Edit Title" data-original-title="" title=""></i></a><a href="#" class="btn btn-success" onclick="confirm(' + '"Are you sure want to delete document?"' + ')"><i class="fa  fa-trash" data-toggle="tooltip" data-title="Delete" data-original-title="" title=""></i></a></td></tr>';
+                    //   $(placeToInsertImagePreview).append(html_content)
+                    //    $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                    //  }
+                    $("#upload_list_files").html(html_content);
+                    //reader.readAsDataURL(input.files[i]);
+                }
+                $('#upload_document').show();
+            }
+
+        };
+        $('#upload-file-selector').on('change', function () {
+            imagesPreview(this, '#datatable-responsive');
+        });
+
+    });
+</script>
+
+<script>
+    $("#addservice").click(function () {
+
+        var text_service = $.trim($('#other_service').val());
+        if (text_service != '') {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Insert_Service", "DoctorRegistration")', // Calling json method
+                dataType: 'json',
+                data: { id: text_service },
+                success: function (states) {
+                    var select = $('#dropdownservices');
+                    select.empty();
+                    for (var i = 0; i < states.length; i++) {
+                        var opt = new Option(states[i].Text, i);
+                        $("#dropdownservices").append(opt);
+                    }
+                    $("#dropdownservices").multiselect('rebuild');
+                },
+
+            });
+
+            document.getElementById('other_service').value = "";
+            return false;
+        }
+        else {
+            alert('Field is empty');
+        }
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("input").on("keydown", function search(e) {
+            if (e.keyCode == 13) {
+                //alert($(this).val());
+                //var select  = $('#dropdownservices');
+                var opt = new Option($(this).val(), '90');
+                //$("#dropdownservices").append($(this).val());
+                $("#dropdownservices").append(opt);
+                $("#dropdownservices").multiselect('rebuild');
+                document.getElementById('other_service').value = "";
+            }
+        });
+    });
+</script>
+
+<script>
+    $("#docfinalsave").click(function () {
+        //var uploadlist = new Array();
+        //$("#datatable-responsive-temp TBODY TR").each(function () {
+        //    var row = $(this);
+        //    var docs = {};
+        //    alert(row.find("TD").eq(0).html());
+        //    alert(row.find("TD").eq(1).html());
+        //    alert(row.find("TD").eq(2).html());
+        //    alert(row.find("TD").eq(3).html());
+        //    customer.Name = row.find("TD").eq(1).html();
+        //    customer.Name = row.find("TD").eq(0).html();
+        //    customer.Name = row.find("TD").eq(0).html();
+        //});
+
+        pdCheck5();
+        @*$.ajax({
+           type: "POST",
+           url: "@Url.Action("UplodMultiple", "DoctorRegistration")",
+            datatype: 'json',
+        cache: false,
+        data: {
+            DoctorId: $("#ID").val()
+        },
+        success: function (response) {
+            //alert(response);
+            $("#ID").attr("value", response.ID);
+            console.log('Saving to the db');
+            var d = new Date();
+            $('.form-status-holder').html('Saved! Last: ' + d.toLocaleTimeString());
+        },
+        })*@
+    });
+</script>
+<script>
+    function numbersonly(myfield, e) {
+        var key;
+        var keychar;
+
+        if (window.event)
+            key = window.event.keyCode;
+        else if (e)
+            key = e.which;
+        else
+            return true;
+
+        keychar = String.fromCharCode(key);
+
+        // control keys
+        if ((key == null) || (key == 0) || (key == 8) || (key == 9) || (key == 13) || (key == 27))
+            return true;
+
+            // numbers
+        else if ((("0123456789").indexOf(keychar) > -1))
+            return true;
+
+            // only one decimal point
+        else if ((keychar == ".")) {
+            if (myfield.value.indexOf(keychar) > -1)
+                return false;
+        }
+        else
+            return false;
+    }
+</script>
+<style>
+    .avg-profile-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .up-cho-btn {
+        display: none;
+    }
+
+    #fileselector {
+        margin: 10px;
+    }
+
+    #upload-file-selector {
+        display: none;
+    }
+
+    .margin-correction {
+        margin-right: 10px;
+    }
+
+    .table-fixed thead {
+        width: 97%;
+    }
+
+    .table-fixed tbody {
+        height: 230px !important;
+        overflow-y: auto;
+        width: 100%;
+    }
+
+</style>
